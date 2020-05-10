@@ -7,18 +7,16 @@ export PATH="${HOME}/.cargo/bin:$PATH"  # rust binary installation path
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 
-# pyenv
+
+# pyenv direnv
 
 eval "$(pyenv init -)"
-if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
-
+eval "$(direnv hook bash)"
+eval "$(pyenv virtualenv-init -)"
+export PROMPT_COMMAND='_pyenv_virtualenv_hook;_direnv_hook;__bp_precmd_invoke_cmd;__bp_interactive_mode;history -a;history -c;history -r'
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 
 pyenv activate vv
-
-# direnv
-
-eval "$(direnv hook bash)"
 
 
 # exports
@@ -56,9 +54,16 @@ alias s='subl'
 alias sm='smerge'
 
 
-# modifications
+# bash_history
 
 shopt -s histverify  # https://unix.stackexchange.com/a/4082
+# global bash history https://unix.stackexchange.com/a/1292
+# Avoid duplicates
+export HISTCONTROL=ignoredups:erasedups
+# When the shell exits, append to the history file instead of overwriting it
+shopt -s histappend
+# After each command, append to the history file and reread it
+# export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
 
 
 # prompt
@@ -70,15 +75,6 @@ PS1="⨊  𝕯𝓭𝓵:\[\033[36m\]\w\[\033[m\]$ "  # ⚛ ⨊ 𝓓𝔇𝒟ℓℒ
 #if [ $ITERM_SESSION_ID ]; then
 #  export PROMPT_COMMAND='echo -ne "\033];${PWD##*/}\007"; ':"$PROMPT_COMMAND";
 #fi
-
-
-# global bash history https://unix.stackexchange.com/a/1292
-# Avoid duplicates
-export HISTCONTROL=ignoredups:erasedups
-# When the shell exits, append to the history file instead of overwriting it
-shopt -s histappend
-# After each command, append to the history file and reread it
-export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
 
 
 # functions
