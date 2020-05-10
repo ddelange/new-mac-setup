@@ -1,0 +1,96 @@
+{
+	"index_exclude_patterns": ["*.log", "htmlcov/", "node_modules/", ".mypy_cache/"],
+	"folder_exclude_patterns": ["htmlcov", "node_modules", ".mypy_cache"],
+	"added_words":
+	[
+		"accretes",
+		"Pegasi",
+		"astrometric",
+		"exoplanet",
+		"keepaspectratio",
+		"Palma",
+		"metallicity",
+		"Planck's",
+		"Planck",
+		"blackbody",
+		"star's",
+		"scipy",
+		"Schechter",
+		"Plummer",
+		"axisymmetric",
+		"Laplacian",
+		"Rosseland",
+		"arcsec",
+		"Oort",
+		"accreting",
+		"protoplanetary",
+		"protostar",
+		"protostars",
+		"Herbig",
+		"Haro",
+		"protostellar",
+		"redshift",
+		"redshifts",
+		"Nasmyth",
+		"Scikit",
+		"regressor",
+		"regressors",
+		"scikit",
+		"Max"
+	],
+	"always_prompt_for_file_reload": true,
+	"auto_complete_triggers":
+	[
+		{
+			"characters": "<",
+			"selector": "text.html"
+		},
+		{
+			"characters": "\\",
+			"selector": "text.tex.latex"
+		}
+	],
+	"auto_indent": true,
+	"caret_style": "phase",
+	"color_scheme": "Packages/Neon Color Scheme/Neon.tmTheme",
+	"dictionary": "Packages/Language - English/en_GB.dic",
+	"draw_indent_guides": true,
+	"ensure_newline_at_eof_on_save": true,
+	"fade_fold_buttons": false,
+	"font_options": "subpixel_antialias",
+	"font_size": 10.0,
+	"gitlink_revision_type": "commithash",
+	"highlight_line": true,
+	"highlight_modified_tabs": true,
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"ignored_words":
+	[
+		"Wien's"
+	],
+	"indent_to_bracket": false,
+	"indent_using_spaces": true,
+	"keymaps":
+	{
+		"show_pretty_keys": true
+	},
+	"line_padding_bottom": 1,
+	"line_padding_top": 1,
+	"open_files_in_new_window": false,
+	"remember_open_files": true,
+	"rulers":
+	[
+		80,
+		88
+	],
+	"save_on_focus_lost": true,
+	"scroll_past_end": true,
+	"shift_tab_unindent": true,
+	"show_encoding": true,
+	"smart_indent": false,
+	"tab_size": 4,
+	"translate_tabs_to_spaces": true,
+	"trim_trailing_white_space_on_save": true
+}

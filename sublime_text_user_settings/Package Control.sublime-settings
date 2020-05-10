@@ -1,0 +1,34 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"All Autocomplete",
+		"Babel",
+		"BracketHighlighter",
+		"Diffy",
+		"Dockerfile Syntax Highlighting",
+		"FindKeyConflicts",
+		"GitLink",
+		"Jedi - Python autocompletion",
+		"JsPrettier",
+		"Keymaps",
+		"LaTeX-cwl",
+		"LaTeXing",
+		"LaTeXTab",
+		"LaTeXTools",
+		"MarkdownLivePreview",
+		"Neon Color Scheme",
+		"Package Control",
+		"Python Improved",
+		"SideBarEnhancements",
+		"sublack",
+		"SublimeLinter",
+		"SublimeLinter-chktex",
+		"SublimeLinter-eslint",
+		"SublimeLinter-flake8",
+		"SublimeLinter-pycodestyle"
+	]
+}

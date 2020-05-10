@@ -1,0 +1,3 @@
+[
+    { "keys": ["shift+ctrl+a"], "command": "alignment" }
+]

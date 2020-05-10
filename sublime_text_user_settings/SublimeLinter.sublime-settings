@@ -1,0 +1,99 @@
+// SublimeLinter Settings - User
+{
+    // When in the "background" lint mode, this value determines
+    // the minimum delay before a request is send to the linter
+    "delay": 0.3,
+
+    // Provide extra paths to be searched when locating system executables.
+    "paths": {
+        "linux": [],
+        "osx": [
+            "~/.pyenv/shims"
+        ],
+        "windows": []
+    },
+    "lint_mode": "load_save",
+    "debug": true,
+    "linters": {
+        "flake8": {
+            // pip uninstall -y flake8-debugger
+            // pip uninstall -y flake8-blind-except
+            // pip uninstall -y flake8-builtins
+            // pip uninstall -y flake8-commas
+            // pip uninstall -y flake8-comprehensions
+            // pip uninstall -y flake8-docstrings
+            // pip uninstall -y flake8-mutable
+            // pip uninstall -y flake8-print
+            // pip uninstall -y flake8-quotes
+            // pip uninstall -y flake8-tuple
+            "executable": "~/.pyenv/versions/vv/bin/flake8",
+            "disable": false,
+            "python": "~/.pyenv/versions/vv/bin/python",
+            "args": [
+                "ignore = D10,E203,E501,W503",
+                "max-line-length = 88",
+                "select = A,B,C4,D,E,F,M,Q,T,W,ABS,BLK",
+                // "inline-quotes = \"",
+                "docstring-convention = google",
+                "--exclude=.git,__pycache__,.direnv,node_modules",
+            ],
+            "working_dir": "${folder}",  // or just put above in a config.cfg with [flake8] in the root level folder in the sidebar
+        },
+        "pycodestyle": {
+            "disable": true,
+            "ignore": "E501"
+        },
+    },
+    // Global styles for all linters.
+    // Note: Styles can also be specified per linter! See above.
+    // Only for linter-styles, there is one more setting:
+    // - codes:
+    //   An array which can contain error codes provided by a linter.
+    //   Only valid as linter style in the "linters" section
+    //
+    // The styles list form a stack evaluated top-down. We call each object
+    // herein a style definition. A style definition must match a specific
+    // linter error, either its code or its error type, to take any effect.
+    //
+    // The default styles cannot be overriden per se, you extend them
+    // in your user settings. The defaults can be read as "All linter problems
+    // are red, outline, dots, but warnings are yellow."
+    "styles": [
+        {
+            // Used to determine the color. E.g. region.<colorish>, with one of
+            // redish, orangish, yellowish, greenish, bluish, purplish, pinkish.
+            "scope": "region.yellowish markup.warning.sublime_linter",
+
+            // The error type this style definition will match for.
+            // An array which can contain "warning" and/or "error".
+            // If omitted will match both.
+            "types": ["warning"]
+        },
+        {
+            // Determines, for overlapping errors, which one is visualised.
+            "priority": 1,
+
+            // The icon displayed in the gutter area
+            // - "circle", "dot" or "bookmark"
+            // - "none" to remove the icon
+            // - A path to an icon file like
+            //   "Packages/SublimeLinter/gutter-themes/Blueberry Cross/error.png"
+            // - One provided by a gutter theme (e.g. "warning" or "error").
+            //   In theme Default: warning, error, cog, x,
+            //   and diamond, heart, pointer, square, star, triangle, which all
+            //   also have an -outline variant.
+            "icon": "dot",
+
+            // The highlight style:
+            // - "none"
+            // - "fill", "outline",
+            // - "solid_underline", "squiggly_underline", "stippled_underline"
+            // The underline styles are replaced with outlines when there is
+            // whitespace in the problem region, because underlines aren't drawn
+            // on whitespace (ST issue #137).
+            "mark_style": "outline",
+
+            "scope": "region.redish markup.error.sublime_linter"
+        }
+    ],
+}

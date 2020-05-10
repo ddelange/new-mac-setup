@@ -1,0 +1,14 @@
+{
+    "quick_build": [
+        {
+            "name": "Quick Build 1: pdflatex + bibtex + pdflatex (2x)",
+            "cmds": ["pdflatex", "bibtex", "pdflatex", "pdflatex"]
+        },
+        {
+            "name": "Quick Build 2: pdflatex + biber + pdflatex (2x)",
+            "primary": true,
+            "cmds": ["pdflatex", "biber", "pdflatex", "pdflatex"]
+        }
+    ],
+    "output_directory": false
+}
