@@ -66,6 +66,7 @@ Commandline-tools (including [SDK headers](https://github.com/pyenv/pyenv/wiki#s
 ```bash
 # install homebrew and command-line tools, SDK headers
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+xcode-select --install
 sudo installer -pkg /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.14.pkg -target /
 # check wether all is good
 brew doctor
@@ -78,7 +79,8 @@ brew tap buo/cask-upgrade  # `brew cu -a docker` - https://github.com/buo/homebr
 brew install \
   git git-lfs bash-completion rsync curl openssl readline automake xz zlib \
   sshfs htop ncdu direnv pwgen \
-  gcc@8 rust ruby node yarn sqlite3
+  gcc@8 rust ruby node@12 sqlite3
+npm install -g yarn
 ```
 
 
@@ -88,7 +90,9 @@ brew install \
 brew cask install iterm2
 brew tap homebrew/cask-fonts
 brew cask install font-inconsolatalgc-nerd-font
-cargo install exa ripgrep  # ls, rg
+cargo install ripgrep  # rg (search for regex occurrences in directory)
+cargo install zoxide  # z (cd with auto-complete)
+cargo install --git https://github.com/ogham/exa.git
 # use exa with icons and git status instead of builtin ls
 alias ls="exa --all --group-directories-first --icons --level=2"  # default level for --tree
 alias ll="ls --long --sort=age --git --time=modified --time-style=iso"
@@ -101,6 +105,8 @@ alias ll="ls --long --sort=age --git --time=modified --time-style=iso"
 # Docker CE - docker.com/community-edition
 brew cask install docker
 brew install docker-compose
+# PostgresApp - postgresapp.com
+brew cask install postgres
 # Sublime Text - sublimetext.com
 brew cask install sublime-text
 # Sublime Merge - sublimemerge.com
@@ -172,15 +178,19 @@ mas install 595191960
   git clone https://github.com/momo-lab/pyenv-install-latest.git "$(pyenv root)"/plugins/pyenv-install-latest
   git clone git://github.com/concordusapps/pyenv-implict.git "$(pyenv root)"/plugins/pyenv-implict
   # list all available python versions
-  pyenv install -l
+  pyenv install -l | grep '^\s*[0-9]'
   pyenv install-latest 2.7
   pyenv install-latest 3.7
+  sudo SDKROOT=/Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk/ pyenv install-latest 3.8  # might need to unsource .bash_profile first
   pyenv global $(pyenv install-latest --print 3.7) $(pyenv install-latest --print 2.7)  # set default versions: prefer py3 over py2
   source ~/.bash_profile  # global history etc
-  pip install --upgrade pip setuptools wheel Cython
+  pip3.7 install --upgrade pip setuptools wheel Cython
+  pip2.7 install --upgrade pip setuptools wheel Cython
+  pip3.8 install --upgrade pip setuptools wheel Cython
   # install virtualenv 'vv' based latest pyenv Python version 3.7, inheriting installed packages
   pyenv virtualenv $(pyenv install-latest --print 3.7) --system-site-packages vv
   pyenv virtualenv $(pyenv install-latest --print 2.7) --system-site-packages vv27
+  pyenv virtualenv $(pyenv install-latest --print 3.8) --system-site-packages vv38
   ```
 - Manage envs
   ```bash
@@ -220,7 +230,7 @@ Note: first open Chrome for the first time
 - iStat Menus preferences: `File/Import Settings...`, select `iStat Menus Settings.ismp`
 - Quickly download audio & video with [`yt`](https://github.com/ddelange/yt)
   ```bash
-  git clone https://github.com/ddelange/yt.git ~/git/yt && brew install youtube-dl
+  brew install ddelange/brewformulae/yt
   ```
 
 
@@ -277,6 +287,16 @@ git config --global icdiff.options "--highlight --line-numbers --numlines=3"
 git config --global difftool.icdiff.cmd 'icdiff --highlight --line-numbers --numlines=3 $LOCAL $REMOTE'
 ```
 
+##### Mergetool
+
+On failed automatic merge, use Sublime Merge GUI for conflict resolution using `git mergetool` or `git mt` (see below).
+```bash
+git config --global mergetool.smerge.cmd 'smerge mergetool "$BASE" "$LOCAL" "$REMOTE" -o "$MERGED"'
+git config --global mergetool.smerge.trustExitCode true
+git config --global mergetool.keepBackup false
+git config --global merge.tool smerge
+```
+
 
 ##### Aliases
 
@@ -289,13 +309,16 @@ git config --global alias.camend "commit --amend -am"
 git config --global alias.amend "commit --amend --no-edit -a"
 git config --global alias.br "branch"
 git config --global alias.co "checkout"
+git config --global alias.mt "mergetool"
 git config --global alias.lg "log --graph --decorate --pretty=oneline --abbrev-commit"
 git config --global alias.fp "fetch -p --all"  # purge and fetch all remotes
+git config --global alias.defaultbranch '! f() { echo $(git remote show origin | grep "HEAD branch" | cut -d ":" -f 2 | xargs); }; f'  # https://stackoverflow.com/questions/28666357#comment101797372_50056710
 git config --global alias.df '! f() { git icdiff --color=always "$@" | less -eR; }; f'  # no FX (keep output in terminal)
 git config --global alias.pr '! git push --set-upstream origin "$(git rev-parse --abbrev-ref HEAD)"'
 git config --global alias.dm '! git fetch -p && for branch in `git branch -vv | grep '"': gone] ' | awk '"'{print $1}'"'"'`; do git branch -D $branch; done'  # 'delete merged' - local branches that have been deleted on remote
-git config --global alias.gg '! f() { git checkout "${1:-master}" && git dm && git pull; }; f'
+git config --global alias.gg '! f() { git checkout "${1:-$(git defaultbranch)}" && git dm && git pull; }; f'  # git gg develop -- no arg: defaultbranch. Return to default branch (or specified branch), delete merged, pull branch
 git config --global alias.pall '! f() {     START=$(git branch | grep "\*" | sed "s/^.//");     for i in $(git branch | sed "s/^.//"); do         git checkout $i;         git pull || break;     done;     git checkout $START; }; f'  # 'pull all' - pull local branches that have been updated on remote
+git config --global alias.undo '! f() { git reset --hard $(git rev-parse --abbrev-ref HEAD)@{${1-1}}; }; f'  # https://megakemp.com/2016/08/25/git-undo/
 ```
 
 

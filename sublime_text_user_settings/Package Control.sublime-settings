@@ -6,11 +6,13 @@
 	"installed_packages":
 	[
 		"All Autocomplete",
+		"ayu",
 		"Babel",
 		"BracketHighlighter",
 		"Diffy",
 		"Dockerfile Syntax Highlighting",
 		"FindKeyConflicts",
+		"Github Color Theme",
 		"GitLink",
 		"Jedi - Python autocompletion",
 		"JsPrettier",

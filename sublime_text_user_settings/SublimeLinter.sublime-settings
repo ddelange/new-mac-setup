@@ -30,11 +30,11 @@
             "disable": false,
             "python": "~/.pyenv/versions/vv/bin/python",
             "args": [
-                "ignore = D10,E203,E501,W503",
-                "max-line-length = 88",
-                "select = A,B,C4,D,E,F,M,Q,T,W,ABS,BLK",
-                // "inline-quotes = \"",
-                "docstring-convention = google",
+                "--ignore=D10,E203,E501,W503",
+                "--max-line-length=88",
+                "--select=A,B,C4,D,E,F,M,Q,T,W,ABS,BLK",
+                "--inline-quotes=\"",
+                "--docstring-convention=google",
                 "--exclude=.git,__pycache__,.direnv,node_modules",
             ],
             "working_dir": "${folder}",  // or just put above in a config.cfg with [flake8] in the root level folder in the sidebar

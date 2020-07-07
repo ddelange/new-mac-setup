@@ -56,15 +56,18 @@ alias sm='smerge'
 
 # bash_history
 
-shopt -s histverify  # https://unix.stackexchange.com/a/4082
 # global bash history https://unix.stackexchange.com/a/1292
 # Avoid duplicates
-export HISTCONTROL=ignoredups:erasedups
-# When the shell exits, append to the history file instead of overwriting it
-shopt -s histappend
+export HISTCONTROL=ignoredups  #:erasedups
 # After each command, append to the history file and reread it
 # export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
-
+export HISTSIZE=
+export HISTFILESIZE=
+export HISTTIMEFORMAT="[%F %T] "
+export HISTFILE=~/.bash_eternal_history
+# When the shell exits, append to the history file instead of overwriting it
+shopt -s histverify  # https://unix.stackexchange.com/a/4082
+shopt -s histappend
 
 # prompt
 
@@ -78,9 +81,6 @@ PS1="⨊  𝕯𝓭𝓵:\[\033[36m\]\w\[\033[m\]$ "  # ⚛ ⨊ 𝓓𝔇𝒟ℓℒ
 
 
 # functions
-
-# https://github.com/ddelange/yt
-source "${HOME}/git/yt/yt.sh"
 
 # https://gist.github.com/ddelange/24575a702a10c2cb6348c4c7f342e0eb
 kubelogs() {
@@ -103,13 +103,13 @@ kubelogs() {
       return
   fi
   local tmpfile=`mktemp`
-  local log_tail_lines=${KUBELOGS_MAX:-1000}
-  local sleep_amount=$((5 + log_tail_lines / 400))
+  local log_tail_lines=${KUBELOGS_MAX:-10000}
+  local sleep_amount=$((7 + log_tail_lines / 20000))
   echo "kubectl logs --kubeconfig ${KUBECONFIG:-"$HOME/.kube/config"} --namespace ${namespace} --since 24h --tail ${log_tail_lines} -f ${podname} > ${tmpfile}"
   kubectl logs --kubeconfig ${KUBECONFIG:-"$HOME/.kube/config"} --namespace ${namespace} --since 24h --tail ${log_tail_lines} -f ${podname} > ${tmpfile} &
   local k8s_log_pid=$!
   echo "Waiting ${sleep_amount}s for logs to download"
-  sleep ${sleep_amount} && less -r +F ${tmpfile} && kill ${k8s_log_pid} && echo "kubectl logs pid ${k8s_log_pid} killed"
+  sleep ${sleep_amount} && less -rf +F ${tmpfile} && kill ${k8s_log_pid} && echo "kubectl logs pid ${k8s_log_pid} killed"
 }
 
 kubebash() {
@@ -148,9 +148,9 @@ kubebranch() {
         echo "Pod \"${pod}\" not found in namespace \"${namespace}\""
         return
     fi
-    kubectl get deployments --kubeconfig ${KUBECONFIG:-"$HOME/.kube/config"} --namespace ${namespace} -o wide | sed -n '1!p' | awk '{print $8}' | uniq | tr "/:" "\t" | column  -t | grep ${pod}
+    kubectl get deployments --kubeconfig ${KUBECONFIG:-"$HOME/.kube/config"} --namespace ${namespace} -o wide | sed -n '1!p' | awk '{print $1 "\t" $8}' | uniq | tr ":" "\t" | column  -t | grep ${pod}
   else
-    kubectl get deployments --kubeconfig ${KUBECONFIG:-"$HOME/.kube/config"} --namespace ${namespace} -o wide | sed -n '1!p' | awk '{print $8}' | uniq | tr "/:" "\t" | column  -t
+    kubectl get deployments --kubeconfig ${KUBECONFIG:-"$HOME/.kube/config"} --namespace ${namespace} -o wide | sed -n '1!p' | awk '{print $1 "\t" $8}' | uniq | tr ":" "\t" | column  -t
   fi
 }
 
