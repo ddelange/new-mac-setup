@@ -13,7 +13,7 @@ test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shel
 eval "$(pyenv init -)"
 eval "$(direnv hook bash)"
 eval "$(pyenv virtualenv-init -)"
-export PROMPT_COMMAND='_pyenv_virtualenv_hook;_direnv_hook;__bp_precmd_invoke_cmd;__bp_interactive_mode;history -a;history -c;history -r'
+export PROMPT_COMMAND='_pyenv_virtualenv_hook;_direnv_hook;history -a;history -c;history -r'
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 
 pyenv activate vv
@@ -29,6 +29,7 @@ export CXX="/usr/local/bin/g++-8"
 # export HOMEBREW_CC="/usr/local/bin/gcc-8"
 # export HOMEBREW_CXX="/usr/local/bin/g++-8"
 export GPG_TTY=$(tty)
+export BASH_SILENCE_DEPRECATION_WARNING=1
 
 
 # aliases
