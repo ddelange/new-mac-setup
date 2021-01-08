@@ -2,6 +2,13 @@
 
 For personal & professional use.
 
+Wanna copy a big dir from an old Mac? Below is `brew install rsync`!
+
+```
+# boot old Mac while holding `T` to go in Target Disk Mode
+# password prompt should pop up
+rsync -rahu --progress=info2 <drag src folder>/ ~
+```
 
 ### Preferences
 
@@ -9,6 +16,8 @@ For personal & professional use.
 #### General Mac stuff
 
 ```bash
+# Do you know zsh internals? I don't.
+chsh -s /bin/bash && reset
 # show hidden files
 defaults write com.apple.finder AppleShowAllFiles YES
 # disable google chrome dark mode when Mojave dark mode is enabled
@@ -20,8 +29,10 @@ defaults write com.google.Chrome NSRequiresAquaSystemAppearance -bool yes
   - `Click in the scroll bar to:` Jump to the spot that's clicked
   - `Recent items:` 50
 - `System Preferences/Keyboard/`
+  - Slide `Key Repeat` to `Fast`
+  - Slide `Delay Until Repeat` to tick one before `Short`
   - Under `Text`, untick/remove everything
-  - Under `Sources`, tick `All controls` on the bottom
+  - Under `Shortcuts`, tick `Use keyboard navigation to move focus between controls` on the bottom
   - Under `Input Sources`, set keyboard layout to U.S. (remove U.S. International)
 - `System Preferences/Security & Privacy/`
   - Under `FileVault`, turn on FileVault
@@ -44,7 +55,7 @@ defaults write com.google.Chrome NSRequiresAquaSystemAppearance -bool yes
   - `Sort by:` Name
   - Tick `Calculate all sizes`
   - Tick `Show Library Folder`
-  - `Use as Defaults`
+  - **Click** `Use as Defaults`
 - Finder `View` menu item
   - `Show Tab Bar`
   - `Show Path Bar`
@@ -64,36 +75,36 @@ defaults write com.google.Chrome NSRequiresAquaSystemAppearance -bool yes
 Commandline-tools (including [SDK headers](https://github.com/pyenv/pyenv/wiki#suggested-build-environment)), Homebrew and it's essentials
 
 ```bash
-# install homebrew and command-line tools, SDK headers
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-xcode-select --install
-sudo installer -pkg /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.14.pkg -target /
+# install homebrew (which installs command-line tools)
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+brew tap homebrew/cask
+brew tap buo/cask-upgrade  # `brew cu -a docker` - https://github.com/buo/homebrew-cask-upgrade#usage
 # check wether all is good
 brew doctor
-brew cask
-brew tap buo/cask-upgrade  # `brew cu -a docker` - https://github.com/buo/homebrew-cask-upgrade#usage
 
 # and some essentials
 # - ruby, gcc-8 are linked in `.bash_profile`
 # - node installs npm
 brew install \
   git git-lfs bash-completion rsync curl openssl readline automake xz zlib \
-  sshfs htop ncdu direnv pwgen \
+  osxfuse sshfs htop ncdu direnv pwgen \
   gcc@8 rust ruby node@12 sqlite3
-npm install -g yarn
+# check out caveats from command above!
+# npm installs yarn
+PATH="/usr/local/opt/node@12/bin:$PATH" npm install -g yarn
 ```
 
 
 #### iTerm [nerd font](https://github.com/ryanoasis/nerd-fonts/blob/master/readme.md)
 
 ```bash
-brew cask install iterm2
-brew tap homebrew/cask-fonts
-brew cask install font-inconsolatalgc-nerd-font
+brew install --cask iterm2
+brew install --cask homebrew/cask-fonts/font-inconsolata-lgc-nerd-font
 cargo install ripgrep  # rg (search for regex occurrences in directory)
 cargo install zoxide  # z (cd with auto-complete)
 cargo install --git https://github.com/ogham/exa.git
 # use exa with icons and git status instead of builtin ls
+# this is in .bash_profile already
 alias ls="exa --all --group-directories-first --icons --level=2"  # default level for --tree
 alias ll="ls --long --sort=age --git --time=modified --time-style=iso"
 ```
@@ -103,38 +114,36 @@ alias ll="ls --long --sort=age --git --time=modified --time-style=iso"
 
 ```bash
 # Docker CE - docker.com/community-edition
-brew cask install docker
+brew install --cask docker
 brew install docker-compose
 # PostgresApp - postgresapp.com
-brew cask install postgres
+brew install --cask postgres
 # Sublime Text - sublimetext.com
-brew cask install sublime-text
+brew install --cask sublime-text
 # Sublime Merge - sublimemerge.com
-brew cask install sublime-merge
+brew install --cask sublime-merge
 # Google Chrome - google.com/chrome
-brew cask install google-chrome
+brew install --cask google-chrome
 # PIA VPN - privateinternetaccess.com - Requires manual install from ~/Library/Caches/Homebrew/downloads
-brew cask install private-internet-access
+brew install --cask private-internet-access
 # Tunnelblick OpenVPN - tunnelblick.net
-brew cask install tunnelblick
+brew install --cask tunnelblick
 # The Unarchiver - theunarchiver.com
-brew cask install the-unarchiver
+brew install --cask the-unarchiver
 # f.lux - justgetflux.com
-brew cask install flux
+brew install --cask flux
 # VLC - videolan.org/vlc
-brew cask install vlc
+brew install --cask vlc
 # Slack - slack.com
-brew cask install slack
+brew install --cask slack
 # Zoom.us - zoom.us
-brew cask install zoomus
+brew install --cask zoom
 # Whatsapp - whatsapp.com
-brew cask install whatsapp
+# brew install --cask whatsapp
 # Dropbox - dropbox.com
-brew cask install dropbox
+# brew install --cask dropbox
 # Authy - authy.com
-brew cask install authy
-# Docker - docker.com
-brew cask install docker
+brew install --cask authy
 ```
 
 
@@ -164,44 +173,6 @@ mas install 595191960
 ```
 
 
-### [pyenv](https://github.com/pyenv/pyenv/blob/master/COMMANDS.md#command-reference) and [pyenv-virtualenv](https://github.com/pyenv/pyenv-virtualenv#usage)
-
-- Note: pyvenv-virtualenv needs to be initialised in [`~/.bash_profile`](/.bash_profile), or in `~/.bashrc` if both files are [maintained separately](https://github.com/pyenv/pyenv-virtualenv/issues/36#issuecomment-48387008):
-  ```bash
-  eval "$(pyenv init -)"
-  if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
-  ```
-- Set up latest Python versions
-  ```bash
-  brew install pyenv pyenv-virtualenv
-  # get your favourite python versions - github.com/momo-lab/pyenv-install-latest
-  git clone https://github.com/momo-lab/pyenv-install-latest.git "$(pyenv root)"/plugins/pyenv-install-latest
-  git clone git://github.com/concordusapps/pyenv-implict.git "$(pyenv root)"/plugins/pyenv-implict
-  # list all available python versions
-  pyenv install -l | grep '^\s*[0-9]'
-  pyenv install-latest 2.7
-  pyenv install-latest 3.7
-  sudo SDKROOT=/Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk/ pyenv install-latest 3.8  # might need to unsource .bash_profile first
-  pyenv global $(pyenv install-latest --print 3.7) $(pyenv install-latest --print 2.7)  # set default versions: prefer py3 over py2
-  source ~/.bash_profile  # global history etc
-  pip3.7 install --upgrade pip setuptools wheel Cython
-  pip2.7 install --upgrade pip setuptools wheel Cython
-  pip3.8 install --upgrade pip setuptools wheel Cython
-  # install virtualenv 'vv' based latest pyenv Python version 3.7, inheriting installed packages
-  pyenv virtualenv $(pyenv install-latest --print 3.7) --system-site-packages vv
-  pyenv virtualenv $(pyenv install-latest --print 2.7) --system-site-packages vv27
-  pyenv virtualenv $(pyenv install-latest --print 3.8) --system-site-packages vv38
-  ```
-- Manage envs
-  ```bash
-  pyenv virtualenvs
-  pyenv virtualenv --system-site-packages <venv-name>
-  pyenv activate <venv-name>
-  pyenv deactivate
-  pyenv uninstall <venv-name>
-  ```
-
-
 ### Backups
 
 Note: first open Chrome for the first time
@@ -226,11 +197,49 @@ Note: first open Chrome for the first time
   # create
   (printf 'begin transaction;\n'; sqlite3 "${HOME}/Library/Application Support/Google/Chrome/Default/Web Data" 'select short_name,keyword,url,favicon_url from keywords' | awk -F\| '{ printf "REPLACE INTO keywords (short_name, keyword, url, favicon_url) values ('"'"%s"'"', '"'"%s"'"', '"'"%s"'"', '"'"%s"'"');\n", $1, $2, $3, $4 }'; printf 'end transaction;\n') > ./search-engine-export.sql
   ```
-- iTerm2 preferences: under `General/Preferences`, tick `Load preferences from a custom folder or URL` and select `com.googlecode.iterm2.plist`
-- iStat Menus preferences: `File/Import Settings...`, select `iStat Menus Settings.ismp`
+- iTerm2 preferences: under `General/Preferences`, tick `Load preferences from a custom folder or URL` and paste `~/git/new-mac-setup`. Quit iTerm
+- iStat Menus preferences: `File/Import Settings...`, select `iStat Menus Settings.ismp`. Drag & drop menu bar items with ⌘+drag
 - Quickly download audio & video with [`yt`](https://github.com/ddelange/yt)
   ```bash
   brew install ddelange/brewformulae/yt
+  ```
+
+
+### [pyenv](https://github.com/pyenv/pyenv/blob/master/COMMANDS.md#command-reference) and [pyenv-virtualenv](https://github.com/pyenv/pyenv-virtualenv#usage)
+
+- Note: pyvenv-virtualenv needs to be initialised in [`~/.bash_profile`](/.bash_profile), or in `~/.bashrc` if both files are [maintained separately](https://github.com/pyenv/pyenv-virtualenv/issues/36#issuecomment-48387008):
+  ```bash
+  eval "$(pyenv init -)"
+  if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
+  ```
+- Set up latest Python versions
+  ```bash
+  brew install pyenv pyenv-virtualenv
+  # get your favourite python versions - github.com/momo-lab/pyenv-install-latest
+  git clone https://github.com/momo-lab/pyenv-install-latest.git "$(pyenv root)"/plugins/pyenv-install-latest
+  git clone git://github.com/concordusapps/pyenv-implict.git "$(pyenv root)"/plugins/pyenv-implict
+  # list all available python versions
+  pyenv install -l | grep '^\s*[0-9]'
+  pyenv install-latest 2.7
+  pyenv install-latest 3.7
+  pyenv install-latest 3.8
+  pyenv global $(pyenv install-latest --print 3.7) $(pyenv install-latest --print 2.7)  # set default versions: prefer py3 over py2
+  source ~/.bash_profile  # make them visible
+  pip2.7 install --upgrade pip setuptools wheel Cython
+  pip3.7 install --upgrade pip setuptools wheel Cython
+  pip3.8 install --upgrade pip setuptools wheel Cython
+  # install virtualenv 'vv' based latest pyenv Python version 3.7, inheriting installed packages
+  pyenv virtualenv $(pyenv install-latest --print 3.7) --system-site-packages vv
+  pyenv virtualenv $(pyenv install-latest --print 2.7) --system-site-packages vv27
+  pyenv virtualenv $(pyenv install-latest --print 3.8) --system-site-packages vv38
+  ```
+- Manage envs
+  ```bash
+  pyenv virtualenvs
+  pyenv virtualenv --system-site-packages <venv-name>
+  pyenv activate <venv-name>
+  pyenv deactivate
+  pyenv uninstall <venv-name>
   ```
 
 
@@ -342,6 +351,8 @@ AppleScript to shorten links using the bitly API in a smart way directly with a 
 
 ### [Gigabit USB Driver OS X 10.9+](https://www.asix.com.tw/products.php?op=pItemdetail&PItemID=131;71;112)
 
+Not needed for recent machines, it is now built-in.
+
 For almost any [Gigabit Ethernet USB hub](https://www.ebay.com/itm/3-Ports-USB-3-0-Hub-Gigabit-Ethernet-Lan-RJ45-Network-Adapter-Hub-Hot-Lot-YT/183586523117)
 - Unzip [`AX88179_178A_macintosh_Driver_Installer_v2.13.0.zip`](/AX88179_178A_macintosh_Driver_Installer_v2.13.0.zip)
 - Install driver `pkg` from `AX88179_178A.dmg`
@@ -354,6 +365,11 @@ For almost any [Gigabit Ethernet USB hub](https://www.ebay.com/itm/3-Ports-USB-3
   - Open your iTunes library
   - Open and run [`Restore old iTunes playlists view.scpt`](/Restore%20old%20iTunes%20playlists%20view.scpt).
 - Scroll horizontally using shift + mouse wheel
-- TODO LaTeX opruimen, Dougs applescripts, [Show in Playlists](http://dougscripts.com/itunes/scripts/ss.php?sp=showinplaylists)
-- TODO SHORTCUTS.md: cmd L, fn+backspace, ⌘-⌥-V, lock, cmd space, screenshots, shortcut changing, cmd shift T, control up/down, cmd ~ or \` to switch windows, ~. to stop ssh, ⌘-^-space for emoji chooser
-- TODO add low battery warning plist
+
+
+### TODO
+
+- LaTeX opruimen, Dougs applescripts, [Show in Playlists](http://dougscripts.com/itunes/scripts/ss.php?sp=showinplaylists)
+- SHORTCUTS.md: cmd L, fn+backspace, ⌘-⌥-V, lock, cmd space, screenshots, shortcut changing, cmd shift T, control up/down, cmd ~ or \` to switch windows, ~. to stop ssh, ⌘-^-space for emoji chooser
+- add low battery warning plist
+- automate this repo with zero.sh, e.g. https://github.com/msanders/setup
