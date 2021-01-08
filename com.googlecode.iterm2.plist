@@ -6,20 +6,10 @@
 	<true/>
 	<key>AlternateMouseScroll</key>
 	<true/>
-	<key>AppleAntiAliasingThreshold</key>
-	<integer>1</integer>
-	<key>ApplePressAndHoldEnabled</key>
-	<false/>
-	<key>AppleScrollAnimationEnabled</key>
-	<integer>0</integer>
-	<key>AppleSmoothFixedFontsSizeThreshold</key>
-	<integer>1</integer>
-	<key>AppleWindowTabbingMode</key>
-	<string>manual</string>
 	<key>BracketedPasteMode</key>
 	<true/>
 	<key>Command</key>
-	<string></string>
+	<string>/bin/bash</string>
 	<key>ConvertDosNewlines</key>
 	<true/>
 	<key>Default Arrangement Name</key>
@@ -37,20 +27,22 @@
 			<key>Text</key>
 			<string></string>
 		</dict>
+		<key>0x1b-0x100000-0x35</key>
+		<dict>
+			<key>Action</key>
+			<integer>25</integer>
+			<key>Label</key>
+			<string></string>
+			<key>Text</key>
+			<string>Maximize Active Pane
+Maximize Active Pane</string>
+		</dict>
 		<key>0x9-0x40000</key>
 		<dict>
 			<key>Action</key>
 			<integer>32</integer>
 			<key>Text</key>
 			<string></string>
-		</dict>
-		<key>0xa7-0x100000</key>
-		<dict>
-			<key>Action</key>
-			<integer>25</integer>
-			<key>Text</key>
-			<string>Maximize Active Pane
-Maximize Active Pane</string>
 		</dict>
 		<key>0xf700-0x300000</key>
 		<dict>
@@ -153,61 +145,6 @@ Maximize Active Pane</string>
 	<integer>4</integer>
 	<key>JobName</key>
 	<true/>
-	<key>LoadPrefsFromCustomFolder</key>
-	<true/>
-	<key>NSNavLastRootDirectory</key>
-	<string>~/git/new-mac-setup</string>
-	<key>NSNavPanelExpandedSizeForOpenMode</key>
-	<string>{712, 448}</string>
-	<key>NSQuotedKeystrokeBinding</key>
-	<string></string>
-	<key>NSRepeatCountBinding</key>
-	<string></string>
-	<key>NSScrollAnimationEnabled</key>
-	<false/>
-	<key>NSScrollViewShouldScrollUnderTitlebar</key>
-	<false/>
-	<key>NSSplitView Subview Frames NSColorPanelSplitView</key>
-	<array>
-		<string>0.000000, 0.000000, 224.000000, 258.000000, NO, NO</string>
-		<string>0.000000, 259.000000, 224.000000, 48.000000, NO, NO</string>
-	</array>
-	<key>NSTableView Columns v2 KeyBingingTable</key>
-	<data>
-	YnBsaXN0MDDUAQIDBAUGNjdYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3AS
-	AAGGoK4HCA8aGxwdHh8gJjAxMlUkbnVsbNIJCgsOWk5TLm9iamVjdHNWJGNsYXNzogwN
-	gAKACoAN0xAJChEVGVdOUy5rZXlzoxITFIADgASABaMWFxiABoAHgAiACVpJZGVudGlm
-	aWVyVVdpZHRoVkhpZGRlblEwI0BowAAAAAAACNIhIiMkWiRjbGFzc25hbWVYJGNsYXNz
-	ZXNcTlNEaWN0aW9uYXJ5oiMlWE5TT2JqZWN00xAJCicrGaMSExSAA4AEgAWjLC0YgAuA
-	DIAIgAlRMSNAc7Gdsi0OVtIhIjM0Xk5TTXV0YWJsZUFycmF5ozM1JVdOU0FycmF5XxAP
-	TlNLZXllZEFyY2hpdmVy0Tg5VUFycmF5gAEACAARABoAIwAtADIANwBGAEwAUQBcAGMA
-	ZgBoAGoAbABzAHsAfwCBAIMAhQCJAIsAjQCPAJEAnACiAKkAqwC0ALUAugDFAM4A2wDe
-	AOcA7gDyAPQA9gD4APwA/gEAAQIBBAEGAQ8BFAEjAScBLwFBAUQBSgAAAAAAAAIBAAAA
-	AAAAADoAAAAAAAAAAAAAAAAAAAFM
-	</data>
-	<key>NSTableView Sort Ordering v2 KeyBingingTable</key>
-	<data>
-	YnBsaXN0MDDUAQIDBAUGFBVYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3AS
-	AAGGoKMHCA1VJG51bGzSCQoLDFpOUy5vYmplY3RzViRjbGFzc6CAAtIODxARWiRjbGFz
-	c25hbWVYJGNsYXNzZXNeTlNNdXRhYmxlQXJyYXmjEBITV05TQXJyYXlYTlNPYmplY3Rf
-	EA9OU0tleWVkQXJjaGl2ZXLRFhdVQXJyYXmAAQgRGiMtMjc7QUZRWFlbYGt0g4ePmKqt
-	swAAAAAAAAEBAAAAAAAAABgAAAAAAAAAAAAAAAAAAAC1
-	</data>
-	<key>NSTableView Supports v2 KeyBingingTable</key>
-	<true/>
-	<key>NSToolbar Configuration com.apple.NSColorPanel</key>
-	<dict>
-		<key>TB Is Shown</key>
-		<integer>1</integer>
-	</dict>
-	<key>NSWindow Frame SUUpdateAlert</key>
-	<string>410 363 620 392 0 0 1440 877 </string>
-	<key>NSWindow Frame SharedPreferences</key>
-	<string>243 306 937 514 0 0 1440 877 </string>
-	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 0 1440 877 0 0 1440 877 </string>
-	<key>NSWindow Frame iTerm Window 1</key>
-	<string>0 0 1440 877 0 0 1440 877 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -392,7 +329,7 @@ Maximize Active Pane</string>
 			<key>Columns</key>
 			<integer>80</integer>
 			<key>Command</key>
-			<string></string>
+			<string>/bin/bash</string>
 			<key>Cursor Color</key>
 			<dict>
 				<key>Blue Component</key>
@@ -804,843 +741,6 @@ Maximize Active Pane</string>
 			<string>/Users/david.de-lange/scoutbee</string>
 		</dict>
 	</array>
-	<key>NoSyncAllAppVersions</key>
-	<array>
-		<string>3.3.9</string>
-		<string>3.2.8</string>
-		<string>3.3.0</string>
-		<string>3.3.7</string>
-		<string>3.3.6</string>
-	</array>
-	<key>NoSyncBFPRecents</key>
-	<array>
-		<string>InconsolataLGC Nerd Font Mono</string>
-		<string>Monaco</string>
-		<string>InconsolataLGC Nerd Font</string>
-		<string>CodeNewRoman Nerd Font</string>
-	</array>
-	<key>NoSyncCommandHistoryHasEverBeenUsed</key>
-	<true/>
-	<key>NoSyncFrame_SharedPreferences</key>
-	<dict>
-		<key>screenFrame</key>
-		<string>{{0, 0}, {1440, 900}}</string>
-		<key>topLeft</key>
-		<string>{310, 688}</string>
-	</dict>
-	<key>NoSyncHaveUsedCopyMode</key>
-	<true/>
-	<key>NoSyncHaveWarnedAboutPasteConfirmationChange</key>
-	<true/>
-	<key>NoSyncInstallationId</key>
-	<string>D1EDCF8D-C344-455B-BFEC-28BF5D3B2A4E</string>
-	<key>NoSyncLastTipTime</key>
-	<real>593204423.13678098</real>
-	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>62</integer>
-	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
-	<true/>
-	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
-	<integer>0</integer>
-	<key>NoSyncNextAnnoyanceTime</key>
-	<real>586423558.37022698</real>
-	<key>NoSyncOnboardingWindowHasBeenShown</key>
-	<true/>
-	<key>NoSyncPermissionToShowTip</key>
-	<true/>
-	<key>NoSyncRecordedVariables</key>
-	<dict>
-		<key>0</key>
-		<array>
-			<dict>
-				<key>isTerminal</key>
-				<true/>
-				<key>name</key>
-				<string></string>
-				<key>nonterminalContext</key>
-				<integer>0</integer>
-			</dict>
-		</array>
-		<key>1</key>
-		<array>
-			<dict>
-				<key>isTerminal</key>
-				<true/>
-				<key>name</key>
-				<string>presentationName</string>
-				<key>nonterminalContext</key>
-				<integer>0</integer>
-			</dict>
-			<dict>
-				<key>isTerminal</key>
-				<true/>
-				<key>name</key>
-				<string>tmuxRole</string>
-				<key>nonterminalContext</key>
-				<integer>0</integer>
-			</dict>
-			<dict>
-				<key>isTerminal</key>
-				<true/>
-				<key>name</key>
-				<string>lastCommand</string>
-				<key>nonterminalContext</key>
-				<integer>0</integer>
-			</dict>
-			<dict>
-				<key>isTerminal</key>
-				<true/>
-				<key>name</key>
-				<string>profileName</string>
-				<key>nonterminalContext</key>
-				<integer>0</integer>
-			</dict>
-			<dict>
-				<key>isTerminal</key>
-				<true/>
-				<key>name</key>
-				<string>termid</string>
-				<key>nonterminalContext</key>
-				<integer>0</integer>
-			</dict>
-			<dict>
-				<key>isTerminal</key>
-				<true/>
-				<key>name</key>
-				<string>id</string>
-				<key>nonterminalContext</key>
-				<integer>0</integer>
-			</dict>
-			<dict>
-				<key>isTerminal</key>
-				<true/>
-				<key>name</key>
-				<string>jobName</string>
-				<key>nonterminalContext</key>
-				<integer>0</integer>
-			</dict>
-			<dict>
-				<key>isTerminal</key>
-				<true/>
-				<key>name</key>
-				<string>columns</string>
-				<key>nonterminalContext</key>
-				<integer>0</integer>
-			</dict>
-			<dict>
-				<key>isTerminal</key>
-				<true/>
-				<key>name</key>
-				<string>tab.tmuxWindowTitle</string>
-				<key>nonterminalContext</key>
-				<integer>0</integer>
-			</dict>
-			<dict>
-				<key>isTerminal</key>
-				<true/>
-				<key>name</key>
-				<string>hostname</string>
-				<key>nonterminalContext</key>
-				<integer>0</integer>
-			</dict>
-			<dict>
-				<key>isTerminal</key>
-				<true/>
-				<key>name</key>
-				<string>tmuxClientName</string>
-				<key>nonterminalContext</key>
-				<integer>0</integer>
-			</dict>
-			<dict>
-				<key>isTerminal</key>
-				<true/>
-				<key>name</key>
-				<string>path</string>
-				<key>nonterminalContext</key>
-				<integer>0</integer>
-			</dict>
-			<dict>
-				<key>isTerminal</key>
-				<true/>
-				<key>name</key>
-				<string>triggerName</string>
-				<key>nonterminalContext</key>
-				<integer>0</integer>
-			</dict>
-			<dict>
-				<key>isTerminal</key>
-				<true/>
-				<key>name</key>
-				<string>terminalIconName</string>
-				<key>nonterminalContext</key>
-				<integer>0</integer>
-			</dict>
-			<dict>
-				<key>isTerminal</key>
-				<true/>
-				<key>name</key>
-				<string>tmuxWindowPane</string>
-				<key>nonterminalContext</key>
-				<integer>0</integer>
-			</dict>
-			<dict>
-				<key>isTerminal</key>
-				<true/>
-				<key>name</key>
-				<string>tmuxStatusRight</string>
-				<key>nonterminalContext</key>
-				<integer>0</integer>
-			</dict>
-			<dict>
-				<key>isTerminal</key>
-				<true/>
-				<key>name</key>
-				<string>mouseReportingMode</string>
-				<key>nonterminalContext</key>
-				<integer>0</integer>
-			</dict>
-			<dict>
-				<key>isTerminal</key>
-				<false/>
-				<key>name</key>
-				<string>iterm2</string>
-				<key>nonterminalContext</key>
-				<integer>4</integer>
-			</dict>
-			<dict>
-				<key>isTerminal</key>
-				<true/>
-				<key>name</key>
-				<string>name</string>
-				<key>nonterminalContext</key>
-				<integer>0</integer>
-			</dict>
-			<dict>
-				<key>isTerminal</key>
-				<true/>
-				<key>name</key>
-				<string>tmuxPaneTitle</string>
-				<key>nonterminalContext</key>
-				<integer>0</integer>
-			</dict>
-			<dict>
-				<key>isTerminal</key>
-				<true/>
-				<key>name</key>
-				<string>rows</string>
-				<key>nonterminalContext</key>
-				<integer>0</integer>
-			</dict>
-			<dict>
-				<key>isTerminal</key>
-				<true/>
-				<key>name</key>
-				<string>username</string>
-				<key>nonterminalContext</key>
-				<integer>0</integer>
-			</dict>
-			<dict>
-				<key>isTerminal</key>
-				<true/>
-				<key>name</key>
-				<string>tty</string>
-				<key>nonterminalContext</key>
-				<integer>0</integer>
-			</dict>
-			<dict>
-				<key>isTerminal</key>
-				<true/>
-				<key>name</key>
-				<string>autoLogId</string>
-				<key>nonterminalContext</key>
-				<integer>0</integer>
-			</dict>
-			<dict>
-				<key>isTerminal</key>
-				<true/>
-				<key>name</key>
-				<string>badge</string>
-				<key>nonterminalContext</key>
-				<integer>0</integer>
-			</dict>
-			<dict>
-				<key>isTerminal</key>
-				<true/>
-				<key>name</key>
-				<string>tab.tmuxWindowName</string>
-				<key>nonterminalContext</key>
-				<integer>0</integer>
-			</dict>
-			<dict>
-				<key>isTerminal</key>
-				<false/>
-				<key>name</key>
-				<string>tab</string>
-				<key>nonterminalContext</key>
-				<integer>2</integer>
-			</dict>
-			<dict>
-				<key>isTerminal</key>
-				<true/>
-				<key>name</key>
-				<string>tmuxStatusLeft</string>
-				<key>nonterminalContext</key>
-				<integer>0</integer>
-			</dict>
-			<dict>
-				<key>isTerminal</key>
-				<true/>
-				<key>name</key>
-				<string>autoNameFormat</string>
-				<key>nonterminalContext</key>
-				<integer>0</integer>
-			</dict>
-			<dict>
-				<key>isTerminal</key>
-				<true/>
-				<key>name</key>
-				<string>autoName</string>
-				<key>nonterminalContext</key>
-				<integer>0</integer>
-			</dict>
-			<dict>
-				<key>isTerminal</key>
-				<true/>
-				<key>name</key>
-				<string>terminalWindowName</string>
-				<key>nonterminalContext</key>
-				<integer>0</integer>
-			</dict>
-			<dict>
-				<key>isTerminal</key>
-				<true/>
-				<key>name</key>
-				<string>creationTimeString</string>
-				<key>nonterminalContext</key>
-				<integer>0</integer>
-			</dict>
-			<dict>
-				<key>isTerminal</key>
-				<true/>
-				<key>name</key>
-				<string>commandLine</string>
-				<key>nonterminalContext</key>
-				<integer>0</integer>
-			</dict>
-			<dict>
-				<key>isTerminal</key>
-				<true/>
-				<key>name</key>
-				<string>jobPid</string>
-				<key>nonterminalContext</key>
-				<integer>0</integer>
-			</dict>
-			<dict>
-				<key>isTerminal</key>
-				<true/>
-				<key>name</key>
-				<string>pid</string>
-				<key>nonterminalContext</key>
-				<integer>0</integer>
-			</dict>
-		</array>
-		<key>16</key>
-		<array>
-			<dict>
-				<key>isTerminal</key>
-				<true/>
-				<key>name</key>
-				<string>currentTab.currentSession.presentationName</string>
-				<key>nonterminalContext</key>
-				<integer>0</integer>
-			</dict>
-			<dict>
-				<key>isTerminal</key>
-				<true/>
-				<key>name</key>
-				<string>currentTab.iterm2.localhostName</string>
-				<key>nonterminalContext</key>
-				<integer>0</integer>
-			</dict>
-			<dict>
-				<key>isTerminal</key>
-				<true/>
-				<key>name</key>
-				<string>style</string>
-				<key>nonterminalContext</key>
-				<integer>0</integer>
-			</dict>
-			<dict>
-				<key>isTerminal</key>
-				<true/>
-				<key>name</key>
-				<string>frame</string>
-				<key>nonterminalContext</key>
-				<integer>0</integer>
-			</dict>
-			<dict>
-				<key>isTerminal</key>
-				<true/>
-				<key>name</key>
-				<string>currentTab.currentSession.pid</string>
-				<key>nonterminalContext</key>
-				<integer>0</integer>
-			</dict>
-			<dict>
-				<key>isTerminal</key>
-				<true/>
-				<key>name</key>
-				<string>currentTab.currentSession.terminalWindowName</string>
-				<key>nonterminalContext</key>
-				<integer>0</integer>
-			</dict>
-			<dict>
-				<key>isTerminal</key>
-				<true/>
-				<key>name</key>
-				<string>currentTab.currentSession.lastCommand</string>
-				<key>nonterminalContext</key>
-				<integer>0</integer>
-			</dict>
-			<dict>
-				<key>isTerminal</key>
-				<true/>
-				<key>name</key>
-				<string>currentTab.currentSession.terminalIconName</string>
-				<key>nonterminalContext</key>
-				<integer>0</integer>
-			</dict>
-			<dict>
-				<key>isTerminal</key>
-				<false/>
-				<key>name</key>
-				<string>currentTab</string>
-				<key>nonterminalContext</key>
-				<integer>2</integer>
-			</dict>
-			<dict>
-				<key>isTerminal</key>
-				<true/>
-				<key>name</key>
-				<string>currentTab.currentSession</string>
-				<key>nonterminalContext</key>
-				<integer>0</integer>
-			</dict>
-			<dict>
-				<key>isTerminal</key>
-				<true/>
-				<key>name</key>
-				<string>currentTab.window</string>
-				<key>nonterminalContext</key>
-				<integer>0</integer>
-			</dict>
-			<dict>
-				<key>isTerminal</key>
-				<true/>
-				<key>name</key>
-				<string>id</string>
-				<key>nonterminalContext</key>
-				<integer>0</integer>
-			</dict>
-			<dict>
-				<key>isTerminal</key>
-				<true/>
-				<key>name</key>
-				<string>currentTab.currentSession.name</string>
-				<key>nonterminalContext</key>
-				<integer>0</integer>
-			</dict>
-			<dict>
-				<key>isTerminal</key>
-				<true/>
-				<key>name</key>
-				<string>titleOverride</string>
-				<key>nonterminalContext</key>
-				<integer>0</integer>
-			</dict>
-			<dict>
-				<key>isTerminal</key>
-				<true/>
-				<key>name</key>
-				<string>currentTab.currentSession.path</string>
-				<key>nonterminalContext</key>
-				<integer>0</integer>
-			</dict>
-			<dict>
-				<key>isTerminal</key>
-				<true/>
-				<key>name</key>
-				<string>currentTab.currentSession.commandLine</string>
-				<key>nonterminalContext</key>
-				<integer>0</integer>
-			</dict>
-			<dict>
-				<key>isTerminal</key>
-				<true/>
-				<key>name</key>
-				<string>number</string>
-				<key>nonterminalContext</key>
-				<integer>0</integer>
-			</dict>
-			<dict>
-				<key>isTerminal</key>
-				<true/>
-				<key>name</key>
-				<string>currentTab.currentSession.hostname</string>
-				<key>nonterminalContext</key>
-				<integer>0</integer>
-			</dict>
-			<dict>
-				<key>isTerminal</key>
-				<true/>
-				<key>name</key>
-				<string>currentTab.currentSession.tty</string>
-				<key>nonterminalContext</key>
-				<integer>0</integer>
-			</dict>
-			<dict>
-				<key>isTerminal</key>
-				<true/>
-				<key>name</key>
-				<string>currentTab.currentSession.username</string>
-				<key>nonterminalContext</key>
-				<integer>0</integer>
-			</dict>
-			<dict>
-				<key>isTerminal</key>
-				<false/>
-				<key>name</key>
-				<string>iterm2</string>
-				<key>nonterminalContext</key>
-				<integer>4</integer>
-			</dict>
-			<dict>
-				<key>isTerminal</key>
-				<true/>
-				<key>name</key>
-				<string>titleOverrideFormat</string>
-				<key>nonterminalContext</key>
-				<integer>0</integer>
-			</dict>
-			<dict>
-				<key>isTerminal</key>
-				<true/>
-				<key>name</key>
-				<string>currentTab.currentSession.jobName</string>
-				<key>nonterminalContext</key>
-				<integer>0</integer>
-			</dict>
-		</array>
-		<key>2</key>
-		<array>
-			<dict>
-				<key>isTerminal</key>
-				<true/>
-				<key>name</key>
-				<string>currentSession.commandLine</string>
-				<key>nonterminalContext</key>
-				<integer>0</integer>
-			</dict>
-			<dict>
-				<key>isTerminal</key>
-				<false/>
-				<key>name</key>
-				<string>title</string>
-				<key>nonterminalContext</key>
-				<integer>1</integer>
-			</dict>
-			<dict>
-				<key>isTerminal</key>
-				<true/>
-				<key>name</key>
-				<string>title</string>
-				<key>nonterminalContext</key>
-				<integer>0</integer>
-			</dict>
-			<dict>
-				<key>isTerminal</key>
-				<true/>
-				<key>name</key>
-				<string>tmuxWindowTitle</string>
-				<key>nonterminalContext</key>
-				<integer>0</integer>
-			</dict>
-			<dict>
-				<key>isTerminal</key>
-				<true/>
-				<key>name</key>
-				<string>currentSession.presentationName</string>
-				<key>nonterminalContext</key>
-				<integer>0</integer>
-			</dict>
-			<dict>
-				<key>isTerminal</key>
-				<true/>
-				<key>name</key>
-				<string>iterm2.localhostName</string>
-				<key>nonterminalContext</key>
-				<integer>0</integer>
-			</dict>
-			<dict>
-				<key>isTerminal</key>
-				<true/>
-				<key>name</key>
-				<string>tmuxWindowName</string>
-				<key>nonterminalContext</key>
-				<integer>0</integer>
-			</dict>
-			<dict>
-				<key>isTerminal</key>
-				<false/>
-				<key>name</key>
-				<string>window</string>
-				<key>nonterminalContext</key>
-				<integer>16</integer>
-			</dict>
-			<dict>
-				<key>isTerminal</key>
-				<true/>
-				<key>name</key>
-				<string>currentSession.tty</string>
-				<key>nonterminalContext</key>
-				<integer>0</integer>
-			</dict>
-			<dict>
-				<key>isTerminal</key>
-				<true/>
-				<key>name</key>
-				<string>currentSession.jobName</string>
-				<key>nonterminalContext</key>
-				<integer>0</integer>
-			</dict>
-			<dict>
-				<key>isTerminal</key>
-				<true/>
-				<key>name</key>
-				<string>currentSession.name</string>
-				<key>nonterminalContext</key>
-				<integer>0</integer>
-			</dict>
-			<dict>
-				<key>isTerminal</key>
-				<true/>
-				<key>name</key>
-				<string>currentSession.lastCommand</string>
-				<key>nonterminalContext</key>
-				<integer>0</integer>
-			</dict>
-			<dict>
-				<key>isTerminal</key>
-				<true/>
-				<key>name</key>
-				<string>window</string>
-				<key>nonterminalContext</key>
-				<integer>0</integer>
-			</dict>
-			<dict>
-				<key>isTerminal</key>
-				<true/>
-				<key>name</key>
-				<string>id</string>
-				<key>nonterminalContext</key>
-				<integer>0</integer>
-			</dict>
-			<dict>
-				<key>isTerminal</key>
-				<true/>
-				<key>name</key>
-				<string>titleOverride</string>
-				<key>nonterminalContext</key>
-				<integer>0</integer>
-			</dict>
-			<dict>
-				<key>isTerminal</key>
-				<true/>
-				<key>name</key>
-				<string>currentSession.username</string>
-				<key>nonterminalContext</key>
-				<integer>0</integer>
-			</dict>
-			<dict>
-				<key>isTerminal</key>
-				<false/>
-				<key>name</key>
-				<string>iterm2</string>
-				<key>nonterminalContext</key>
-				<integer>4</integer>
-			</dict>
-			<dict>
-				<key>isTerminal</key>
-				<true/>
-				<key>name</key>
-				<string>currentSession.path</string>
-				<key>nonterminalContext</key>
-				<integer>0</integer>
-			</dict>
-			<dict>
-				<key>isTerminal</key>
-				<true/>
-				<key>name</key>
-				<string>titleOverrideFormat</string>
-				<key>nonterminalContext</key>
-				<integer>0</integer>
-			</dict>
-			<dict>
-				<key>isTerminal</key>
-				<true/>
-				<key>name</key>
-				<string>currentSession.hostname</string>
-				<key>nonterminalContext</key>
-				<integer>0</integer>
-			</dict>
-			<dict>
-				<key>isTerminal</key>
-				<true/>
-				<key>name</key>
-				<string>currentSession.pid</string>
-				<key>nonterminalContext</key>
-				<integer>0</integer>
-			</dict>
-			<dict>
-				<key>isTerminal</key>
-				<true/>
-				<key>name</key>
-				<string>tmuxWindow</string>
-				<key>nonterminalContext</key>
-				<integer>0</integer>
-			</dict>
-			<dict>
-				<key>isTerminal</key>
-				<false/>
-				<key>name</key>
-				<string>currentSession</string>
-				<key>nonterminalContext</key>
-				<integer>1</integer>
-			</dict>
-			<dict>
-				<key>isTerminal</key>
-				<true/>
-				<key>name</key>
-				<string>currentSession</string>
-				<key>nonterminalContext</key>
-				<integer>0</integer>
-			</dict>
-		</array>
-		<key>4</key>
-		<array>
-			<dict>
-				<key>isTerminal</key>
-				<true/>
-				<key>name</key>
-				<string>pid</string>
-				<key>nonterminalContext</key>
-				<integer>0</integer>
-			</dict>
-			<dict>
-				<key>isTerminal</key>
-				<true/>
-				<key>name</key>
-				<string>localhostName</string>
-				<key>nonterminalContext</key>
-				<integer>0</integer>
-			</dict>
-			<dict>
-				<key>isTerminal</key>
-				<true/>
-				<key>name</key>
-				<string>effectiveTheme</string>
-				<key>nonterminalContext</key>
-				<integer>0</integer>
-			</dict>
-		</array>
-	</dict>
-	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
-	<real>577189105.40622306</real>
-	<key>NoSyncTipsToNotShow</key>
-	<array>
-		<string>0009</string>
-		<string>0016</string>
-		<string>0023</string>
-		<string>0030</string>
-		<string>0059</string>
-		<string>0066</string>
-		<string>0073</string>
-		<string>0002</string>
-		<string>0038</string>
-		<string>0045</string>
-		<string>0052</string>
-		<string>0017</string>
-		<string>0024</string>
-		<string>0031</string>
-		<string>0067</string>
-		<string>0074</string>
-		<string>0003</string>
-		<string>0010</string>
-		<string>0039</string>
-		<string>0046</string>
-		<string>0053</string>
-		<string>0060</string>
-		<string>0018</string>
-		<string>0025</string>
-		<string>0032</string>
-		<string>0068</string>
-		<string>0075</string>
-		<string>0004</string>
-		<string>0011</string>
-		<string>0047</string>
-		<string>0054</string>
-		<string>0061</string>
-		<string>0019</string>
-		<string>0026</string>
-		<string>0033</string>
-		<string>0040</string>
-		<string>0069</string>
-		<string>0076</string>
-		<string>0005</string>
-		<string>0012</string>
-		<string>0048</string>
-		<string>0055</string>
-		<string>0062</string>
-		<string>0027</string>
-		<string>0034</string>
-		<string>0041</string>
-		<string>0077</string>
-		<string>0006</string>
-		<string>0013</string>
-		<string>0020</string>
-		<string>0049</string>
-		<string>0056</string>
-		<string>0063</string>
-		<string>0070</string>
-		<string>0028</string>
-		<string>0035</string>
-		<string>0042</string>
-		<string>0007</string>
-		<string>0014</string>
-		<string>0021</string>
-		<string>0057</string>
-		<string>0064</string>
-		<string>0071</string>
-		<string>0000</string>
-		<string>0029</string>
-		<string>0036</string>
-		<string>0043</string>
-		<string>0050</string>
-		<string>0008</string>
-		<string>0015</string>
-		<string>0022</string>
-		<string>0058</string>
-		<string>0065</string>
-		<string>0072</string>
-		<string>0001</string>
-		<string>0037</string>
-		<string>000</string>
-		<string>0044</string>
-		<string>0051</string>
-		<string>0078</string>
-	</array>
-	<key>NoSyncTurnOffMouseReportingOnHostChange</key>
-	<true/>
 	<key>OpenArrangementAtStartup</key>
 	<true/>
 	<key>OpenNoWindowsAtStartup</key>
@@ -1692,26 +792,8 @@ Maximize Active Pane</string>
 			<string>kNextWindowPointerAction</string>
 		</dict>
 	</dict>
-	<key>PrefsCustomFolder</key>
-	<string>/Users/david.de-lange/git/new-mac-setup</string>
 	<key>Print In Black And White</key>
 	<true/>
-	<key>SUEnableAutomaticChecks</key>
-	<true/>
-	<key>SUFeedAlternateAppNameKey</key>
-	<string>iTerm</string>
-	<key>SUFeedURL</key>
-	<string>https://iterm2.com/appcasts/final_new.xml?shard=72</string>
-	<key>SUHasLaunchedBefore</key>
-	<true/>
-	<key>SULastCheckTime</key>
-	<date>2020-05-11T09:25:07Z</date>
-	<key>SUSendProfileInfo</key>
-	<false/>
-	<key>SUSkippedVersion</key>
-	<string>3.3.9</string>
-	<key>SUUpdateRelaunchingMarker</key>
-	<false/>
 	<key>ShowBookmarkName</key>
 	<false/>
 	<key>ShowFullScreenTabBar</key>
@@ -1740,7 +822,7 @@ Maximize Active Pane</string>
 				<key>Has Toolbelt</key>
 				<false/>
 				<key>Height</key>
-				<real>877</real>
+				<real>811</real>
 				<key>Hide After Opening</key>
 				<false/>
 				<key>Hiding Toolbelt Should Resize Window</key>
@@ -1760,709 +842,15 @@ Maximize Active Pane</string>
 					<dict>
 						<key>Root</key>
 						<dict>
+							<key>Splitter ID</key>
+							<string>923DE7B5-E1C8-41D1-8F82-76B79FE02716</string>
 							<key>Subviews</key>
 							<array>
 								<dict>
+									<key>Splitter ID</key>
+									<string>7618F33B-E975-4D0B-9899-5F8842A0934F</string>
 									<key>Subviews</key>
 									<array>
-										<dict>
-											<key>Is Active</key>
-											<integer>0</integer>
-											<key>Session</key>
-											<dict>
-												<key>Bookmark</key>
-												<dict>
-													<key>ASCII Anti Aliased</key>
-													<true/>
-													<key>Ambiguous Double Width</key>
-													<false/>
-													<key>Ansi 0 Color</key>
-													<dict>
-														<key>Blue Component</key>
-														<real>0.0</real>
-														<key>Green Component</key>
-														<real>0.0</real>
-														<key>Red Component</key>
-														<real>0.0</real>
-													</dict>
-													<key>Ansi 1 Color</key>
-													<dict>
-														<key>Blue Component</key>
-														<real>0.0</real>
-														<key>Green Component</key>
-														<real>0.0</real>
-														<key>Red Component</key>
-														<real>0.73333334922790527</real>
-													</dict>
-													<key>Ansi 10 Color</key>
-													<dict>
-														<key>Blue Component</key>
-														<real>0.3333333432674408</real>
-														<key>Green Component</key>
-														<real>1</real>
-														<key>Red Component</key>
-														<real>0.3333333432674408</real>
-													</dict>
-													<key>Ansi 11 Color</key>
-													<dict>
-														<key>Blue Component</key>
-														<real>0.3333333432674408</real>
-														<key>Green Component</key>
-														<real>1</real>
-														<key>Red Component</key>
-														<real>1</real>
-													</dict>
-													<key>Ansi 12 Color</key>
-													<dict>
-														<key>Blue Component</key>
-														<real>1</real>
-														<key>Green Component</key>
-														<real>0.3333333432674408</real>
-														<key>Red Component</key>
-														<real>0.3333333432674408</real>
-													</dict>
-													<key>Ansi 13 Color</key>
-													<dict>
-														<key>Blue Component</key>
-														<real>1</real>
-														<key>Green Component</key>
-														<real>0.3333333432674408</real>
-														<key>Red Component</key>
-														<real>1</real>
-													</dict>
-													<key>Ansi 14 Color</key>
-													<dict>
-														<key>Blue Component</key>
-														<real>1</real>
-														<key>Green Component</key>
-														<real>1</real>
-														<key>Red Component</key>
-														<real>0.3333333432674408</real>
-													</dict>
-													<key>Ansi 15 Color</key>
-													<dict>
-														<key>Blue Component</key>
-														<real>1</real>
-														<key>Green Component</key>
-														<real>1</real>
-														<key>Red Component</key>
-														<real>1</real>
-													</dict>
-													<key>Ansi 2 Color</key>
-													<dict>
-														<key>Blue Component</key>
-														<real>0.0</real>
-														<key>Green Component</key>
-														<real>0.73333334922790527</real>
-														<key>Red Component</key>
-														<real>0.0</real>
-													</dict>
-													<key>Ansi 3 Color</key>
-													<dict>
-														<key>Blue Component</key>
-														<real>0.0</real>
-														<key>Green Component</key>
-														<real>0.73333334922790527</real>
-														<key>Red Component</key>
-														<real>0.73333334922790527</real>
-													</dict>
-													<key>Ansi 4 Color</key>
-													<dict>
-														<key>Blue Component</key>
-														<real>0.73333334922790527</real>
-														<key>Green Component</key>
-														<real>0.0</real>
-														<key>Red Component</key>
-														<real>0.0</real>
-													</dict>
-													<key>Ansi 5 Color</key>
-													<dict>
-														<key>Blue Component</key>
-														<real>0.73333334922790527</real>
-														<key>Green Component</key>
-														<real>0.0</real>
-														<key>Red Component</key>
-														<real>0.73333334922790527</real>
-													</dict>
-													<key>Ansi 6 Color</key>
-													<dict>
-														<key>Blue Component</key>
-														<real>0.73333334922790527</real>
-														<key>Green Component</key>
-														<real>0.73333334922790527</real>
-														<key>Red Component</key>
-														<real>0.0</real>
-													</dict>
-													<key>Ansi 7 Color</key>
-													<dict>
-														<key>Blue Component</key>
-														<real>0.73333334922790527</real>
-														<key>Green Component</key>
-														<real>0.73333334922790527</real>
-														<key>Red Component</key>
-														<real>0.73333334922790527</real>
-													</dict>
-													<key>Ansi 8 Color</key>
-													<dict>
-														<key>Blue Component</key>
-														<real>0.3333333432674408</real>
-														<key>Green Component</key>
-														<real>0.3333333432674408</real>
-														<key>Red Component</key>
-														<real>0.3333333432674408</real>
-													</dict>
-													<key>Ansi 9 Color</key>
-													<dict>
-														<key>Blue Component</key>
-														<real>0.3333333432674408</real>
-														<key>Green Component</key>
-														<real>0.3333333432674408</real>
-														<key>Red Component</key>
-														<real>1</real>
-													</dict>
-													<key>BM Growl</key>
-													<true/>
-													<key>Background Color</key>
-													<dict>
-														<key>Blue Component</key>
-														<real>0.0</real>
-														<key>Green Component</key>
-														<real>0.0</real>
-														<key>Red Component</key>
-														<real>0.0</real>
-													</dict>
-													<key>Background Image Location</key>
-													<string></string>
-													<key>Blinking Cursor</key>
-													<false/>
-													<key>Blur</key>
-													<false/>
-													<key>Bold Color</key>
-													<dict>
-														<key>Blue Component</key>
-														<real>1</real>
-														<key>Green Component</key>
-														<real>1</real>
-														<key>Red Component</key>
-														<real>1</real>
-													</dict>
-													<key>Character Encoding</key>
-													<integer>4</integer>
-													<key>Close Sessions On End</key>
-													<true/>
-													<key>Columns</key>
-													<integer>80</integer>
-													<key>Command</key>
-													<string></string>
-													<key>Cursor Color</key>
-													<dict>
-														<key>Blue Component</key>
-														<real>0.73333334922790527</real>
-														<key>Green Component</key>
-														<real>0.73333334922790527</real>
-														<key>Red Component</key>
-														<real>0.73333334922790527</real>
-													</dict>
-													<key>Cursor Text Color</key>
-													<dict>
-														<key>Blue Component</key>
-														<real>1</real>
-														<key>Green Component</key>
-														<real>1</real>
-														<key>Red Component</key>
-														<real>1</real>
-													</dict>
-													<key>Custom Command</key>
-													<string>No</string>
-													<key>Custom Directory</key>
-													<string>No</string>
-													<key>Default Bookmark</key>
-													<string>No</string>
-													<key>Description</key>
-													<string>Default</string>
-													<key>Disable Window Resizing</key>
-													<true/>
-													<key>Draw Powerline Glyphs</key>
-													<false/>
-													<key>Flashing Bell</key>
-													<false/>
-													<key>Foreground Color</key>
-													<dict>
-														<key>Blue Component</key>
-														<real>0.73333334922790527</real>
-														<key>Green Component</key>
-														<real>0.73333334922790527</real>
-														<key>Red Component</key>
-														<real>0.73333334922790527</real>
-													</dict>
-													<key>Guid</key>
-													<string>17439720-BF64-4E89-AE33-8770E3F62131</string>
-													<key>Horizontal Spacing</key>
-													<real>1</real>
-													<key>Idle Code</key>
-													<integer>0</integer>
-													<key>Jobs to Ignore</key>
-													<array>
-														<string>rlogin</string>
-														<string>ssh</string>
-														<string>slogin</string>
-														<string>telnet</string>
-													</array>
-													<key>Keyboard Map</key>
-													<dict>
-														<key>0x2d-0x40000</key>
-														<dict>
-															<key>Action</key>
-															<integer>11</integer>
-															<key>Text</key>
-															<string>0x1f</string>
-														</dict>
-														<key>0x32-0x40000</key>
-														<dict>
-															<key>Action</key>
-															<integer>11</integer>
-															<key>Text</key>
-															<string>0x00</string>
-														</dict>
-														<key>0x33-0x40000</key>
-														<dict>
-															<key>Action</key>
-															<integer>11</integer>
-															<key>Text</key>
-															<string>0x1b</string>
-														</dict>
-														<key>0x34-0x40000</key>
-														<dict>
-															<key>Action</key>
-															<integer>11</integer>
-															<key>Text</key>
-															<string>0x1c</string>
-														</dict>
-														<key>0x35-0x40000</key>
-														<dict>
-															<key>Action</key>
-															<integer>11</integer>
-															<key>Text</key>
-															<string>0x1d</string>
-														</dict>
-														<key>0x36-0x40000</key>
-														<dict>
-															<key>Action</key>
-															<integer>11</integer>
-															<key>Text</key>
-															<string>0x1e</string>
-														</dict>
-														<key>0x37-0x40000</key>
-														<dict>
-															<key>Action</key>
-															<integer>11</integer>
-															<key>Text</key>
-															<string>0x1f</string>
-														</dict>
-														<key>0x38-0x40000</key>
-														<dict>
-															<key>Action</key>
-															<integer>11</integer>
-															<key>Text</key>
-															<string>0x7f</string>
-														</dict>
-														<key>0xf700-0x220000</key>
-														<dict>
-															<key>Action</key>
-															<integer>10</integer>
-															<key>Text</key>
-															<string>[1;2A</string>
-														</dict>
-														<key>0xf700-0x240000</key>
-														<dict>
-															<key>Action</key>
-															<integer>10</integer>
-															<key>Text</key>
-															<string>[1;5A</string>
-														</dict>
-														<key>0xf700-0x260000</key>
-														<dict>
-															<key>Action</key>
-															<integer>10</integer>
-															<key>Text</key>
-															<string>[1;6A</string>
-														</dict>
-														<key>0xf700-0x280000</key>
-														<dict>
-															<key>Action</key>
-															<integer>11</integer>
-															<key>Text</key>
-															<string>0x1b 0x1b 0x5b 0x41</string>
-														</dict>
-														<key>0xf701-0x220000</key>
-														<dict>
-															<key>Action</key>
-															<integer>10</integer>
-															<key>Text</key>
-															<string>[1;2B</string>
-														</dict>
-														<key>0xf701-0x240000</key>
-														<dict>
-															<key>Action</key>
-															<integer>10</integer>
-															<key>Text</key>
-															<string>[1;5B</string>
-														</dict>
-														<key>0xf701-0x260000</key>
-														<dict>
-															<key>Action</key>
-															<integer>10</integer>
-															<key>Text</key>
-															<string>[1;6B</string>
-														</dict>
-														<key>0xf701-0x280000</key>
-														<dict>
-															<key>Action</key>
-															<integer>11</integer>
-															<key>Text</key>
-															<string>0x1b 0x1b 0x5b 0x42</string>
-														</dict>
-														<key>0xf702-0x220000</key>
-														<dict>
-															<key>Action</key>
-															<integer>10</integer>
-															<key>Text</key>
-															<string>[1;2D</string>
-														</dict>
-														<key>0xf702-0x240000</key>
-														<dict>
-															<key>Action</key>
-															<integer>10</integer>
-															<key>Text</key>
-															<string>[1;5D</string>
-														</dict>
-														<key>0xf702-0x260000</key>
-														<dict>
-															<key>Action</key>
-															<integer>10</integer>
-															<key>Text</key>
-															<string>[1;6D</string>
-														</dict>
-														<key>0xf702-0x280000</key>
-														<dict>
-															<key>Action</key>
-															<integer>11</integer>
-															<key>Text</key>
-															<string>0x1b 0x1b 0x5b 0x44</string>
-														</dict>
-														<key>0xf703-0x220000</key>
-														<dict>
-															<key>Action</key>
-															<integer>10</integer>
-															<key>Text</key>
-															<string>[1;2C</string>
-														</dict>
-														<key>0xf703-0x240000</key>
-														<dict>
-															<key>Action</key>
-															<integer>10</integer>
-															<key>Text</key>
-															<string>[1;5C</string>
-														</dict>
-														<key>0xf703-0x260000</key>
-														<dict>
-															<key>Action</key>
-															<integer>10</integer>
-															<key>Text</key>
-															<string>[1;6C</string>
-														</dict>
-														<key>0xf703-0x280000</key>
-														<dict>
-															<key>Action</key>
-															<integer>11</integer>
-															<key>Text</key>
-															<string>0x1b 0x1b 0x5b 0x43</string>
-														</dict>
-														<key>0xf704-0x20000</key>
-														<dict>
-															<key>Action</key>
-															<integer>10</integer>
-															<key>Text</key>
-															<string>[1;2P</string>
-														</dict>
-														<key>0xf705-0x20000</key>
-														<dict>
-															<key>Action</key>
-															<integer>10</integer>
-															<key>Text</key>
-															<string>[1;2Q</string>
-														</dict>
-														<key>0xf706-0x20000</key>
-														<dict>
-															<key>Action</key>
-															<integer>10</integer>
-															<key>Text</key>
-															<string>[1;2R</string>
-														</dict>
-														<key>0xf707-0x20000</key>
-														<dict>
-															<key>Action</key>
-															<integer>10</integer>
-															<key>Text</key>
-															<string>[1;2S</string>
-														</dict>
-														<key>0xf708-0x20000</key>
-														<dict>
-															<key>Action</key>
-															<integer>10</integer>
-															<key>Text</key>
-															<string>[15;2~</string>
-														</dict>
-														<key>0xf709-0x20000</key>
-														<dict>
-															<key>Action</key>
-															<integer>10</integer>
-															<key>Text</key>
-															<string>[17;2~</string>
-														</dict>
-														<key>0xf70a-0x20000</key>
-														<dict>
-															<key>Action</key>
-															<integer>10</integer>
-															<key>Text</key>
-															<string>[18;2~</string>
-														</dict>
-														<key>0xf70b-0x20000</key>
-														<dict>
-															<key>Action</key>
-															<integer>10</integer>
-															<key>Text</key>
-															<string>[19;2~</string>
-														</dict>
-														<key>0xf70c-0x20000</key>
-														<dict>
-															<key>Action</key>
-															<integer>10</integer>
-															<key>Text</key>
-															<string>[20;2~</string>
-														</dict>
-														<key>0xf70d-0x20000</key>
-														<dict>
-															<key>Action</key>
-															<integer>10</integer>
-															<key>Text</key>
-															<string>[21;2~</string>
-														</dict>
-														<key>0xf70e-0x20000</key>
-														<dict>
-															<key>Action</key>
-															<integer>10</integer>
-															<key>Text</key>
-															<string>[23;2~</string>
-														</dict>
-														<key>0xf70f-0x20000</key>
-														<dict>
-															<key>Action</key>
-															<integer>10</integer>
-															<key>Text</key>
-															<string>[24;2~</string>
-														</dict>
-														<key>0xf729-0x20000</key>
-														<dict>
-															<key>Action</key>
-															<integer>10</integer>
-															<key>Text</key>
-															<string>[1;2H</string>
-														</dict>
-														<key>0xf729-0x40000</key>
-														<dict>
-															<key>Action</key>
-															<integer>10</integer>
-															<key>Text</key>
-															<string>[1;5H</string>
-														</dict>
-														<key>0xf72b-0x20000</key>
-														<dict>
-															<key>Action</key>
-															<integer>10</integer>
-															<key>Text</key>
-															<string>[1;2F</string>
-														</dict>
-														<key>0xf72b-0x40000</key>
-														<dict>
-															<key>Action</key>
-															<integer>10</integer>
-															<key>Text</key>
-															<string>[1;5F</string>
-														</dict>
-													</dict>
-													<key>Mouse Reporting</key>
-													<true/>
-													<key>Name</key>
-													<string>Default</string>
-													<key>Non Ascii Font</key>
-													<string>Monaco 12</string>
-													<key>Non-ASCII Anti Aliased</key>
-													<true/>
-													<key>Normal Font</key>
-													<string>CodeNewRomanNerdFontComplete- 12</string>
-													<key>Option Key Sends</key>
-													<integer>0</integer>
-													<key>Prompt Before Closing 2</key>
-													<false/>
-													<key>Right Option Key Sends</key>
-													<integer>0</integer>
-													<key>Rows</key>
-													<integer>25</integer>
-													<key>Screen</key>
-													<integer>-1</integer>
-													<key>Scrollback Lines</key>
-													<integer>0</integer>
-													<key>Selected Text Color</key>
-													<dict>
-														<key>Blue Component</key>
-														<real>0.0</real>
-														<key>Green Component</key>
-														<real>0.0</real>
-														<key>Red Component</key>
-														<real>0.0</real>
-													</dict>
-													<key>Selection Color</key>
-													<dict>
-														<key>Blue Component</key>
-														<real>1</real>
-														<key>Green Component</key>
-														<real>0.8353000283241272</real>
-														<key>Red Component</key>
-														<real>0.70980000495910645</real>
-													</dict>
-													<key>Send Code When Idle</key>
-													<false/>
-													<key>Shortcut</key>
-													<string></string>
-													<key>Silence Bell</key>
-													<false/>
-													<key>Sync Title</key>
-													<false/>
-													<key>Tags</key>
-													<array/>
-													<key>Terminal Type</key>
-													<string>xterm-256color</string>
-													<key>Transparency</key>
-													<real>0.0</real>
-													<key>Unlimited Scrollback</key>
-													<true/>
-													<key>Use Bold Font</key>
-													<true/>
-													<key>Use Bright Bold</key>
-													<true/>
-													<key>Use Italic Font</key>
-													<true/>
-													<key>Use Non-ASCII Font</key>
-													<false/>
-													<key>Vertical Spacing</key>
-													<real>1</real>
-													<key>Visual Bell</key>
-													<true/>
-													<key>Window Type</key>
-													<integer>0</integer>
-													<key>Working Directory</key>
-													<string>/Users/david</string>
-												</dict>
-												<key>Columns</key>
-												<integer>47</integer>
-												<key>Commands</key>
-												<array>
-													<string>export PATH="/usr/local/opt/ruby/bin:/usr/local/lib/ruby/gems/2.7.0/bin:$PATH"</string>
-													<string>colorls</string>
-												</array>
-												<key>Directories</key>
-												<array>
-													<string>/Users/david.de-lange/scoutbee</string>
-													<string>/Users/david.de-lange/scoutbee</string>
-													<string>/Users/david.de-lange/scoutbee</string>
-													<string>/Users/david.de-lange/scoutbee</string>
-													<string>/Users/david.de-lange/scoutbee</string>
-												</array>
-												<key>Environment</key>
-												<dict>
-													<key>PWD</key>
-													<string>/Users/david.de-lange</string>
-												</dict>
-												<key>Hostname to Shell</key>
-												<dict>
-													<key>david.de-lange@davids-MacBook-Pro.local</key>
-													<string>bash</string>
-												</dict>
-												<key>Hosts</key>
-												<array>
-													<dict>
-														<key>Host name</key>
-														<string>davids-MacBook-Pro.local</string>
-														<key>User name</key>
-														<string>david.de-lange</string>
-													</dict>
-													<dict>
-														<key>Host name</key>
-														<string>davids-MacBook-Pro.local</string>
-														<key>User name</key>
-														<string>david.de-lange</string>
-													</dict>
-													<dict>
-														<key>Host name</key>
-														<string>davids-MacBook-Pro.local</string>
-														<key>User name</key>
-														<string>david.de-lange</string>
-													</dict>
-													<dict>
-														<key>Host name</key>
-														<string>davids-MacBook-Pro.local</string>
-														<key>User name</key>
-														<string>david.de-lange</string>
-													</dict>
-												</array>
-												<key>Is UTF-8</key>
-												<true/>
-												<key>Name Controller State</key>
-												<dict>
-													<key>icon title stack</key>
-													<array/>
-													<key>window title stack</key>
-													<array/>
-												</dict>
-												<key>Program</key>
-												<dict>
-													<key>Command</key>
-													<string>login -fp "david.de-lange"</string>
-													<key>Type</key>
-													<string>Command</string>
-												</dict>
-												<key>Rows</key>
-												<integer>33</integer>
-												<key>Session GUID</key>
-												<string>8BE8ADFF-50CB-47F6-9C21-688031EFDC1E</string>
-												<key>Short Lived Single Use</key>
-												<false/>
-												<key>Should Expect Current Dir Updates</key>
-												<false/>
-												<key>Should Expect Prompt Marks</key>
-												<true/>
-												<key>Substitutions</key>
-												<dict/>
-												<key>Working Directory</key>
-												<string>/Users/david.de-lange/scoutbee</string>
-												<key>Working Directory Poller Disabled</key>
-												<false/>
-											</dict>
-											<key>View Type</key>
-											<string>SessionView</string>
-											<key>frame</key>
-											<dict>
-												<key>height</key>
-												<real>426.5</real>
-												<key>width</key>
-												<real>359.5</real>
-												<key>x</key>
-												<real>0.0</real>
-												<key>y</key>
-												<real>0.0</real>
-											</dict>
-										</dict>
 										<dict>
 											<key>Is Active</key>
 											<integer>1</integer>
@@ -2651,7 +1039,7 @@ Maximize Active Pane</string>
 													<key>Columns</key>
 													<integer>80</integer>
 													<key>Command</key>
-													<string></string>
+													<string>/bin/bash</string>
 													<key>Cursor Color</key>
 													<dict>
 														<key>Blue Component</key>
@@ -2696,7 +1084,7 @@ Maximize Active Pane</string>
 													<key>Guid</key>
 													<string>17439720-BF64-4E89-AE33-8770E3F62131</string>
 													<key>Horizontal Spacing</key>
-													<real>1</real>
+													<real>0.84999999999999998</real>
 													<key>Idle Code</key>
 													<integer>0</integer>
 													<key>Jobs to Ignore</key>
@@ -2998,7 +1386,7 @@ Maximize Active Pane</string>
 													<key>Non-ASCII Anti Aliased</key>
 													<true/>
 													<key>Normal Font</key>
-													<string>CodeNewRomanNerdFontComplete- 12</string>
+													<string>InconsolataLGCNerdFontComplete- 11</string>
 													<key>Option Key Sends</key>
 													<integer>0</integer>
 													<key>Prompt Before Closing 2</key>
@@ -3060,45 +1448,27 @@ Maximize Active Pane</string>
 													<key>Window Type</key>
 													<integer>0</integer>
 													<key>Working Directory</key>
-													<string>/Users/david</string>
+													<string>/Users/david.de-lange/scoutbee</string>
 												</dict>
 												<key>Columns</key>
-												<integer>47</integer>
+												<integer>54</integer>
 												<key>Commands</key>
 												<array/>
 												<key>Directories</key>
-												<array>
-													<string>/Users/david.de-lange/scoutbee</string>
-													<string>/Users/david.de-lange/scoutbee</string>
-													<string>/Users/david.de-lange/scoutbee</string>
-												</array>
+												<array/>
 												<key>Environment</key>
 												<dict>
 													<key>PWD</key>
 													<string>/Users/david.de-lange</string>
 												</dict>
 												<key>Hostname to Shell</key>
-												<dict>
-													<key>david.de-lange@davids-MacBook-Pro.local</key>
-													<string>bash</string>
-												</dict>
+												<dict/>
 												<key>Hosts</key>
-												<array>
-													<dict>
-														<key>Host name</key>
-														<string>davids-MacBook-Pro.local</string>
-														<key>User name</key>
-														<string>david.de-lange</string>
-													</dict>
-													<dict>
-														<key>Host name</key>
-														<string>davids-MacBook-Pro.local</string>
-														<key>User name</key>
-														<string>david.de-lange</string>
-													</dict>
-												</array>
+												<array/>
 												<key>Is UTF-8</key>
 												<true/>
+												<key>Key Labels</key>
+												<dict/>
 												<key>Name Controller State</key>
 												<dict>
 													<key>icon title stack</key>
@@ -3114,19 +1484,19 @@ Maximize Active Pane</string>
 													<string>Command</string>
 												</dict>
 												<key>Rows</key>
-												<integer>33</integer>
+												<integer>25</integer>
 												<key>Session GUID</key>
-												<string>B28A800B-A96C-4C00-AE83-612E001AA574</string>
+												<string>6E21206C-FD85-4EDD-8A61-1F1C2222EA68</string>
 												<key>Short Lived Single Use</key>
 												<false/>
 												<key>Should Expect Current Dir Updates</key>
 												<false/>
 												<key>Should Expect Prompt Marks</key>
-												<true/>
+												<false/>
 												<key>Substitutions</key>
 												<dict/>
 												<key>Working Directory</key>
-												<string>/Users/david.de-lange/scoutbee</string>
+												<string>/Users/david.de-lange</string>
 												<key>Working Directory Poller Disabled</key>
 												<false/>
 											</dict>
@@ -3135,13 +1505,676 @@ Maximize Active Pane</string>
 											<key>frame</key>
 											<dict>
 												<key>height</key>
-												<real>426.5</real>
+												<real>382</real>
 												<key>width</key>
-												<real>359.5</real>
+												<real>354</real>
 												<key>x</key>
 												<real>0.0</real>
 												<key>y</key>
-												<real>427.5</real>
+												<real>0.0</real>
+											</dict>
+										</dict>
+										<dict>
+											<key>Is Active</key>
+											<integer>0</integer>
+											<key>Session</key>
+											<dict>
+												<key>Bookmark</key>
+												<dict>
+													<key>ASCII Anti Aliased</key>
+													<true/>
+													<key>Ambiguous Double Width</key>
+													<false/>
+													<key>Ansi 0 Color</key>
+													<dict>
+														<key>Blue Component</key>
+														<real>0.0</real>
+														<key>Green Component</key>
+														<real>0.0</real>
+														<key>Red Component</key>
+														<real>0.0</real>
+													</dict>
+													<key>Ansi 1 Color</key>
+													<dict>
+														<key>Blue Component</key>
+														<real>0.0</real>
+														<key>Green Component</key>
+														<real>0.0</real>
+														<key>Red Component</key>
+														<real>0.73333334922790527</real>
+													</dict>
+													<key>Ansi 10 Color</key>
+													<dict>
+														<key>Blue Component</key>
+														<real>0.3333333432674408</real>
+														<key>Green Component</key>
+														<real>1</real>
+														<key>Red Component</key>
+														<real>0.3333333432674408</real>
+													</dict>
+													<key>Ansi 11 Color</key>
+													<dict>
+														<key>Blue Component</key>
+														<real>0.3333333432674408</real>
+														<key>Green Component</key>
+														<real>1</real>
+														<key>Red Component</key>
+														<real>1</real>
+													</dict>
+													<key>Ansi 12 Color</key>
+													<dict>
+														<key>Blue Component</key>
+														<real>1</real>
+														<key>Green Component</key>
+														<real>0.3333333432674408</real>
+														<key>Red Component</key>
+														<real>0.3333333432674408</real>
+													</dict>
+													<key>Ansi 13 Color</key>
+													<dict>
+														<key>Blue Component</key>
+														<real>1</real>
+														<key>Green Component</key>
+														<real>0.3333333432674408</real>
+														<key>Red Component</key>
+														<real>1</real>
+													</dict>
+													<key>Ansi 14 Color</key>
+													<dict>
+														<key>Blue Component</key>
+														<real>1</real>
+														<key>Green Component</key>
+														<real>1</real>
+														<key>Red Component</key>
+														<real>0.3333333432674408</real>
+													</dict>
+													<key>Ansi 15 Color</key>
+													<dict>
+														<key>Blue Component</key>
+														<real>1</real>
+														<key>Green Component</key>
+														<real>1</real>
+														<key>Red Component</key>
+														<real>1</real>
+													</dict>
+													<key>Ansi 2 Color</key>
+													<dict>
+														<key>Blue Component</key>
+														<real>0.0</real>
+														<key>Green Component</key>
+														<real>0.73333334922790527</real>
+														<key>Red Component</key>
+														<real>0.0</real>
+													</dict>
+													<key>Ansi 3 Color</key>
+													<dict>
+														<key>Blue Component</key>
+														<real>0.0</real>
+														<key>Green Component</key>
+														<real>0.73333334922790527</real>
+														<key>Red Component</key>
+														<real>0.73333334922790527</real>
+													</dict>
+													<key>Ansi 4 Color</key>
+													<dict>
+														<key>Blue Component</key>
+														<real>0.73333334922790527</real>
+														<key>Green Component</key>
+														<real>0.0</real>
+														<key>Red Component</key>
+														<real>0.0</real>
+													</dict>
+													<key>Ansi 5 Color</key>
+													<dict>
+														<key>Blue Component</key>
+														<real>0.73333334922790527</real>
+														<key>Green Component</key>
+														<real>0.0</real>
+														<key>Red Component</key>
+														<real>0.73333334922790527</real>
+													</dict>
+													<key>Ansi 6 Color</key>
+													<dict>
+														<key>Blue Component</key>
+														<real>0.73333334922790527</real>
+														<key>Green Component</key>
+														<real>0.73333334922790527</real>
+														<key>Red Component</key>
+														<real>0.0</real>
+													</dict>
+													<key>Ansi 7 Color</key>
+													<dict>
+														<key>Blue Component</key>
+														<real>0.73333334922790527</real>
+														<key>Green Component</key>
+														<real>0.73333334922790527</real>
+														<key>Red Component</key>
+														<real>0.73333334922790527</real>
+													</dict>
+													<key>Ansi 8 Color</key>
+													<dict>
+														<key>Blue Component</key>
+														<real>0.3333333432674408</real>
+														<key>Green Component</key>
+														<real>0.3333333432674408</real>
+														<key>Red Component</key>
+														<real>0.3333333432674408</real>
+													</dict>
+													<key>Ansi 9 Color</key>
+													<dict>
+														<key>Blue Component</key>
+														<real>0.3333333432674408</real>
+														<key>Green Component</key>
+														<real>0.3333333432674408</real>
+														<key>Red Component</key>
+														<real>1</real>
+													</dict>
+													<key>BM Growl</key>
+													<true/>
+													<key>Background Color</key>
+													<dict>
+														<key>Blue Component</key>
+														<real>0.0</real>
+														<key>Green Component</key>
+														<real>0.0</real>
+														<key>Red Component</key>
+														<real>0.0</real>
+													</dict>
+													<key>Background Image Location</key>
+													<string></string>
+													<key>Blinking Cursor</key>
+													<false/>
+													<key>Blur</key>
+													<false/>
+													<key>Bold Color</key>
+													<dict>
+														<key>Blue Component</key>
+														<real>1</real>
+														<key>Green Component</key>
+														<real>1</real>
+														<key>Red Component</key>
+														<real>1</real>
+													</dict>
+													<key>Character Encoding</key>
+													<integer>4</integer>
+													<key>Close Sessions On End</key>
+													<true/>
+													<key>Columns</key>
+													<integer>80</integer>
+													<key>Command</key>
+													<string>/bin/bash</string>
+													<key>Cursor Color</key>
+													<dict>
+														<key>Blue Component</key>
+														<real>0.73333334922790527</real>
+														<key>Green Component</key>
+														<real>0.73333334922790527</real>
+														<key>Red Component</key>
+														<real>0.73333334922790527</real>
+													</dict>
+													<key>Cursor Text Color</key>
+													<dict>
+														<key>Blue Component</key>
+														<real>1</real>
+														<key>Green Component</key>
+														<real>1</real>
+														<key>Red Component</key>
+														<real>1</real>
+													</dict>
+													<key>Custom Command</key>
+													<string>No</string>
+													<key>Custom Directory</key>
+													<string>No</string>
+													<key>Default Bookmark</key>
+													<string>No</string>
+													<key>Description</key>
+													<string>Default</string>
+													<key>Disable Window Resizing</key>
+													<true/>
+													<key>Draw Powerline Glyphs</key>
+													<false/>
+													<key>Flashing Bell</key>
+													<false/>
+													<key>Foreground Color</key>
+													<dict>
+														<key>Blue Component</key>
+														<real>0.73333334922790527</real>
+														<key>Green Component</key>
+														<real>0.73333334922790527</real>
+														<key>Red Component</key>
+														<real>0.73333334922790527</real>
+													</dict>
+													<key>Guid</key>
+													<string>17439720-BF64-4E89-AE33-8770E3F62131</string>
+													<key>Horizontal Spacing</key>
+													<real>0.84999999999999998</real>
+													<key>Idle Code</key>
+													<integer>0</integer>
+													<key>Jobs to Ignore</key>
+													<array>
+														<string>rlogin</string>
+														<string>ssh</string>
+														<string>slogin</string>
+														<string>telnet</string>
+													</array>
+													<key>Keyboard Map</key>
+													<dict>
+														<key>0x2d-0x40000</key>
+														<dict>
+															<key>Action</key>
+															<integer>11</integer>
+															<key>Text</key>
+															<string>0x1f</string>
+														</dict>
+														<key>0x32-0x40000</key>
+														<dict>
+															<key>Action</key>
+															<integer>11</integer>
+															<key>Text</key>
+															<string>0x00</string>
+														</dict>
+														<key>0x33-0x40000</key>
+														<dict>
+															<key>Action</key>
+															<integer>11</integer>
+															<key>Text</key>
+															<string>0x1b</string>
+														</dict>
+														<key>0x34-0x40000</key>
+														<dict>
+															<key>Action</key>
+															<integer>11</integer>
+															<key>Text</key>
+															<string>0x1c</string>
+														</dict>
+														<key>0x35-0x40000</key>
+														<dict>
+															<key>Action</key>
+															<integer>11</integer>
+															<key>Text</key>
+															<string>0x1d</string>
+														</dict>
+														<key>0x36-0x40000</key>
+														<dict>
+															<key>Action</key>
+															<integer>11</integer>
+															<key>Text</key>
+															<string>0x1e</string>
+														</dict>
+														<key>0x37-0x40000</key>
+														<dict>
+															<key>Action</key>
+															<integer>11</integer>
+															<key>Text</key>
+															<string>0x1f</string>
+														</dict>
+														<key>0x38-0x40000</key>
+														<dict>
+															<key>Action</key>
+															<integer>11</integer>
+															<key>Text</key>
+															<string>0x7f</string>
+														</dict>
+														<key>0xf700-0x220000</key>
+														<dict>
+															<key>Action</key>
+															<integer>10</integer>
+															<key>Text</key>
+															<string>[1;2A</string>
+														</dict>
+														<key>0xf700-0x240000</key>
+														<dict>
+															<key>Action</key>
+															<integer>10</integer>
+															<key>Text</key>
+															<string>[1;5A</string>
+														</dict>
+														<key>0xf700-0x260000</key>
+														<dict>
+															<key>Action</key>
+															<integer>10</integer>
+															<key>Text</key>
+															<string>[1;6A</string>
+														</dict>
+														<key>0xf700-0x280000</key>
+														<dict>
+															<key>Action</key>
+															<integer>11</integer>
+															<key>Text</key>
+															<string>0x1b 0x1b 0x5b 0x41</string>
+														</dict>
+														<key>0xf701-0x220000</key>
+														<dict>
+															<key>Action</key>
+															<integer>10</integer>
+															<key>Text</key>
+															<string>[1;2B</string>
+														</dict>
+														<key>0xf701-0x240000</key>
+														<dict>
+															<key>Action</key>
+															<integer>10</integer>
+															<key>Text</key>
+															<string>[1;5B</string>
+														</dict>
+														<key>0xf701-0x260000</key>
+														<dict>
+															<key>Action</key>
+															<integer>10</integer>
+															<key>Text</key>
+															<string>[1;6B</string>
+														</dict>
+														<key>0xf701-0x280000</key>
+														<dict>
+															<key>Action</key>
+															<integer>11</integer>
+															<key>Text</key>
+															<string>0x1b 0x1b 0x5b 0x42</string>
+														</dict>
+														<key>0xf702-0x220000</key>
+														<dict>
+															<key>Action</key>
+															<integer>10</integer>
+															<key>Text</key>
+															<string>[1;2D</string>
+														</dict>
+														<key>0xf702-0x240000</key>
+														<dict>
+															<key>Action</key>
+															<integer>10</integer>
+															<key>Text</key>
+															<string>[1;5D</string>
+														</dict>
+														<key>0xf702-0x260000</key>
+														<dict>
+															<key>Action</key>
+															<integer>10</integer>
+															<key>Text</key>
+															<string>[1;6D</string>
+														</dict>
+														<key>0xf702-0x280000</key>
+														<dict>
+															<key>Action</key>
+															<integer>11</integer>
+															<key>Text</key>
+															<string>0x1b 0x1b 0x5b 0x44</string>
+														</dict>
+														<key>0xf703-0x220000</key>
+														<dict>
+															<key>Action</key>
+															<integer>10</integer>
+															<key>Text</key>
+															<string>[1;2C</string>
+														</dict>
+														<key>0xf703-0x240000</key>
+														<dict>
+															<key>Action</key>
+															<integer>10</integer>
+															<key>Text</key>
+															<string>[1;5C</string>
+														</dict>
+														<key>0xf703-0x260000</key>
+														<dict>
+															<key>Action</key>
+															<integer>10</integer>
+															<key>Text</key>
+															<string>[1;6C</string>
+														</dict>
+														<key>0xf703-0x280000</key>
+														<dict>
+															<key>Action</key>
+															<integer>11</integer>
+															<key>Text</key>
+															<string>0x1b 0x1b 0x5b 0x43</string>
+														</dict>
+														<key>0xf704-0x20000</key>
+														<dict>
+															<key>Action</key>
+															<integer>10</integer>
+															<key>Text</key>
+															<string>[1;2P</string>
+														</dict>
+														<key>0xf705-0x20000</key>
+														<dict>
+															<key>Action</key>
+															<integer>10</integer>
+															<key>Text</key>
+															<string>[1;2Q</string>
+														</dict>
+														<key>0xf706-0x20000</key>
+														<dict>
+															<key>Action</key>
+															<integer>10</integer>
+															<key>Text</key>
+															<string>[1;2R</string>
+														</dict>
+														<key>0xf707-0x20000</key>
+														<dict>
+															<key>Action</key>
+															<integer>10</integer>
+															<key>Text</key>
+															<string>[1;2S</string>
+														</dict>
+														<key>0xf708-0x20000</key>
+														<dict>
+															<key>Action</key>
+															<integer>10</integer>
+															<key>Text</key>
+															<string>[15;2~</string>
+														</dict>
+														<key>0xf709-0x20000</key>
+														<dict>
+															<key>Action</key>
+															<integer>10</integer>
+															<key>Text</key>
+															<string>[17;2~</string>
+														</dict>
+														<key>0xf70a-0x20000</key>
+														<dict>
+															<key>Action</key>
+															<integer>10</integer>
+															<key>Text</key>
+															<string>[18;2~</string>
+														</dict>
+														<key>0xf70b-0x20000</key>
+														<dict>
+															<key>Action</key>
+															<integer>10</integer>
+															<key>Text</key>
+															<string>[19;2~</string>
+														</dict>
+														<key>0xf70c-0x20000</key>
+														<dict>
+															<key>Action</key>
+															<integer>10</integer>
+															<key>Text</key>
+															<string>[20;2~</string>
+														</dict>
+														<key>0xf70d-0x20000</key>
+														<dict>
+															<key>Action</key>
+															<integer>10</integer>
+															<key>Text</key>
+															<string>[21;2~</string>
+														</dict>
+														<key>0xf70e-0x20000</key>
+														<dict>
+															<key>Action</key>
+															<integer>10</integer>
+															<key>Text</key>
+															<string>[23;2~</string>
+														</dict>
+														<key>0xf70f-0x20000</key>
+														<dict>
+															<key>Action</key>
+															<integer>10</integer>
+															<key>Text</key>
+															<string>[24;2~</string>
+														</dict>
+														<key>0xf729-0x20000</key>
+														<dict>
+															<key>Action</key>
+															<integer>10</integer>
+															<key>Text</key>
+															<string>[1;2H</string>
+														</dict>
+														<key>0xf729-0x40000</key>
+														<dict>
+															<key>Action</key>
+															<integer>10</integer>
+															<key>Text</key>
+															<string>[1;5H</string>
+														</dict>
+														<key>0xf72b-0x20000</key>
+														<dict>
+															<key>Action</key>
+															<integer>10</integer>
+															<key>Text</key>
+															<string>[1;2F</string>
+														</dict>
+														<key>0xf72b-0x40000</key>
+														<dict>
+															<key>Action</key>
+															<integer>10</integer>
+															<key>Text</key>
+															<string>[1;5F</string>
+														</dict>
+													</dict>
+													<key>Mouse Reporting</key>
+													<true/>
+													<key>Name</key>
+													<string>Default</string>
+													<key>Non Ascii Font</key>
+													<string>Monaco 12</string>
+													<key>Non-ASCII Anti Aliased</key>
+													<true/>
+													<key>Normal Font</key>
+													<string>InconsolataLGCNerdFontComplete- 11</string>
+													<key>Option Key Sends</key>
+													<integer>0</integer>
+													<key>Prompt Before Closing 2</key>
+													<false/>
+													<key>Right Option Key Sends</key>
+													<integer>0</integer>
+													<key>Rows</key>
+													<integer>25</integer>
+													<key>Screen</key>
+													<integer>-1</integer>
+													<key>Scrollback Lines</key>
+													<integer>0</integer>
+													<key>Selected Text Color</key>
+													<dict>
+														<key>Blue Component</key>
+														<real>0.0</real>
+														<key>Green Component</key>
+														<real>0.0</real>
+														<key>Red Component</key>
+														<real>0.0</real>
+													</dict>
+													<key>Selection Color</key>
+													<dict>
+														<key>Blue Component</key>
+														<real>1</real>
+														<key>Green Component</key>
+														<real>0.8353000283241272</real>
+														<key>Red Component</key>
+														<real>0.70980000495910645</real>
+													</dict>
+													<key>Send Code When Idle</key>
+													<false/>
+													<key>Shortcut</key>
+													<string></string>
+													<key>Silence Bell</key>
+													<false/>
+													<key>Sync Title</key>
+													<false/>
+													<key>Tags</key>
+													<array/>
+													<key>Terminal Type</key>
+													<string>xterm-256color</string>
+													<key>Transparency</key>
+													<real>0.0</real>
+													<key>Unlimited Scrollback</key>
+													<true/>
+													<key>Use Bold Font</key>
+													<true/>
+													<key>Use Bright Bold</key>
+													<true/>
+													<key>Use Italic Font</key>
+													<true/>
+													<key>Use Non-ASCII Font</key>
+													<false/>
+													<key>Vertical Spacing</key>
+													<real>1</real>
+													<key>Visual Bell</key>
+													<true/>
+													<key>Window Type</key>
+													<integer>0</integer>
+													<key>Working Directory</key>
+													<string>/Users/david.de-lange/scoutbee</string>
+												</dict>
+												<key>Columns</key>
+												<integer>54</integer>
+												<key>Commands</key>
+												<array/>
+												<key>Directories</key>
+												<array/>
+												<key>Environment</key>
+												<dict>
+													<key>PWD</key>
+													<string>/Users/david.de-lange</string>
+												</dict>
+												<key>Hostname to Shell</key>
+												<dict/>
+												<key>Hosts</key>
+												<array/>
+												<key>Is UTF-8</key>
+												<true/>
+												<key>Key Labels</key>
+												<dict/>
+												<key>Name Controller State</key>
+												<dict>
+													<key>icon title stack</key>
+													<array/>
+													<key>window title stack</key>
+													<array/>
+												</dict>
+												<key>Program</key>
+												<dict>
+													<key>Command</key>
+													<string>login -fp "david.de-lange"</string>
+													<key>Type</key>
+													<string>Command</string>
+												</dict>
+												<key>Rows</key>
+												<integer>27</integer>
+												<key>Session GUID</key>
+												<string>4DC5AA3B-7738-42DC-8D84-3270149A75C2</string>
+												<key>Short Lived Single Use</key>
+												<false/>
+												<key>Should Expect Current Dir Updates</key>
+												<false/>
+												<key>Should Expect Prompt Marks</key>
+												<false/>
+												<key>Substitutions</key>
+												<dict/>
+												<key>Working Directory</key>
+												<string>/Users/david.de-lange</string>
+												<key>Working Directory Poller Disabled</key>
+												<false/>
+											</dict>
+											<key>View Type</key>
+											<string>SessionView</string>
+											<key>frame</key>
+											<dict>
+												<key>height</key>
+												<real>405</real>
+												<key>width</key>
+												<real>354</real>
+												<key>x</key>
+												<real>0.0</real>
+												<key>y</key>
+												<real>383</real>
 											</dict>
 										</dict>
 									</array>
@@ -3150,9 +2183,9 @@ Maximize Active Pane</string>
 									<key>frame</key>
 									<dict>
 										<key>height</key>
-										<real>854</real>
+										<real>788</real>
 										<key>width</key>
-										<real>359.5</real>
+										<real>354</real>
 										<key>x</key>
 										<real>0.0</real>
 										<key>y</key>
@@ -3162,6 +2195,8 @@ Maximize Active Pane</string>
 									<false/>
 								</dict>
 								<dict>
+									<key>Splitter ID</key>
+									<string>59449145-B8C3-4614-9C8B-0D0046E37192</string>
 									<key>Subviews</key>
 									<array>
 										<dict>
@@ -3352,7 +2387,7 @@ Maximize Active Pane</string>
 													<key>Columns</key>
 													<integer>80</integer>
 													<key>Command</key>
-													<string></string>
+													<string>/bin/bash</string>
 													<key>Cursor Color</key>
 													<dict>
 														<key>Blue Component</key>
@@ -3397,7 +2432,7 @@ Maximize Active Pane</string>
 													<key>Guid</key>
 													<string>17439720-BF64-4E89-AE33-8770E3F62131</string>
 													<key>Horizontal Spacing</key>
-													<real>1</real>
+													<real>0.84999999999999998</real>
 													<key>Idle Code</key>
 													<integer>0</integer>
 													<key>Jobs to Ignore</key>
@@ -3699,7 +2734,7 @@ Maximize Active Pane</string>
 													<key>Non-ASCII Anti Aliased</key>
 													<true/>
 													<key>Normal Font</key>
-													<string>CodeNewRomanNerdFontComplete- 12</string>
+													<string>InconsolataLGCNerdFontComplete- 11</string>
 													<key>Option Key Sends</key>
 													<integer>0</integer>
 													<key>Prompt Before Closing 2</key>
@@ -3761,45 +2796,27 @@ Maximize Active Pane</string>
 													<key>Window Type</key>
 													<integer>0</integer>
 													<key>Working Directory</key>
-													<string>/Users/david</string>
+													<string>/Users/david.de-lange/scoutbee</string>
 												</dict>
 												<key>Columns</key>
-												<integer>47</integer>
+												<integer>56</integer>
 												<key>Commands</key>
 												<array/>
 												<key>Directories</key>
-												<array>
-													<string>/Users/david.de-lange/scoutbee</string>
-													<string>/Users/david.de-lange/scoutbee</string>
-													<string>/Users/david.de-lange/scoutbee</string>
-												</array>
+												<array/>
 												<key>Environment</key>
 												<dict>
 													<key>PWD</key>
 													<string>/Users/david.de-lange</string>
 												</dict>
 												<key>Hostname to Shell</key>
-												<dict>
-													<key>david.de-lange@davids-MacBook-Pro.local</key>
-													<string>bash</string>
-												</dict>
+												<dict/>
 												<key>Hosts</key>
-												<array>
-													<dict>
-														<key>Host name</key>
-														<string>davids-MacBook-Pro.local</string>
-														<key>User name</key>
-														<string>david.de-lange</string>
-													</dict>
-													<dict>
-														<key>Host name</key>
-														<string>davids-MacBook-Pro.local</string>
-														<key>User name</key>
-														<string>david.de-lange</string>
-													</dict>
-												</array>
+												<array/>
 												<key>Is UTF-8</key>
 												<true/>
+												<key>Key Labels</key>
+												<dict/>
 												<key>Name Controller State</key>
 												<dict>
 													<key>icon title stack</key>
@@ -3815,19 +2832,19 @@ Maximize Active Pane</string>
 													<string>Command</string>
 												</dict>
 												<key>Rows</key>
-												<integer>33</integer>
+												<integer>25</integer>
 												<key>Session GUID</key>
-												<string>5EB2C252-BF07-487A-AE31-320DCDD83F21</string>
+												<string>EE9D56ED-C9AB-4F9B-97CA-ECF3D2237FA6</string>
 												<key>Short Lived Single Use</key>
 												<false/>
 												<key>Should Expect Current Dir Updates</key>
 												<false/>
 												<key>Should Expect Prompt Marks</key>
-												<true/>
+												<false/>
 												<key>Substitutions</key>
 												<dict/>
 												<key>Working Directory</key>
-												<string>/Users/david.de-lange/scoutbee</string>
+												<string>/Users/david.de-lange</string>
 												<key>Working Directory Poller Disabled</key>
 												<false/>
 											</dict>
@@ -3836,9 +2853,9 @@ Maximize Active Pane</string>
 											<key>frame</key>
 											<dict>
 												<key>height</key>
-												<real>426.5</real>
+												<real>382</real>
 												<key>width</key>
-												<real>359</real>
+												<real>361</real>
 												<key>x</key>
 												<real>0.0</real>
 												<key>y</key>
@@ -4033,7 +3050,7 @@ Maximize Active Pane</string>
 													<key>Columns</key>
 													<integer>80</integer>
 													<key>Command</key>
-													<string></string>
+													<string>/bin/bash</string>
 													<key>Cursor Color</key>
 													<dict>
 														<key>Blue Component</key>
@@ -4078,7 +3095,7 @@ Maximize Active Pane</string>
 													<key>Guid</key>
 													<string>17439720-BF64-4E89-AE33-8770E3F62131</string>
 													<key>Horizontal Spacing</key>
-													<real>1</real>
+													<real>0.84999999999999998</real>
 													<key>Idle Code</key>
 													<integer>0</integer>
 													<key>Jobs to Ignore</key>
@@ -4380,7 +3397,7 @@ Maximize Active Pane</string>
 													<key>Non-ASCII Anti Aliased</key>
 													<true/>
 													<key>Normal Font</key>
-													<string>CodeNewRomanNerdFontComplete- 12</string>
+													<string>InconsolataLGCNerdFontComplete- 11</string>
 													<key>Option Key Sends</key>
 													<integer>0</integer>
 													<key>Prompt Before Closing 2</key>
@@ -4442,45 +3459,27 @@ Maximize Active Pane</string>
 													<key>Window Type</key>
 													<integer>0</integer>
 													<key>Working Directory</key>
-													<string>/Users/david</string>
+													<string>/Users/david.de-lange/scoutbee</string>
 												</dict>
 												<key>Columns</key>
-												<integer>47</integer>
+												<integer>56</integer>
 												<key>Commands</key>
 												<array/>
 												<key>Directories</key>
-												<array>
-													<string>/Users/david.de-lange/scoutbee</string>
-													<string>/Users/david.de-lange/scoutbee</string>
-													<string>/Users/david.de-lange/scoutbee</string>
-												</array>
+												<array/>
 												<key>Environment</key>
 												<dict>
 													<key>PWD</key>
 													<string>/Users/david.de-lange</string>
 												</dict>
 												<key>Hostname to Shell</key>
-												<dict>
-													<key>david.de-lange@davids-MacBook-Pro.local</key>
-													<string>bash</string>
-												</dict>
+												<dict/>
 												<key>Hosts</key>
-												<array>
-													<dict>
-														<key>Host name</key>
-														<string>davids-MacBook-Pro.local</string>
-														<key>User name</key>
-														<string>david.de-lange</string>
-													</dict>
-													<dict>
-														<key>Host name</key>
-														<string>davids-MacBook-Pro.local</string>
-														<key>User name</key>
-														<string>david.de-lange</string>
-													</dict>
-												</array>
+												<array/>
 												<key>Is UTF-8</key>
 												<true/>
+												<key>Key Labels</key>
+												<dict/>
 												<key>Name Controller State</key>
 												<dict>
 													<key>icon title stack</key>
@@ -4496,19 +3495,19 @@ Maximize Active Pane</string>
 													<string>Command</string>
 												</dict>
 												<key>Rows</key>
-												<integer>33</integer>
+												<integer>27</integer>
 												<key>Session GUID</key>
-												<string>BDC599FF-EC93-402E-955C-88E4C1F1CDCB</string>
+												<string>5F4407B6-85FE-4486-A6F1-563785354670</string>
 												<key>Short Lived Single Use</key>
 												<false/>
 												<key>Should Expect Current Dir Updates</key>
 												<false/>
 												<key>Should Expect Prompt Marks</key>
-												<true/>
+												<false/>
 												<key>Substitutions</key>
 												<dict/>
 												<key>Working Directory</key>
-												<string>/Users/david.de-lange/scoutbee</string>
+												<string>/Users/david.de-lange</string>
 												<key>Working Directory Poller Disabled</key>
 												<false/>
 											</dict>
@@ -4517,13 +3516,13 @@ Maximize Active Pane</string>
 											<key>frame</key>
 											<dict>
 												<key>height</key>
-												<real>426.5</real>
+												<real>405</real>
 												<key>width</key>
-												<real>359</real>
+												<real>361</real>
 												<key>x</key>
 												<real>0.0</real>
 												<key>y</key>
-												<real>427.5</real>
+												<real>383</real>
 											</dict>
 										</dict>
 									</array>
@@ -4532,11 +3531,11 @@ Maximize Active Pane</string>
 									<key>frame</key>
 									<dict>
 										<key>height</key>
-										<real>854</real>
+										<real>788</real>
 										<key>width</key>
-										<real>359</real>
+										<real>361</real>
 										<key>x</key>
-										<real>360.5</real>
+										<real>355</real>
 										<key>y</key>
 										<real>0.0</real>
 									</dict>
@@ -4544,6 +3543,8 @@ Maximize Active Pane</string>
 									<false/>
 								</dict>
 								<dict>
+									<key>Splitter ID</key>
+									<string>C575A6E1-9278-4E3E-9F51-36920D6DCD73</string>
 									<key>Subviews</key>
 									<array>
 										<dict>
@@ -4734,7 +3735,7 @@ Maximize Active Pane</string>
 													<key>Columns</key>
 													<integer>80</integer>
 													<key>Command</key>
-													<string></string>
+													<string>/bin/bash</string>
 													<key>Cursor Color</key>
 													<dict>
 														<key>Blue Component</key>
@@ -4779,7 +3780,7 @@ Maximize Active Pane</string>
 													<key>Guid</key>
 													<string>17439720-BF64-4E89-AE33-8770E3F62131</string>
 													<key>Horizontal Spacing</key>
-													<real>1</real>
+													<real>0.84999999999999998</real>
 													<key>Idle Code</key>
 													<integer>0</integer>
 													<key>Jobs to Ignore</key>
@@ -5081,7 +4082,7 @@ Maximize Active Pane</string>
 													<key>Non-ASCII Anti Aliased</key>
 													<true/>
 													<key>Normal Font</key>
-													<string>CodeNewRomanNerdFontComplete- 12</string>
+													<string>InconsolataLGCNerdFontComplete- 11</string>
 													<key>Option Key Sends</key>
 													<integer>0</integer>
 													<key>Prompt Before Closing 2</key>
@@ -5143,45 +4144,27 @@ Maximize Active Pane</string>
 													<key>Window Type</key>
 													<integer>0</integer>
 													<key>Working Directory</key>
-													<string>/Users/david</string>
+													<string>/Users/david.de-lange/scoutbee</string>
 												</dict>
 												<key>Columns</key>
-												<integer>47</integer>
+												<integer>56</integer>
 												<key>Commands</key>
 												<array/>
 												<key>Directories</key>
-												<array>
-													<string>/Users/david.de-lange/scoutbee</string>
-													<string>/Users/david.de-lange/scoutbee</string>
-													<string>/Users/david.de-lange/scoutbee</string>
-												</array>
+												<array/>
 												<key>Environment</key>
 												<dict>
 													<key>PWD</key>
 													<string>/Users/david.de-lange</string>
 												</dict>
 												<key>Hostname to Shell</key>
-												<dict>
-													<key>david.de-lange@davids-MacBook-Pro.local</key>
-													<string>bash</string>
-												</dict>
+												<dict/>
 												<key>Hosts</key>
-												<array>
-													<dict>
-														<key>Host name</key>
-														<string>davids-MacBook-Pro.local</string>
-														<key>User name</key>
-														<string>david.de-lange</string>
-													</dict>
-													<dict>
-														<key>Host name</key>
-														<string>davids-MacBook-Pro.local</string>
-														<key>User name</key>
-														<string>david.de-lange</string>
-													</dict>
-												</array>
+												<array/>
 												<key>Is UTF-8</key>
 												<true/>
+												<key>Key Labels</key>
+												<dict/>
 												<key>Name Controller State</key>
 												<dict>
 													<key>icon title stack</key>
@@ -5197,19 +4180,19 @@ Maximize Active Pane</string>
 													<string>Command</string>
 												</dict>
 												<key>Rows</key>
-												<integer>33</integer>
+												<integer>25</integer>
 												<key>Session GUID</key>
-												<string>25B131C5-3EDF-4553-A30F-0D9DFAE112A5</string>
+												<string>CE272A8B-8C68-4AD8-B1B9-B85520548D71</string>
 												<key>Short Lived Single Use</key>
 												<false/>
 												<key>Should Expect Current Dir Updates</key>
 												<false/>
 												<key>Should Expect Prompt Marks</key>
-												<true/>
+												<false/>
 												<key>Substitutions</key>
 												<dict/>
 												<key>Working Directory</key>
-												<string>/Users/david.de-lange/scoutbee</string>
+												<string>/Users/david.de-lange</string>
 												<key>Working Directory Poller Disabled</key>
 												<false/>
 											</dict>
@@ -5218,9 +4201,9 @@ Maximize Active Pane</string>
 											<key>frame</key>
 											<dict>
 												<key>height</key>
-												<real>426.5</real>
+												<real>382</real>
 												<key>width</key>
-												<real>359</real>
+												<real>361</real>
 												<key>x</key>
 												<real>0.0</real>
 												<key>y</key>
@@ -5415,7 +4398,7 @@ Maximize Active Pane</string>
 													<key>Columns</key>
 													<integer>80</integer>
 													<key>Command</key>
-													<string></string>
+													<string>/bin/bash</string>
 													<key>Cursor Color</key>
 													<dict>
 														<key>Blue Component</key>
@@ -5460,7 +4443,7 @@ Maximize Active Pane</string>
 													<key>Guid</key>
 													<string>17439720-BF64-4E89-AE33-8770E3F62131</string>
 													<key>Horizontal Spacing</key>
-													<real>1</real>
+													<real>0.84999999999999998</real>
 													<key>Idle Code</key>
 													<integer>0</integer>
 													<key>Jobs to Ignore</key>
@@ -5762,7 +4745,7 @@ Maximize Active Pane</string>
 													<key>Non-ASCII Anti Aliased</key>
 													<true/>
 													<key>Normal Font</key>
-													<string>CodeNewRomanNerdFontComplete- 12</string>
+													<string>InconsolataLGCNerdFontComplete- 11</string>
 													<key>Option Key Sends</key>
 													<integer>0</integer>
 													<key>Prompt Before Closing 2</key>
@@ -5824,45 +4807,27 @@ Maximize Active Pane</string>
 													<key>Window Type</key>
 													<integer>0</integer>
 													<key>Working Directory</key>
-													<string>/Users/david</string>
+													<string>/Users/david.de-lange/scoutbee</string>
 												</dict>
 												<key>Columns</key>
-												<integer>47</integer>
+												<integer>56</integer>
 												<key>Commands</key>
 												<array/>
 												<key>Directories</key>
-												<array>
-													<string>/Users/david.de-lange/scoutbee</string>
-													<string>/Users/david.de-lange/scoutbee</string>
-													<string>/Users/david.de-lange/scoutbee</string>
-												</array>
+												<array/>
 												<key>Environment</key>
 												<dict>
 													<key>PWD</key>
 													<string>/Users/david.de-lange</string>
 												</dict>
 												<key>Hostname to Shell</key>
-												<dict>
-													<key>david.de-lange@davids-MacBook-Pro.local</key>
-													<string>bash</string>
-												</dict>
+												<dict/>
 												<key>Hosts</key>
-												<array>
-													<dict>
-														<key>Host name</key>
-														<string>davids-MacBook-Pro.local</string>
-														<key>User name</key>
-														<string>david.de-lange</string>
-													</dict>
-													<dict>
-														<key>Host name</key>
-														<string>davids-MacBook-Pro.local</string>
-														<key>User name</key>
-														<string>david.de-lange</string>
-													</dict>
-												</array>
+												<array/>
 												<key>Is UTF-8</key>
 												<true/>
+												<key>Key Labels</key>
+												<dict/>
 												<key>Name Controller State</key>
 												<dict>
 													<key>icon title stack</key>
@@ -5878,19 +4843,19 @@ Maximize Active Pane</string>
 													<string>Command</string>
 												</dict>
 												<key>Rows</key>
-												<integer>33</integer>
+												<integer>27</integer>
 												<key>Session GUID</key>
-												<string>92FD6C7E-0578-4B70-80A3-3F974A05BF66</string>
+												<string>6C9B320E-EB40-4C43-B580-EFCCC3E8CA5E</string>
 												<key>Short Lived Single Use</key>
 												<false/>
 												<key>Should Expect Current Dir Updates</key>
 												<false/>
 												<key>Should Expect Prompt Marks</key>
-												<true/>
+												<false/>
 												<key>Substitutions</key>
 												<dict/>
 												<key>Working Directory</key>
-												<string>/Users/david.de-lange/scoutbee</string>
+												<string>/Users/david.de-lange</string>
 												<key>Working Directory Poller Disabled</key>
 												<false/>
 											</dict>
@@ -5899,13 +4864,13 @@ Maximize Active Pane</string>
 											<key>frame</key>
 											<dict>
 												<key>height</key>
-												<real>426.5</real>
+												<real>405</real>
 												<key>width</key>
-												<real>359</real>
+												<real>361</real>
 												<key>x</key>
 												<real>0.0</real>
 												<key>y</key>
-												<real>427.5</real>
+												<real>383</real>
 											</dict>
 										</dict>
 									</array>
@@ -5914,11 +4879,11 @@ Maximize Active Pane</string>
 									<key>frame</key>
 									<dict>
 										<key>height</key>
-										<real>854</real>
+										<real>788</real>
 										<key>width</key>
-										<real>359</real>
+										<real>361</real>
 										<key>x</key>
-										<real>720.5</real>
+										<real>717</real>
 										<key>y</key>
 										<real>0.0</real>
 									</dict>
@@ -5926,6 +4891,8 @@ Maximize Active Pane</string>
 									<false/>
 								</dict>
 								<dict>
+									<key>Splitter ID</key>
+									<string>0CF9FCA9-D530-461D-9DDA-FC3EC40A3EB8</string>
 									<key>Subviews</key>
 									<array>
 										<dict>
@@ -6116,7 +5083,7 @@ Maximize Active Pane</string>
 													<key>Columns</key>
 													<integer>80</integer>
 													<key>Command</key>
-													<string></string>
+													<string>/bin/bash</string>
 													<key>Cursor Color</key>
 													<dict>
 														<key>Blue Component</key>
@@ -6161,7 +5128,7 @@ Maximize Active Pane</string>
 													<key>Guid</key>
 													<string>17439720-BF64-4E89-AE33-8770E3F62131</string>
 													<key>Horizontal Spacing</key>
-													<real>1</real>
+													<real>0.84999999999999998</real>
 													<key>Idle Code</key>
 													<integer>0</integer>
 													<key>Jobs to Ignore</key>
@@ -6463,7 +5430,7 @@ Maximize Active Pane</string>
 													<key>Non-ASCII Anti Aliased</key>
 													<true/>
 													<key>Normal Font</key>
-													<string>CodeNewRomanNerdFontComplete- 12</string>
+													<string>InconsolataLGCNerdFontComplete- 11</string>
 													<key>Option Key Sends</key>
 													<integer>0</integer>
 													<key>Prompt Before Closing 2</key>
@@ -6525,45 +5492,27 @@ Maximize Active Pane</string>
 													<key>Window Type</key>
 													<integer>0</integer>
 													<key>Working Directory</key>
-													<string>/Users/david</string>
+													<string>/Users/david.de-lange/scoutbee</string>
 												</dict>
 												<key>Columns</key>
-												<integer>47</integer>
+												<integer>56</integer>
 												<key>Commands</key>
 												<array/>
 												<key>Directories</key>
-												<array>
-													<string>/Users/david.de-lange/scoutbee</string>
-													<string>/Users/david.de-lange/scoutbee</string>
-													<string>/Users/david.de-lange/scoutbee</string>
-												</array>
+												<array/>
 												<key>Environment</key>
 												<dict>
 													<key>PWD</key>
 													<string>/Users/david.de-lange</string>
 												</dict>
 												<key>Hostname to Shell</key>
-												<dict>
-													<key>david.de-lange@davids-MacBook-Pro.local</key>
-													<string>bash</string>
-												</dict>
+												<dict/>
 												<key>Hosts</key>
-												<array>
-													<dict>
-														<key>Host name</key>
-														<string>davids-MacBook-Pro.local</string>
-														<key>User name</key>
-														<string>david.de-lange</string>
-													</dict>
-													<dict>
-														<key>Host name</key>
-														<string>davids-MacBook-Pro.local</string>
-														<key>User name</key>
-														<string>david.de-lange</string>
-													</dict>
-												</array>
+												<array/>
 												<key>Is UTF-8</key>
 												<true/>
+												<key>Key Labels</key>
+												<dict/>
 												<key>Name Controller State</key>
 												<dict>
 													<key>icon title stack</key>
@@ -6579,19 +5528,19 @@ Maximize Active Pane</string>
 													<string>Command</string>
 												</dict>
 												<key>Rows</key>
-												<integer>33</integer>
+												<integer>25</integer>
 												<key>Session GUID</key>
-												<string>B512A1CA-A976-4C7D-BA02-EC91E423AAC1</string>
+												<string>956342B3-9751-42E6-875F-93AD1200D8DC</string>
 												<key>Short Lived Single Use</key>
 												<false/>
 												<key>Should Expect Current Dir Updates</key>
 												<false/>
 												<key>Should Expect Prompt Marks</key>
-												<true/>
+												<false/>
 												<key>Substitutions</key>
 												<dict/>
 												<key>Working Directory</key>
-												<string>/Users/david.de-lange/scoutbee</string>
+												<string>/Users/david.de-lange</string>
 												<key>Working Directory Poller Disabled</key>
 												<false/>
 											</dict>
@@ -6600,9 +5549,9 @@ Maximize Active Pane</string>
 											<key>frame</key>
 											<dict>
 												<key>height</key>
-												<real>426.5</real>
+												<real>382</real>
 												<key>width</key>
-												<real>359.5</real>
+												<real>361</real>
 												<key>x</key>
 												<real>0.0</real>
 												<key>y</key>
@@ -6797,7 +5746,7 @@ Maximize Active Pane</string>
 													<key>Columns</key>
 													<integer>80</integer>
 													<key>Command</key>
-													<string></string>
+													<string>/bin/bash</string>
 													<key>Cursor Color</key>
 													<dict>
 														<key>Blue Component</key>
@@ -6842,7 +5791,7 @@ Maximize Active Pane</string>
 													<key>Guid</key>
 													<string>17439720-BF64-4E89-AE33-8770E3F62131</string>
 													<key>Horizontal Spacing</key>
-													<real>1</real>
+													<real>0.84999999999999998</real>
 													<key>Idle Code</key>
 													<integer>0</integer>
 													<key>Jobs to Ignore</key>
@@ -7144,7 +6093,7 @@ Maximize Active Pane</string>
 													<key>Non-ASCII Anti Aliased</key>
 													<true/>
 													<key>Normal Font</key>
-													<string>CodeNewRomanNerdFontComplete- 12</string>
+													<string>InconsolataLGCNerdFontComplete- 11</string>
 													<key>Option Key Sends</key>
 													<integer>0</integer>
 													<key>Prompt Before Closing 2</key>
@@ -7206,45 +6155,27 @@ Maximize Active Pane</string>
 													<key>Window Type</key>
 													<integer>0</integer>
 													<key>Working Directory</key>
-													<string>/Users/david</string>
+													<string>/Users/david.de-lange/scoutbee</string>
 												</dict>
 												<key>Columns</key>
-												<integer>47</integer>
+												<integer>56</integer>
 												<key>Commands</key>
 												<array/>
 												<key>Directories</key>
-												<array>
-													<string>/Users/david.de-lange/scoutbee</string>
-													<string>/Users/david.de-lange/scoutbee</string>
-													<string>/Users/david.de-lange/scoutbee</string>
-												</array>
+												<array/>
 												<key>Environment</key>
 												<dict>
 													<key>PWD</key>
 													<string>/Users/david.de-lange</string>
 												</dict>
 												<key>Hostname to Shell</key>
-												<dict>
-													<key>david.de-lange@davids-MacBook-Pro.local</key>
-													<string>bash</string>
-												</dict>
+												<dict/>
 												<key>Hosts</key>
-												<array>
-													<dict>
-														<key>Host name</key>
-														<string>davids-MacBook-Pro.local</string>
-														<key>User name</key>
-														<string>david.de-lange</string>
-													</dict>
-													<dict>
-														<key>Host name</key>
-														<string>davids-MacBook-Pro.local</string>
-														<key>User name</key>
-														<string>david.de-lange</string>
-													</dict>
-												</array>
+												<array/>
 												<key>Is UTF-8</key>
 												<true/>
+												<key>Key Labels</key>
+												<dict/>
 												<key>Name Controller State</key>
 												<dict>
 													<key>icon title stack</key>
@@ -7260,19 +6191,19 @@ Maximize Active Pane</string>
 													<string>Command</string>
 												</dict>
 												<key>Rows</key>
-												<integer>33</integer>
+												<integer>27</integer>
 												<key>Session GUID</key>
-												<string>09CD6C0A-1C2C-4305-9400-F342D32356A3</string>
+												<string>6B612D1F-8D2D-4396-885C-E39D41660988</string>
 												<key>Short Lived Single Use</key>
 												<false/>
 												<key>Should Expect Current Dir Updates</key>
 												<false/>
 												<key>Should Expect Prompt Marks</key>
-												<true/>
+												<false/>
 												<key>Substitutions</key>
 												<dict/>
 												<key>Working Directory</key>
-												<string>/Users/david.de-lange/scoutbee</string>
+												<string>/Users/david.de-lange</string>
 												<key>Working Directory Poller Disabled</key>
 												<false/>
 											</dict>
@@ -7281,13 +6212,13 @@ Maximize Active Pane</string>
 											<key>frame</key>
 											<dict>
 												<key>height</key>
-												<real>426.5</real>
+												<real>405</real>
 												<key>width</key>
-												<real>359.5</real>
+												<real>361</real>
 												<key>x</key>
 												<real>0.0</real>
 												<key>y</key>
-												<real>427.5</real>
+												<real>383</real>
 											</dict>
 										</dict>
 									</array>
@@ -7296,11 +6227,11 @@ Maximize Active Pane</string>
 									<key>frame</key>
 									<dict>
 										<key>height</key>
-										<real>854</real>
+										<real>788</real>
 										<key>width</key>
-										<real>359.5</real>
+										<real>361</real>
 										<key>x</key>
-										<real>1080.5</real>
+										<real>1079</real>
 										<key>y</key>
 										<real>0.0</real>
 									</dict>
@@ -7313,7 +6244,7 @@ Maximize Active Pane</string>
 							<key>frame</key>
 							<dict>
 								<key>height</key>
-								<real>854</real>
+								<real>788</real>
 								<key>width</key>
 								<real>1440</real>
 								<key>x</key>
@@ -7324,10 +6255,12 @@ Maximize Active Pane</string>
 							<key>isVertical</key>
 							<true/>
 						</dict>
+						<key>Tab GUID</key>
+						<string>587BAC52-1479-46DD-BD71-E59C4A319A16</string>
 					</dict>
 				</array>
 				<key>TerminalGuid</key>
-				<string>pty-07FE2DB1-11E2-4D9B-A654-C9A7716B12DD</string>
+				<string>pty-03F40FFC-6D0F-4304-B014-D5E52EB1A57B</string>
 				<key>Toolbelt</key>
 				<dict>
 					<key>Profiles</key>
@@ -7362,13 +6295,11 @@ Maximize Active Pane</string>
 				<key>X Origin</key>
 				<real>0.0</real>
 				<key>Y Origin</key>
-				<real>0.0</real>
+				<real>66</real>
 			</dict>
 		</array>
 	</dict>
 	<key>findMode_iTerm</key>
 	<integer>0</integer>
-	<key>iTerm Version</key>
-	<string>3.3.9</string>
 </dict>
 </plist>
