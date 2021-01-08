@@ -160,7 +160,11 @@ kubebranch() {
 generate_password() {
   local defaultsize=42
   ((test -n "${1:-$defaultsize}" && test "${1:-$defaultsize}" -ge 0) && \
-  pwgen -s -N 3 -cny ${1:-$defaultsize}) 2>&-;
+  #  -y or --symbols
+  #  Include at least one special symbol in the password
+  #  -B or --ambiguous
+  #  Don't include ambiguous characters in the password
+  pwgen -s -N 3 -cnBy -r ";'\`\"\|\#\$\&" ${1:-$defaultsize}) 2>&-;
 };
 
 # run last modified py file in home directory
