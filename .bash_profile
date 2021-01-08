@@ -1,6 +1,7 @@
 export PATH="/usr/local/sbin:/usr/local/bin:$PATH"
 export PATH="/usr/local/opt/ruby/bin:/usr/local/lib/ruby/gems/2.7.0/bin:$PATH"  # homebrew ruby first in PATH
 export PATH="${HOME}/.cargo/bin:$PATH"  # rust binary installation path
+export PATH="/Library/TeX/texbin:$PATH"  # mactex binary installation path (brew cask install mactex)
 
 # bash completion and integration
 
@@ -42,17 +43,19 @@ function cd {
   fi
 }
 
-alias back="cd -"
-alias ls="exa --all --group-directories-first --icons --level=2"  # default level for --tree
-alias ll="ls --long --sort=age --git --time=modified --time-style=iso"
-alias h="history | tail -n 25"
-alias cls="printf \"\033c\""
-alias dff="icdiff --highlight --line-numbers --numlines=3"
-alias gcc="gcc-8"
-alias moji="git status && git add . && pre-commit && gitmoji -c"
-alias git-summary=/Users/david.de-lange/git/git-summary/git-summary
+alias back='cd -'
+alias ls='exa --all --group-directories-first --icons --level=2'  # default level for --tree
+alias ll='ls --long --sort=age --git --time=modified --time-style=iso'
+alias h='history | tail -n 25'
+alias cls='printf "\033c"'
+alias dff='icdiff --highlight --line-numbers --numlines=3'
+alias gcc='gcc-8'
+alias moji='git status && git add . && pre-commit && gitmoji -c'
+alias git-summary='~/git/git-summary/git-summary'
 alias s='subl'
 alias sm='smerge'
+alias xdg-open='open'
+
 
 
 # bash_history

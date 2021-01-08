@@ -326,11 +326,13 @@ git config --global alias.lg "log --graph --decorate --pretty=oneline --abbrev-c
 git config --global alias.fp "fetch -p --all"  # purge and fetch all remotes
 git config --global alias.defaultbranch '! f() { echo $(git remote show origin | grep "HEAD branch" | cut -d ":" -f 2 | xargs); }; f'  # https://stackoverflow.com/questions/28666357#comment101797372_50056710
 git config --global alias.df '! f() { git icdiff --color=always "$@" | less -eR; }; f'  # no FX (keep output in terminal)
-git config --global alias.pr '! git push --set-upstream origin "$(git rev-parse --abbrev-ref HEAD)"'
+git config --global alias.pr '! git push --set-upstream origin "$(git rev-parse --abbrev-ref HEAD)"'  # push a new branch. will be overwritten if git-extras is installed
 git config --global alias.dm '! git fetch -p && for branch in `git branch -vv | grep '"': gone] ' | awk '"'{print $1}'"'"'`; do git branch -D $branch; done'  # 'delete merged' - local branches that have been deleted on remote
 git config --global alias.gg '! f() { git checkout "${1:-$(git defaultbranch)}" && git dm && git pull; }; f'  # git gg develop -- no arg: defaultbranch. Return to default branch (or specified branch), delete merged, pull branch
 git config --global alias.pall '! f() {     START=$(git branch | grep "\*" | sed "s/^.//");     for i in $(git branch | sed "s/^.//"); do         git checkout $i;         git pull || break;     done;     git checkout $START; }; f'  # 'pull all' - pull local branches that have been updated on remote
 git config --global alias.undo '! f() { git reset --hard $(git rev-parse --abbrev-ref HEAD)@{${1-1}}; }; f'  # https://megakemp.com/2016/08/25/git-undo/
+git config --global alias.squashlast '"!f(){ git reset --soft HEAD~${1} && git commit --edit -m\"$(git log --format=%B --reverse HEAD..HEAD@{1})\"; };f"' # Squash the last x commits; will prompt you with auto-squashed commit messages
+git config --global alias.alias "! git config --get-regexp '^alias\.' | sed -e s/^alias\.// | grep -v ^'alias ' | sed 's/ /#/' | column -ts#"
 ```
 
 
