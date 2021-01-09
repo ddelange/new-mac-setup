@@ -47,17 +47,21 @@
 				<string>13826F2E-E87A-4185-8D7B-18C04A1AC6FD</string>
 			</dict>
 		</array>
+		<key>CPU_DropdownOrderDisabled</key>
+		<string></string>
 		<key>CPU_MenubarCombineCores</key>
 		<integer>1</integer>
 		<key>CPU_MenubarGraphBreakdowns</key>
-		<integer>0</integer>
+		<integer>1</integer>
+		<key>CPU_MenubarGraphSystem</key>
+		<string>0.61 0.50 0.95 1.00</string>
 		<key>CPU_MenubarMode</key>
 		<array>
 			<dict>
 				<key>key</key>
-				<string>0</string>
+				<string>6</string>
 				<key>uuid</key>
-				<string>450BE83E-31AA-4428-A0E9-D0ECD159B24A</string>
+				<string>8E66BDD2-66E0-4A7A-80BA-B76D7F6B29BD</string>
 			</dict>
 		</array>
 		<key>CPU_ProcessCount</key>

@@ -2,13 +2,17 @@
 
 For personal & professional use.
 
-Want to copy a big dir from an old Mac? Below is `brew install rsync`! It's much faster than Finder's copying capabilities.
+#### Notes
 
-```
-# boot old Mac while holding `T` to go in Target Disk Mode
-# password prompt should pop up
-rsync -au --progress=info2 <drag src folder> ~/backup
-```
+- Want to copy a big dir from an old Mac? Below is `brew install rsync`! It's much faster than Finder's copying util.
+  ```
+  # boot old Mac while holding `T` to go in Target Disk Mode
+  # password prompt should pop up
+  rsync -au --progress=info2 <drag src folder> ~/backup
+  ```
+- Don't forget to take with your whole `.gnupg` folder, `.gitconfig`, `.envrc` etc!
+- Chrome settings/bookmarks are not backed up and are assumed to come from its builtin Sync.
+
 
 ### Preferences
 
@@ -45,6 +49,7 @@ defaults write com.google.Chrome NSRequiresAquaSystemAppearance -bool yes
   - Under `Advanced...`, untick `Download new updates when available`
 - `System Preferences/Dock/`
   - Untick `Show recent applications in Dock`
+  - Tick `Turn Hiding On`
 - Finder preferences
   - `General`
     - `New Finder windows show:` home
@@ -70,6 +75,8 @@ defaults write com.google.Chrome NSRequiresAquaSystemAppearance -bool yes
   - `Open and Save`
     - Untick `Add ".txt" extension to plain text files`
     - Under `Plain Text File Encoding`, select two times `UTF-8`
+- Screenshot `Options`
+  - Untick  `Show Floating Thumbnail`
 
 
 #### Terminal stuff
@@ -103,7 +110,7 @@ PATH="/usr/local/opt/node@12/bin:$PATH" npm install -g yarn
 brew install --cask iterm2
 brew install --cask homebrew/cask-fonts/font-inconsolata-lgc-nerd-font
 cargo install ripgrep  # rg (search for regex occurrences in directory)
-cargo install zoxide  # z (cd with auto-complete)
+cargo install zoxide  # z (cd with auto-complete) - echo 'eval "$(zoxide init bash)"' > ~.bash_profile
 cargo install --git https://github.com/ogham/exa.git
 # use exa with icons and git status instead of builtin ls
 # this is in .bash_profile already
@@ -144,7 +151,7 @@ brew install --cask zoom
 # brew install --cask whatsapp
 # Dropbox - dropbox.com
 # brew install --cask dropbox
-# Authy - authy.com
+# Authy - authy.com - Set Master Password in preferences after init
 brew install --cask authy
 ```
 
@@ -185,6 +192,7 @@ Note: first open Chrome for the first time
   mkdir ~/git
   git clone https://github.com/ddelange/new-mac-setup.git ~/git/new-mac-setup
   ln -s ~/git/new-mac-setup/.bash_profile ~/.bash_profile && source ~/.bash_profile
+  mkdir -p ~/.config/htop && ln -s ~/git/new-mac-setup/htoprc ~/.config/htop/htoprc
   direnv edit ~  # add `export SECRET=42` to load global env vars
 
   # Sublime Text 3 backup
