@@ -1,6 +1,9 @@
 export PATH="/usr/local/sbin:/usr/local/bin:$PATH"
-export PATH="/usr/local/opt/ruby/bin:/usr/local/lib/ruby/gems/2.7.0/bin:$PATH"  # homebrew ruby first in PATH
 export PATH="${HOME}/.cargo/bin:$PATH"  # rust binary installation path
+# keg-only installs
+export PATH="/usr/local/opt/ruby/bin:/usr/local/lib/ruby/gems/2.7.0/bin:$PATH"
+export PATH="/usr/local/opt/icu4c/bin:/usr/local/opt/icu4c/sbin:$PATH"
+export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:/usr/local/opt/icu4c/lib/pkgconfig"
 export PATH="/Library/TeX/texbin:$PATH"  # mactex binary installation path (brew cask install mactex)
 
 # bash completion and integration

@@ -1,8 +1,43 @@
-# A clean setup of Mac OS X 10.14+ for Python development and more
+# new-mac-setup
+
+A clean setup of Mac OS X 10.15 for Python development and more
 
 For personal & professional use.
 
-#### Notes
+<!-- See also corresponding sublime user settings file in this repo.
+
+Auto updates on save.
+
+https://github.com/naokazuterada/MarkdownTOC#usage -->
+<!-- MarkdownTOC -->
+
+- [Notes](#notes)
+- [Tech Stack](#tech-stack)
+  - [Mac Look and Feel](#mac-look-and-feel)
+  - [Terminal Look and Feel](#terminal-look-and-feel)
+    - [Homebrew and it's essentials](#homebrew-and-its-essentials)
+    - [iTerm nerd font](#iterm-nerd-font)
+    - [Casks](#casks)
+    - [Mac App Store \(MAS\)](#mac-app-store-mas)
+  - [Backups](#backups)
+  - [pyenv and pyenv-virtualenv](#pyenv-and-pyenv-virtualenv)
+  - [Git with 2FA](#git-with-2fa)
+      - [Mac OSX specifics](#mac-osx-specifics)
+      - [Split diff](#split-diff)
+      - [Mergetool](#mergetool)
+      - [Aliases](#aliases)
+    - [Cleanup \(different options\)](#cleanup-different-options)
+- [Keyboard Shortcuts](#keyboard-shortcuts)
+- [Misc](#misc)
+  - [Kubernetes CLI \(kubectl\)](#kubernetes-cli-kubectl)
+  - [Fancy Dropbox screen shot sharing](#fancy-dropbox-screen-shot-sharing)
+  - [Gigabit USB Driver OS X 10.9+](#gigabit-usb-driver-os-x-109)
+- [TODO](#todo)
+
+<!-- /MarkdownTOC -->
+
+
+## Notes
 
 - Want to copy a big dir from an old Mac? Below is `brew install rsync`! It's much faster than Finder's copying util.
   ```
@@ -13,11 +48,9 @@ For personal & professional use.
 - Don't forget to take with your whole `.gnupg` folder, `.gitconfig`, `.envrc` etc!
 - Chrome settings/bookmarks are not backed up and are assumed to come from its builtin Sync.
 
+## Tech Stack
 
-### Preferences
-
-
-#### General Mac stuff
+### Mac Look and Feel
 
 ```bash
 # Do you understand zsh internals? I don't.
@@ -27,6 +60,10 @@ defaults write com.apple.finder AppleShowAllFiles YES
 # disable google chrome dark mode when Mojave dark mode is enabled
 defaults write com.google.Chrome NSRequiresAquaSystemAppearance -bool yes
 ```
+
+<details><summary><b>Apple look & feel optimisations</b></summary><p>
+
+<!-- TODO convert these to https://github.com/msanders/setup/blob/master/defaults.yaml -->
 
 - `System Preferences/General/`
   - `Show scroll bars:` Always
@@ -39,12 +76,17 @@ defaults write com.google.Chrome NSRequiresAquaSystemAppearance -bool yes
   - Under `Shortcuts`, tick `Use keyboard navigation to move focus between controls` on the bottom
   - Under `Input Sources`, set keyboard layout to U.S. (remove U.S. International)
   - Under `Touch Bar shows`, choose `Expanded Control Strip`
+- `System Preferences/Keyboard/`
 - `System Preferences/Security & Privacy/`
   - Under `FileVault`, turn on FileVault
 - `System Preferences/Accessibility/`
   - Under `Zoom`, tick `Use scroll gesture with modifier keys to zoom:`
   - Under `Display`, untick `Shake mouse pointer to locate`
   - Under `Mouse & Trackpad/Trackpad Options...`, tick `Enable dragging/three finger drag`
+- `System Preferences/Trackpad/`
+  - Under `Point & Click`, ticks 0, 1, 1, 0, `Click Medium`
+  - Under `Scroll & Zoom`, ticks 0, 1, 0, 1
+  - Under `Scroll & Zoom`, ticks 0, 1, 1, 1, 1, 1, 1, everything four fingers
 - `System Preferences/Software Update/`
   - Under `Advanced...`, untick `Download new updates when available`
 - `System Preferences/Dock/`
@@ -56,7 +98,7 @@ defaults write com.google.Chrome NSRequiresAquaSystemAppearance -bool yes
   - `Advanced`
     - Tick `Show all filename extensions`
     - `When performing a search:` Search the Current Folder
-- Finder View Options (Go home ⌘-⇧-H, then ⌘-J)
+- Finder View Options (go home: <kbd>⌘⇧H</kbd>, then <kbd>⌘J</kbd>)
   - Tick `Always open in List View`
     - Tick `Browse in List View`
   - `Group by:` None
@@ -75,13 +117,15 @@ defaults write com.google.Chrome NSRequiresAquaSystemAppearance -bool yes
   - `Open and Save`
     - Untick `Add ".txt" extension to plain text files`
     - Under `Plain Text File Encoding`, select two times `UTF-8`
-- Screenshot `Options`
+- Screenshot `Options` (to open: <kbd>⌘⇧5</kbd>)
   - Untick  `Show Floating Thumbnail`
 
+</p></details>
 
-#### Terminal stuff
 
-Homebrew and it's essentials
+### Terminal Look and Feel
+
+#### Homebrew and it's essentials
 
 ```bash
 # install homebrew (which installs command-line tools)
@@ -109,9 +153,14 @@ PATH="/usr/local/opt/node@12/bin:$PATH" npm install -g yarn
 ```bash
 brew install --cask iterm2
 brew install --cask homebrew/cask-fonts/font-inconsolata-lgc-nerd-font
-cargo install ripgrep  # rg (search for regex occurrences in directory)
+
+# some blazing fast rust
+cargo install ripgrep  # rg (search for regex occurrences in directory, fastest regex implementation in the world)
 cargo install zoxide  # z (cd with auto-complete) - echo 'eval "$(zoxide init bash)"' > ~.bash_profile
-cargo install --git https://github.com/ogham/exa.git
+brew install zenith # fancy htop with persistent network and disk I/O history graphs
+cargo install --git https://github.com/ogham/exa.git  # crates.io is heavily outdated at time of writing
+cargo install tealdeer
+tldr --update  # populate cache
 # use exa with icons and git status instead of builtin ls
 # this is in .bash_profile already
 alias ls="exa --all --group-directories-first --icons --level=2"  # default level for --tree
@@ -197,9 +246,11 @@ Note: first open Chrome for the first time
 
   # Sublime Text 3 backup
   # restore
+  mkdir -p "${HOME}/Library/Application Support/Sublime Text 3/Packages/User" && \
+      rsync -a "${HOME}/git/new-mac-setup/sublime_text_user_settings/" "${HOME}/Library/Application Support/Sublime Text 3/Packages/User"
 
   # create
-  cp -r "${HOME}/Library/Application Support/Sublime Text 3/Packages/User/" "${HOME}/git/new-mac-setup/sublime_text_user_settings/"
+  rsync -a "${HOME}/Library/Application Support/Sublime Text 3/Packages/User/" "${HOME}/git/new-mac-setup/sublime_text_user_settings"
 
   # Chrome search engines backup
   # restore
@@ -307,6 +358,7 @@ git config --global icdiff.options "--highlight --line-numbers --numlines=3"
 git config --global difftool.icdiff.cmd 'icdiff --highlight --line-numbers --numlines=3 $LOCAL $REMOTE'
 ```
 
+
 ##### Mergetool
 
 On failed automatic merge, use Sublime Merge GUI for conflict resolution using `git mergetool` or `git mt` (see below).
@@ -344,17 +396,73 @@ git config --global alias.alias "! git config --get-regexp '^alias\.' | sed -e s
 ```
 
 
-### Kubernetes CLI ([kubectl](https://kubernetes.io/docs/reference/kubectl/))
-
-Kubectl is a command line interface for running commands against Kubernetes clusters (like viewing logs or executing commands on pods).
-See this [Kubectl Cheatsheet](https://gist.github.com/ddelange/24575a702a10c2cb6348c4c7f342e0eb) for plug & play bash functions (they are already in [`~/.bash_profile`](/.bash_profile)).
-
-
-### Cleanup ([different options](https://github.com/Homebrew/brew/issues/3784#issuecomment-364675767))
+#### Cleanup ([different options](https://github.com/Homebrew/brew/issues/3784#issuecomment-364675767))
 
 ```bash
 brew cleanup --prune=0  # delete cache older than 0 days
 ```
+
+
+## Keyboard Shortcuts
+
+- Sublime
+  - `s`, `smerge`
+  - line selctors: <kbd>⌘L</kbd>, <kbd>⌘⇧L</kbd>
+  - swap lines: <kbd>⌃⌘↑/↓</kbd>
+  - swap selection shortcut TODO
+- forward delete (<kbd>⌦</kbd>): <kbd>fn⌫</kbd> or <kbd>^D</kbd>
+- cutpaste files: <kbd>⌘⌥V</kbd>
+- lock machine: <kbd>⌘⇧Q</kbd>
+- spotlight: <kbd>⌘␣</kbd>
+- screenshots: <kbd>⌘⇧3/4/5</kbd> and one window: <kbd>⌘⇧4</kbd>, then <kbd>␣</kbd>
+- restore tab: <kbd>⌘⇧T</kbd>
+- <kbd>^↑/↓</kbd>
+- <kbd>⌘~</kbd> or <kbd>⌘\`</kbd> to switch windows
+- `~.` to stop ssh
+- emoji chooser: <kbd>⌘^␣</kbd>
+- the shortcut-changing prefpane
+
+<details><summary><b>Full Keyboard Symbol List</b></summary><p>
+
+- ⌘ is <kbd>command </kbd>
+- ⌥ is <kbd>option </kbd>
+- ⌃ is <kbd>control </kbd>
+- ⇧ is <kbd>shift </kbd>
+- ⇪ is <kbd>caps lock </kbd>
+- ← is <kbd>left arrow </kbd>
+- → is <kbd>right arrow </kbd>
+- ↑ is <kbd>up arrow </kbd>
+- ↓ is <kbd>down arrow </kbd>
+- ⇥ is <kbd>tab </kbd>
+- ⇤ is <kbd>backtab </kbd>
+- ↩ is <kbd>return </kbd>
+- ⌤ is <kbd>enter </kbd>
+- ⌫ is <kbd>delete /backspace</kbd>
+- ⌦ is <kbd>forward delete </kbd>
+- ⇞ is <kbd>page up </kbd>
+- ⇟ is <kbd>page down </kbd>
+- ↖ is <kbd>home </kbd>
+- ↘ is <kbd>end </kbd>
+- ⌧ is <kbd>clear </kbd>
+- ␣ is <kbd>space </kbd>
+- ⎋ is <kbd>escape </kbd>
+- ⏏ is <kbd>eject</kbd>
+
+</p></details>
+
+
+## Misc
+
+- To revert to the classic iTunes playlist view from before v12.6:
+  - Open your iTunes library
+  - Open and run [`Restore old iTunes playlists view.scpt`](/Restore%20old%20iTunes%20playlists%20view.scpt).
+- Scroll horizontally using <kbd>⇧</kbd>, then mouse wheel
+
+
+### Kubernetes CLI ([kubectl](https://kubernetes.io/docs/reference/kubectl/))
+
+Kubectl is a command line interface for running commands against Kubernetes clusters (like viewing logs or executing commands on pods).
+See [`kubebash kubelogs kubebranch`](https://gist.github.com/ddelange/24575a702a10c2cb6348c4c7f342e0eb) for plug & play kubectl extensions (they are already in [`~/.bash_profile`](/.bash_profile)).
 
 
 ### [Fancy Dropbox screen shot sharing](https://github.com/ddelange/mac-smart-bitly-shortcut)
@@ -364,7 +472,7 @@ AppleScript to shorten links using the bitly API in a smart way directly with a 
 
 ### [Gigabit USB Driver OS X 10.9+](https://www.asix.com.tw/products.php?op=pItemdetail&PItemID=131;71;112)
 
-Not needed for recent machines, it is now built-in.
+**Not needed for 10.15, it is now built-in.**
 
 For almost any [Gigabit Ethernet USB hub](https://www.ebay.com/itm/3-Ports-USB-3-0-Hub-Gigabit-Ethernet-Lan-RJ45-Network-Adapter-Hub-Hot-Lot-YT/183586523117)
 - Unzip [`AX88179_178A_macintosh_Driver_Installer_v2.13.0.zip`](/AX88179_178A_macintosh_Driver_Installer_v2.13.0.zip)
@@ -372,17 +480,9 @@ For almost any [Gigabit Ethernet USB hub](https://www.ebay.com/itm/3-Ports-USB-3
 - Restart
 
 
-### Misc
+## TODO
 
-- To revert to the classic iTunes playlist view from before v12.6:
-  - Open your iTunes library
-  - Open and run [`Restore old iTunes playlists view.scpt`](/Restore%20old%20iTunes%20playlists%20view.scpt).
-- Scroll horizontally using shift + mouse wheel
-
-
-### TODO
-
-- LaTeX opruimen, Dougs applescripts, [Show in Playlists](http://dougscripts.com/itunes/scripts/ss.php?sp=showinplaylists)
-- SHORTCUTS.md: cmd L, fn+backspace, ⌘-⌥-V, lock, cmd space, screenshots, shortcut changing, cmd shift T, control up/down, cmd ~ or \` to switch windows, ~. to stop ssh, ⌘-^-space for emoji chooser
-- add low battery warning plist
-- automate this repo with zero.sh, e.g. https://github.com/msanders/setup
+- Automate this repo with [zero.sh](https://github.com/zero-sh/zero.sh), e.g. https://github.com/msanders/setup
+- Add low battery warning plist
+- Add LaTeX scripts
+- Add Dougs applescripts like [Show in Playlists](http://dougscripts.com/itunes/scripts/ss.php?sp=showinplaylists)
