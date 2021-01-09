@@ -1,0 +1,9 @@
+{
+  "defaults": {
+    "autoanchor": false,
+    "autolink": true,
+    "bullets": ["-"],
+    "style": "unordered",
+    "uri_encoding": true,
+  },
+}

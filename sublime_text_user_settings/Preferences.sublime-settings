@@ -50,7 +50,7 @@
 	],
 	"auto_indent": true,
 	"caret_style": "phase",
-	"color_scheme": "Packages/Github Color Theme/GitHub.tmTheme",
+	"color_scheme": "Packages/Color Scheme - Default/Monokai.tmTheme",
 	"dictionary": "Packages/Language - English/en_GB.dic",
 	"draw_indent_guides": true,
 	"ensure_newline_at_eof_on_save": true,
@@ -68,6 +68,7 @@
 	"highlight_modified_tabs": true,
 	"ignored_packages":
 	[
+		"Markdown",
 		"Vintage"
 	],
 	"ignored_words":

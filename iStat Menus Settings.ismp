@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>build</key>
-	<string>1090</string>
+	<string>1157</string>
 	<key>preferences</key>
 	<dict>
 		<key>Battery_MenubarCustomizeStates</key>
@@ -47,17 +47,21 @@
 				<string>13826F2E-E87A-4185-8D7B-18C04A1AC6FD</string>
 			</dict>
 		</array>
+		<key>CPU_DropdownOrderDisabled</key>
+		<string></string>
 		<key>CPU_MenubarCombineCores</key>
 		<integer>1</integer>
 		<key>CPU_MenubarGraphBreakdowns</key>
-		<integer>0</integer>
+		<integer>1</integer>
+		<key>CPU_MenubarGraphSystem</key>
+		<string>0.61 0.50 0.95 1.00</string>
 		<key>CPU_MenubarMode</key>
 		<array>
 			<dict>
 				<key>key</key>
 				<string>0</string>
 				<key>uuid</key>
-				<string>DF096E9F-6B13-49F5-AEC6-669ED864F3F0</string>
+				<string>83D69738-E64E-4E08-9A0B-4DB94EA9AD68</string>
 			</dict>
 		</array>
 		<key>CPU_ProcessCount</key>
@@ -69,8 +73,6 @@
 				<true/>
 				<key>key</key>
 				<string>CA5ACC1E-A32B-4335-BAA6-20BD47A07AB2</string>
-				<key>name</key>
-				<string>Macintosh HD</string>
 			</dict>
 		</array>
 		<key>Disks_MenubarMode</key>
@@ -86,7 +88,7 @@
 		<array>
 			<dict>
 				<key>model</key>
-				<string>MacBookPro14,1</string>
+				<string>MacBookPro16,2</string>
 				<key>name</key>
 				<string>Medium</string>
 				<key>speeds</key>
@@ -96,7 +98,7 @@
 			</dict>
 			<dict>
 				<key>model</key>
-				<string>MacBookPro14,1</string>
+				<string>MacBookPro16,2</string>
 				<key>name</key>
 				<string>High</string>
 				<key>speeds</key>
@@ -116,6 +118,8 @@
 				<string>1BB13A2D-E69B-436B-BB6F-310C32AD178D</string>
 			</dict>
 		</array>
+		<key>Menubar-DetectedColor</key>
+		<string>0.92 0.92 0.92 1.00</string>
 		<key>MenubarGraphSize</key>
 		<integer>0</integer>
 		<key>MenubarSkinColor-Dark</key>
@@ -123,6 +127,8 @@
 		<key>Migrated_6.0</key>
 		<true/>
 		<key>Migrated_6.22</key>
+		<true/>
+		<key>Migrated_6.5</key>
 		<true/>
 		<key>Network_AppSort</key>
 		<integer>0</integer>
@@ -211,12 +217,17 @@
 			<integer>3</integer>
 			<integer>4</integer>
 		</array>
+		<key>Time_DismissedCalendarAccess</key>
+		<true/>
 		<key>Time_MenubarFormat</key>
 		<array>
 			<dict>
 				<key>format</key>
 				<array>
 					<array>
+						<string>__DAY_MTWRFSU__</string>
+						<string>dd</string>
+						<string>' '</string>
 						<string>HH</string>
 						<string>':'</string>
 						<string>mm</string>
@@ -232,15 +243,15 @@
 		<key>Zarya-TLE</key>
 		<dict>
 			<key>time</key>
-			<real>1548943832.853934</real>
+			<real>1610120405.9910491</real>
 			<key>tle</key>
 			<string>ISS (ZARYA)
-1 25544U 98067A   19024.69130787  .00000289  00000-0  11946-4 0  9991
-2 25544  51.6429 354.9058 0004630 308.2748  50.7575 15.53168972152956
+1 25544U 98067A   21008.41078817  .00001907  00000-0  42360-4 0  9993
+2 25544  51.6453  53.0183 0000571 194.6399 179.4598 15.49269883263830
 </string>
 		</dict>
 	</dict>
 	<key>version</key>
-	<string>6.31</string>
+	<string>6.51</string>
 </dict>
 </plist>

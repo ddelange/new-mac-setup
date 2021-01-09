@@ -1,12 +1,17 @@
 export PATH="/usr/local/sbin:/usr/local/bin:$PATH"
-export PATH="/usr/local/opt/ruby/bin:/usr/local/lib/ruby/gems/2.7.0/bin:$PATH"  # homebrew ruby first in PATH
 export PATH="${HOME}/.cargo/bin:$PATH"  # rust binary installation path
+# keg-only installs
+export PATH="/usr/local/opt/ruby/bin:/usr/local/lib/ruby/gems/2.7.0/bin:$PATH"
+export PATH="/usr/local/opt/icu4c/bin:/usr/local/opt/icu4c/sbin:$PATH"
+export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:/usr/local/opt/icu4c/lib/pkgconfig"
 export PATH="/Library/TeX/texbin:$PATH"  # mactex binary installation path (brew cask install mactex)
 
 # bash completion and integration
 
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
+# init zoxide (rust) when available
+eval "$(zoxide init bash)" || true
 
 
 # pyenv direnv
@@ -14,7 +19,7 @@ test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shel
 eval "$(pyenv init -)"
 eval "$(direnv hook bash)"
 eval "$(pyenv virtualenv-init -)"
-export PROMPT_COMMAND='_pyenv_virtualenv_hook;_direnv_hook;__bp_precmd_invoke_cmd;__bp_interactive_mode;history -a;history -c;history -r'
+export PROMPT_COMMAND='_pyenv_virtualenv_hook;_direnv_hook;history -a;history -c;history -r'
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 
 pyenv activate vv
@@ -30,6 +35,7 @@ export CXX="/usr/local/bin/g++-8"
 # export HOMEBREW_CC="/usr/local/bin/gcc-8"
 # export HOMEBREW_CXX="/usr/local/bin/g++-8"
 export GPG_TTY=$(tty)
+export BASH_SILENCE_DEPRECATION_WARNING=1
 
 
 # aliases
@@ -162,7 +168,11 @@ kubebranch() {
 generate_password() {
   local defaultsize=42
   ((test -n "${1:-$defaultsize}" && test "${1:-$defaultsize}" -ge 0) && \
-  pwgen -s -N 3 -cny ${1:-$defaultsize}) 2>&-;
+  #  -y or --symbols
+  #  Include at least one special symbol in the password
+  #  -B or --ambiguous
+  #  Don't include ambiguous characters in the password
+  pwgen -s -N 3 -cnBy -r ";'\`\"\|\#\$\&" ${1:-$defaultsize}) 2>&-;
 };
 
 # run last modified py file in home directory
