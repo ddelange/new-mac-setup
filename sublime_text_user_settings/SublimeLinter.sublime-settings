@@ -33,7 +33,7 @@
                 "--ignore=D10,E203,E501,W503",
                 "--max-line-length=88",
                 "--select=A,B,C4,D,E,F,M,Q,T,W,ABS,BLK",
-                "--inline-quotes=\"",
+                "--inline-quotes=double",
                 "--docstring-convention=google",
                 "--exclude=.git,__pycache__,.direnv,node_modules",
             ],

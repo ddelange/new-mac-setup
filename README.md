@@ -141,9 +141,9 @@ brew doctor
 
 # and some essentials
 # - ruby, gcc-8 are linked in `.bash_profile`
-# - node installs npm
+# - node@12 (LTS at time of writing) installs npm
 brew install \
-  git git-lfs bash-completion rsync curl openssl readline automake xz zlib \
+  git git-lfs gitmoji bash-completion rsync curl openssl readline automake xz zlib \
   osxfuse sshfs htop ncdu direnv pwgen \
   gcc@8 rust ruby node@12 sqlite3
 # check out caveats from command above!
@@ -175,7 +175,7 @@ alias ll="ls --long --sort=age --git --time=modified --time-style=iso"
 #### Casks
 
 ```bash
-# Docker CE - docker.com/community-edition
+# Docker CE - docker.com/community-edition - Open Docker.app manually to install helper and to enable CLI
 brew install --cask docker
 brew install docker-compose
 # PostgresApp - postgresapp.com
@@ -192,7 +192,7 @@ brew install --cask private-internet-access
 brew install --cask tunnelblick
 # The Unarchiver - theunarchiver.com
 brew install --cask the-unarchiver
-# f.lux - justgetflux.com
+# f.lux - justgetflux.com - In Preferences/Sessions, tick 'Allow Dispklay Sleep'
 brew install --cask flux
 # VLC - videolan.org/vlc
 brew install --cask vlc
@@ -290,9 +290,9 @@ Note: first open Chrome for the first time
   pyenv install-latest 3.8
   pyenv global $(pyenv install-latest --print 3.7) $(pyenv install-latest --print 2.7)  # set default versions: prefer py3 over py2
   source ~/.bash_profile  # make them visible
-  pip2.7 install --upgrade pip setuptools wheel Cython
-  pip3.7 install --upgrade pip setuptools wheel Cython
-  pip3.8 install --upgrade pip setuptools wheel Cython
+  pip2.7 install wheel Cython
+  pip3.7 install wheel Cython
+  pip3.8 install wheel Cython
   # install virtualenv 'vv' based latest pyenv Python version 3.7, inheriting installed packages
   pyenv virtualenv $(pyenv install-latest --print 3.7) --system-site-packages vv
   pyenv virtualenv $(pyenv install-latest --print 2.7) --system-site-packages vv27
@@ -318,7 +318,11 @@ Note: first open Chrome for the first time
   git config --global user.email "14880945+ddelange@users.noreply.github.com"  # https://github.com/settings/emails
   git config --global credential.helper osxkeychain
 
+  # EITHER
   curl -sLw "\n" "http://gitignore.io/api/macos,python,django,sublimetext" >> ~/.gitignore  # for all possibilities see http://gitignore.io/api/list
+  # OR
+  cp .gitignore.global ~/.gitignore
+
   git config --global core.excludesfile "~/.gitignore"
   ```
 - Note: it's advised to add [commit signature verification](https://help.github.com/en/articles/managing-commit-signature-verification) to Git.
@@ -391,7 +395,7 @@ git config --global difftool.icdiff.cmd 'icdiff --highlight --line-numbers --num
 
 ##### Mergetool
 
-On failed automatic merge, use Sublime Merge GUI for conflict resolution using `git mergetool` or `git mt` (see below).
+On failed automatic merge, use Sublime Merge GUI for conflict resolution using `git mergetool` or `git mt` (see above).
 ```bash
 git config --global mergetool.smerge.cmd 'smerge mergetool "$BASE" "$LOCAL" "$REMOTE" -o "$MERGED"'
 git config --global mergetool.smerge.trustExitCode true

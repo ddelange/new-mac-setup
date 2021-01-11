@@ -1,3 +1,4 @@
+# homebrew
 export PATH="/usr/local/sbin:/usr/local/bin:$PATH"
 export PATH="${HOME}/.cargo/bin:$PATH"  # rust binary installation path
 # keg-only installs
@@ -6,12 +7,23 @@ export PATH="/usr/local/opt/icu4c/bin:/usr/local/opt/icu4c/sbin:$PATH"
 export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:/usr/local/opt/icu4c/lib/pkgconfig"
 export PATH="/Library/TeX/texbin:$PATH"  # mactex binary installation path (brew cask install mactex)
 
-# bash completion and integration
+# homebrew bash completion https://docs.brew.sh/Shell-Completion#configuring-completions-in-bash
+if type brew &>/dev/null; then
+  HOMEBREW_PREFIX="$(brew --prefix)"
+  if [[ -r "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh" ]]; then
+    source "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh"
+  else
+    for COMPLETION in "${HOMEBREW_PREFIX}/etc/bash_completion.d/"*; do
+      [[ -r "$COMPLETION" ]] && source "$COMPLETION"
+    done
+  fi
+fi
 
-[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
+# iterm integration
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 # init zoxide (rust) when available
 eval "$(zoxide init bash)" || true
+
 
 
 # pyenv direnv
