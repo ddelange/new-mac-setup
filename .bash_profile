@@ -72,6 +72,20 @@ alias git-summary='~/git/git-summary/git-summary'
 alias s='subl'
 alias sm='smerge'
 alias xdg-open='open'
+alias envls='pyenv virtualenvs'
+alias i="ipython -i -c '
+# just make sure to use escaped double quotes
+import os, numpy as np, pandas as pd
+from pathlib import Path
+here = Path(\".\").resolve()
+
+# hotreload imports on each prompt
+%load_ext autoreload
+%autoreload 2
+
+# pip install ipython-autotime
+%load_ext autotime
+'"
 
 
 
@@ -96,6 +110,7 @@ export CLICOLOR=1
 export LSCOLORS=ExFxBxDxCxegedabagacad
 PS1="⨊  𝕯𝓭𝓵:\[\033[36m\]\w\[\033[m\]$ "  # ⚛ ⨊ 𝓓𝔇𝒟ℓℒ㎗ 🍺 ℵ ∯ ∰ ∞
 # add working dir to tab name https://gist.github.com/phette23/5270658
+# superceded by https://iterm2.com/documentation-badges.html
 #if [ $ITERM_SESSION_ID ]; then
 #  export PROMPT_COMMAND='echo -ne "\033];${PWD##*/}\007"; ':"$PROMPT_COMMAND";
 #fi

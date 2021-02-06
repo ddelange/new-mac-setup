@@ -322,6 +322,18 @@ Maximize Active Pane</string>
 				<key>Red Component</key>
 				<real>1</real>
 			</dict>
+			<key>Badge Font</key>
+			<string>InconsolataLGCNerdFontComplete-Bold</string>
+			<key>Badge Max Height</key>
+			<real>0.040000000000000001</real>
+			<key>Badge Max Width</key>
+			<real>0.5</real>
+			<key>Badge Right Margin</key>
+			<real>10</real>
+			<key>Badge Text</key>
+			<string>(\(jobPid)) \(rows)x\(columns)</string>
+			<key>Badge Top Margin</key>
+			<real>10</real>
 			<key>Blinking Cursor</key>
 			<false/>
 			<key>Blur</key>
@@ -758,6 +770,8 @@ Maximize Active Pane</string>
 			<array/>
 			<key>Terminal Type</key>
 			<string>xterm-256color</string>
+			<key>Title Components</key>
+			<integer>3</integer>
 			<key>Transparency</key>
 			<real>0.0</real>
 			<key>Unlimited Scrollback</key>
