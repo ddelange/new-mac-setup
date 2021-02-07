@@ -72,12 +72,19 @@ alias git-summary='~/git/git-summary/git-summary'
 alias s='subl'
 alias sm='smerge'
 alias xdg-open='open'
-alias envls='pyenv virtualenvs'
-alias i="ipython -i -c '
+alias pyenvls='pyenv virtualenvs | grep --invert-match "/envs/"'
+alias i="
+python -c 'import autotime, ipdb' || pip install ipython-autotime ipdb
+
+ipython -i -c '
 # just make sure to use escaped double quotes
-import os, numpy as np, pandas as pd
+import os, logging, numpy as np, pandas as pd
 from pathlib import Path
 here = Path(\".\").resolve()
+
+# set to WARNING by default
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 # hotreload imports on each prompt
 %load_ext autoreload
@@ -86,6 +93,7 @@ here = Path(\".\").resolve()
 # pip install ipython-autotime
 %load_ext autotime
 '"
+export PYTHONBREAKPOINT=ipdb.set_trace
 
 
 

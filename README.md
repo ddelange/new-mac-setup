@@ -27,6 +27,9 @@ https://github.com/naokazuterada/MarkdownTOC#usage -->
   - [Git with 2FA](#git-with-2fa)
       - [Mac OSX specifics](#mac-osx-specifics)
       - [Aliases](#aliases)
+        - [Shorthands](#shorthands)
+        - [Cleaning](#cleaning)
+        - [Rewriting history](#rewriting-history)
       - [Split diff](#split-diff)
       - [Mergetool](#mergetool)
   - [Cleanup \(different options\)](#cleanup-different-options)
@@ -359,34 +362,69 @@ git config --global push.followTags true # https://git-scm.com/docs/git-config#D
 
 ##### Aliases
 
+Some of these aliases depend on one another, in which case it's noted in the comments.
+
+###### Shorthands
 ```bash
-git config --global alias.st "status"
-git config --global alias.cm "commit"
-git config --global alias.ca "commit -am"
-git config --global alias.cap '! f() { git commit -am "$@" && git push --set-upstream origin "$(git rev-parse --abbrev-ref HEAD)"; }; f'
-git config --global alias.camend "commit --amend -am"
-git config --global alias.amend "commit --amend --no-edit -a"
 git config --global alias.br "branch"
+git config --global alias.ca "commit -am"
+git config --global alias.cm "commit"
 git config --global alias.co "checkout"
 git config --global alias.mt "mergetool"
-git config --global alias.lg "log --graph --decorate --pretty=oneline --abbrev-commit"
-git config --global alias.fp "fetch -p --all"  # purge and fetch all remotes
-git config --global alias.defaultbranch '! f() { echo $(git remote show origin | grep "HEAD branch" | cut -d ":" -f 2 | xargs); }; f'  # https://stackoverflow.com/questions/28666357#comment101797372_50056710
-git config --global alias.df '! f() { git icdiff --color=always "$@" | less -eR; }; f'  # no FX (keep output in terminal)
-git config --global alias.pr '! git push --set-upstream origin "$(git rev-parse --abbrev-ref HEAD)"'  # push a new branch. will be overwritten if git-extras is installed
-git config --global alias.dm '! git fetch -p && for branch in `git branch -vv | grep '"': gone] ' | awk '"'{print $1}'"'"'`; do git branch -D $branch; done'  # 'delete merged' - local branches that have been deleted on remote
-git config --global alias.gg '! f() { git checkout "${1:-$(git defaultbranch)}" && git dm && git pull; }; f'  # git gg develop -- no arg: defaultbranch. Return to default branch (or specified branch), delete merged, pull branch
-git config --global alias.pall '! f() {     START=$(git branch | grep "\*" | sed "s/^.//");     for i in $(git branch | sed "s/^.//"); do         git checkout $i;         git pull || break;     done;     git checkout $START; }; f'  # 'pull all' - pull local branches that have been updated on remote
-git config --global alias.undo '! f() { git reset --hard $(git rev-parse --abbrev-ref HEAD)@{${1-1}}; }; f'  # https://megakemp.com/2016/08/25/git-undo/
-git config --global alias.squashlast '"!f(){ git reset --soft HEAD~${1} && git commit --edit -m\"$(git log --format=%B --reverse HEAD..HEAD@{1})\"; };f"' # Squash the last x commits; will prompt you with auto-squashed commit messages
+git config --global alias.st "status"
+# split diff - needs icdiff (see below) - use `git icdiff` to keep output in terminal after less quits
+git config --global alias.df '! f() { diff=$(git icdiff --color=always "$@") && test "$diff" && echo "$diff" | less -eR; }; f'
+# who needs the default verbose git log? - also try `git lg --all`
+git config --global alias.lg "log --graph --oneline"
+# tested with GitHub remote - ref https://stackoverflow.com/questions/28666357#comment101797372_50056710
+git config --global alias.defaultbranch '! f() { echo $(git remote show origin | grep "HEAD branch" | cut -d ":" -f 2 | xargs); }; f'
+# summary of all configured aliases
 git config --global alias.alias "! git config --get-regexp '^alias\.' | sed -e s/^alias\.// | grep -v ^'alias ' | sed 's/ /#/' | column -ts#"
+# "commit all & push" - needs ca,pr - usage `git cap 'Fix bug'` - runs autoformatting pre-commit hooks, commits all modified tracked files with message, and push
+git config --global alias.cap '! f() { git ca "$@" && git pr; }; f'
+# "pull request" - push new or existing branch skipping the usual --set-upstream error - alias will be overwritten when git-extras is installed
+git config --global alias.pr '! git push --set-upstream origin "$(git rev-parse --abbrev-ref HEAD)"'
+```
+
+###### Cleaning
+```bash
+# "delete merged" - delete all local branches (-D) that have been deleted (merged) on remote
+git config --global alias.dm '! git fetch -p && for branch in `git branch -vv | grep '"': gone] ' | awk '"'{print $1}'"'"'`; do git branch -D $branch; done'
+# "fetch purge" - before fetching, remove any remote-tracking references that no longer exist on the remote
+git config --global alias.fp "fetch -p --all"
+# "rinse & repeat" - needs defaultbranch,dm - usage `git gg [develop]` - return to default branch (or specified branch), delete merged and pull
+git config --global alias.gg '! f() { git checkout "${1:-$(git defaultbranch)}" && git dm && git pull; }; f'
+# "pull all" - pull all local branches and return to original branch
+git config --global alias.pall '! f() { \
+START=$(git branch | grep "\*" | sed "s/^.//"); \
+for i in $(git branch | sed "s/^.//"); do \
+  git checkout $i; \
+  git pull || break; \
+done; \
+git checkout $START; \
+}; f'
+```
+
+###### Rewriting history
+```bash
+# "commit all amend" last commit, adding all modified tracked files to the it without editing the commit message
+git config --global alias.amend "commit --amend --no-edit -a"
+# "commit all amend with message" - add all modified tracked files to the last commit with a new commit message
+git config --global alias.camend "commit --amend -am"
+# "squash last" X commits - allowing to edit a pre-generated commit message before committing - known caveat: when trying to squash into an initial commit, the reset fails
+git config --global alias.squashlast '"!f(){ git reset --soft HEAD~${1} && git commit --edit -m\"$(git log --format=%B --reverse HEAD..HEAD@{1})\"; };f"'
+# "undo" whatever you did last, for instance an erroneous squashlast - ref https://megakemp.com/2016/08/25/git-undo/
+git config --global alias.undo '! f() { git reset --hard $(git rev-parse --abbrev-ref HEAD)@{${1-1}}; }; f'
 ```
 
 
 ##### Split diff
 
+- `git df` (above) uses less that keeps a clean terminal
+- `git icdiff` (below) uses new core.pager that leaves less output in terminal after exiting
+
 ```bash
-pip install git+https://github.com/jeffkaufman/icdiff.git  # usage: 'git df' using 'less' or 'git icdiff' without 'less'
+pip install git+https://github.com/jeffkaufman/icdiff.git
 git config --global --replace-all core.pager 'less -+$LESS -eFRSX'  # with double quotes, $ will be evaluated
 git config --global icdiff.options "--highlight --line-numbers --numlines=3"
 git config --global difftool.icdiff.cmd 'icdiff --highlight --line-numbers --numlines=3 $LOCAL $REMOTE'
