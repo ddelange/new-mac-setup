@@ -83,7 +83,6 @@ defaults write com.google.Chrome NSRequiresAquaSystemAppearance -bool yes
   - Under `Shortcuts`, tick `Use keyboard navigation to move focus between controls` on the bottom
   - Under `Input Sources`, set keyboard layout to U.S. (remove U.S. International)
   - Under `Touch Bar shows`, choose `Expanded Control Strip`
-- `System Preferences/Keyboard/`
 - `System Preferences/Security & Privacy/`
   - Under `FileVault`, turn on FileVault
 - `System Preferences/Accessibility/`
@@ -144,14 +143,14 @@ brew doctor
 
 # and some essentials
 # - ruby, gcc-8 are linked in `.bash_profile`
-# - node@12 (LTS at time of writing) installs npm
+# - node@14 (LTS at time of writing) installs npm
 brew install \
   git git-lfs gitmoji bash-completion rsync curl openssl readline automake xz zlib \
   osxfuse sshfs htop ncdu direnv pwgen \
-  gcc@8 rust ruby node@12 sqlite3
+  gcc@8 rust ruby node@14 sqlite3
 # check out caveats from command above!
 # npm installs yarn
-PATH="/usr/local/opt/node@12/bin:$PATH" npm install -g yarn
+PATH="/usr/local/opt/node@14/bin:$PATH" npm install -g yarn
 ```
 
 
@@ -181,8 +180,6 @@ alias ll="ls --long --sort=age --git --time=modified --time-style=iso"
 # Docker CE - docker.com/community-edition - Open Docker.app manually to install helper and to enable CLI
 brew install --cask docker
 brew install docker-compose
-# PostgresApp - postgresapp.com
-brew install --cask postgres
 # Sublime Text - sublimetext.com
 brew install --cask sublime-text
 # Sublime Merge - sublimemerge.com
@@ -200,7 +197,7 @@ brew install --cask flux
 # VLC - videolan.org/vlc
 brew install --cask vlc
 # Slack - slack.com
-brew install --cask slack
+# brew install --cask slack
 # Zoom.us - zoom.us
 brew install --cask zoom
 # Whatsapp - whatsapp.com
@@ -209,6 +206,10 @@ brew install --cask zoom
 # brew install --cask dropbox
 # Authy - authy.com - Set Master Password in preferences after init
 brew install --cask authy
+# Jitsi Meet - jit.si
+brew install --cask jitsi-meet
+# Maccy - maccy.app
+brew install --cask maccy
 ```
 
 
@@ -234,8 +235,6 @@ mas install 411643860
 mas install 937984704
 # Telegram - macos.telegram.org - set password and enter behaviour after init
 mas install 747648890
-# Copyclip - fiplab.com/apps/copyclip-for-mac
-mas install 595191960
 ```
 
 
@@ -288,18 +287,13 @@ Note: first open Chrome for the first time
   git clone git://github.com/concordusapps/pyenv-implict.git "$(pyenv root)"/plugins/pyenv-implict
   # list all available python versions
   pyenv install -l | grep '^\s*[0-9]'
-  pyenv install-latest 2.7
-  pyenv install-latest 3.7
-  pyenv install-latest 3.8
-  pyenv global $(pyenv install-latest --print 3.7) $(pyenv install-latest --print 2.7)  # set default versions: prefer py3 over py2
-  source ~/.bash_profile  # make them visible
-  pip2.7 install wheel Cython
-  pip3.7 install wheel Cython
-  pip3.8 install wheel Cython
+  pyenv install-latest 2
+  pyenv install-latest 3
+  pyenv versions  # see currently installed versions
+  pyenv global $(pyenv install-latest --print 3.8) $(pyenv install-latest --print 2)  # set default versions: prefer py3 over py2
   # install virtualenv 'vv' based latest pyenv Python version 3.7, inheriting installed packages
-  pyenv virtualenv $(pyenv install-latest --print 3.7) --system-site-packages vv
-  pyenv virtualenv $(pyenv install-latest --print 2.7) --system-site-packages vv27
-  pyenv virtualenv $(pyenv install-latest --print 3.8) --system-site-packages vv38
+  pyenv virtualenv $(pyenv install-latest --print 3.8) --system-site-packages vv
+  pyenv virtualenv $(pyenv install-latest --print 2) --system-site-packages vv27
   ```
 - Manage envs
   ```bash
@@ -357,6 +351,7 @@ git config --global core.untrackedCache true  # https://git-scm.com/docs/git-upd
 git config --global merge.log true  # Include summaries of merged commits in newly created merge commit messages
 git config --global push.default "simple" # https://git-scm.com/docs/git-config#Documentation/git-config.txt-pushdefault
 git config --global push.followTags true # https://git-scm.com/docs/git-config#Documentation/git-config.txt-pushfollowTags
+git config --global init.defaultBranch master
 ```
 
 
@@ -412,7 +407,7 @@ git config --global alias.amend "commit --amend --no-edit -a"
 # "commit all amend with message" - add all modified tracked files to the last commit with a new commit message
 git config --global alias.camend "commit --amend -am"
 # "squash last" X commits - allowing to edit a pre-generated commit message before committing - known caveat: when trying to squash into an initial commit, the reset fails
-git config --global alias.squashlast '"!f(){ git reset --soft HEAD~${1} && git commit --edit -m\"$(git log --format=%B --reverse HEAD..HEAD@{1})\"; };f"'
+git config --global alias.squashlast '!f(){ git reset --soft HEAD~${1} && git commit --edit -m\"$(git log --format=%B --reverse HEAD..HEAD@{1})\"; };f'
 # "undo" whatever you did last, for instance an erroneous squashlast - ref https://megakemp.com/2016/08/25/git-undo/
 git config --global alias.undo '! f() { git reset --hard $(git rev-parse --abbrev-ref HEAD)@{${1-1}}; }; f'
 ```

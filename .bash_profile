@@ -28,6 +28,9 @@ eval "$(zoxide init bash)" || true
 
 # pyenv direnv
 
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
 eval "$(direnv hook bash)"
 eval "$(pyenv virtualenv-init -)"
@@ -74,13 +77,16 @@ alias sm='smerge'
 alias xdg-open='open'
 alias pyenvls='pyenv virtualenvs | grep --invert-match "/envs/"'
 alias i="
-python -c 'import autotime, ipdb' || pip install ipython-autotime ipdb
+python -c 'import autotime, ipdb, pandas, rich' || pip install ipython-autotime ipdb pandas rich
 
 ipython -i -c '
 # just make sure to use escaped double quotes
 import os, logging, numpy as np, pandas as pd
 from pathlib import Path
 here = Path(\".\").resolve()
+
+from rich import pretty
+pretty.install()
 
 # set to WARNING by default
 logging.basicConfig(level=logging.INFO)
@@ -126,6 +132,7 @@ PS1="⨊  𝕯𝓭𝓵:\[\033[36m\]\w\[\033[m\]$ "  # ⚛ ⨊ 𝓓𝔇𝒟ℓℒ
 
 # functions
 
+alias kubetop="watch -n4 ~/git/kubetop.py"
 # https://gist.github.com/ddelange/24575a702a10c2cb6348c4c7f342e0eb
 kubelogs() {
   # View logs as they come in (like in Rancher) using mktemp and less -r +F.
@@ -170,7 +177,7 @@ kubebash() {
       echo "Pod \"${pod}\" not found in namespace \"${namespace}\""
       return
   fi
-  kubectl exec -ti --kubeconfig ${KUBECONFIG:-"$HOME/.kube/config"} --namespace ${namespace} ${podname} bash
+  kubectl exec -ti --kubeconfig ${KUBECONFIG:-"$HOME/.kube/config"} --namespace ${namespace} ${podname} -- bash
 }
 
 kubebranch() {

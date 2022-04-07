@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>build</key>
-	<string>1157</string>
+	<string>1185</string>
 	<key>preferences</key>
 	<dict>
 		<key>Battery_MenubarCustomizeStates</key>
@@ -47,6 +47,21 @@
 				<string>13826F2E-E87A-4185-8D7B-18C04A1AC6FD</string>
 			</dict>
 		</array>
+		<key>Battery_MenubarModeNotCharging</key>
+		<array>
+			<dict>
+				<key>key</key>
+				<string>3</string>
+				<key>uuid</key>
+				<string>598A3F79-46ED-49C6-9A8F-76EFB56F06D3</string>
+			</dict>
+			<dict>
+				<key>key</key>
+				<string>7</string>
+				<key>uuid</key>
+				<string>567A3CFA-A25B-4180-AEA6-2226EC00FA39</string>
+			</dict>
+		</array>
 		<key>CPU_DropdownOrderDisabled</key>
 		<string></string>
 		<key>CPU_MenubarCombineCores</key>
@@ -66,6 +81,10 @@
 		</array>
 		<key>CPU_ProcessCount</key>
 		<integer>10</integer>
+		<key>Disks_DropdownActivityDisplayMode</key>
+		<integer>1</integer>
+		<key>Disks_DropdownOrderDisabled</key>
+		<string></string>
 		<key>Disks_MenubarItems</key>
 		<array>
 			<dict>
@@ -88,7 +107,7 @@
 		<array>
 			<dict>
 				<key>model</key>
-				<string>MacBookPro16,2</string>
+				<string>MacBookPro10,1</string>
 				<key>name</key>
 				<string>Medium</string>
 				<key>speeds</key>
@@ -98,7 +117,7 @@
 			</dict>
 			<dict>
 				<key>model</key>
-				<string>MacBookPro16,2</string>
+				<string>MacBookPro10,1</string>
 				<key>name</key>
 				<string>High</string>
 				<key>speeds</key>
@@ -130,6 +149,8 @@
 		<true/>
 		<key>Migrated_6.5</key>
 		<true/>
+		<key>Migrated_6.52</key>
+		<true/>
 		<key>Network_AppSort</key>
 		<integer>0</integer>
 		<key>Network_DecimalLevelKB</key>
@@ -146,13 +167,13 @@
 				<key>key</key>
 				<string>1</string>
 				<key>uuid</key>
-				<string>433959A1-4630-49B3-838C-357A133678AC</string>
+				<string>58BABB0F-B45F-42B8-A98A-F77172FE83AD</string>
 			</dict>
 			<dict>
 				<key>key</key>
 				<string>0</string>
 				<key>uuid</key>
-				<string>9F3571D4-A808-4F3C-8E53-8635BDBEBBEB</string>
+				<string>8509E2F7-8D0D-44A3-9E8B-9C5A8B91AF28</string>
 			</dict>
 		</array>
 		<key>Network_ProcessCount</key>
@@ -204,7 +225,7 @@
 				<key>key</key>
 				<string>0</string>
 				<key>uuid</key>
-				<string>3F04CCE5-DBCE-47E6-A8B5-479025158D23</string>
+				<string>C0559556-198A-4796-8CEB-665B90A4F0B9</string>
 			</dict>
 		</array>
 		<key>StatusItems-Order</key>
@@ -243,15 +264,14 @@
 		<key>Zarya-TLE</key>
 		<dict>
 			<key>time</key>
-			<real>1610120405.9910491</real>
+			<real>1649317915.9197631</real>
 			<key>tle</key>
-			<string>ISS (ZARYA)
-1 25544U 98067A   21008.41078817  .00001907  00000-0  42360-4 0  9993
-2 25544  51.6453  53.0183 0000571 194.6399 179.4598 15.49269883263830
-</string>
+			<string>ISS (ZARYA)             
+1 25544U 98067A   22097.02427676  .00011708  00000+0  21342-3 0  9995
+2 25544  51.6453 329.0557 0004559 356.4183 147.1455 15.49913292334147</string>
 		</dict>
 	</dict>
 	<key>version</key>
-	<string>6.51</string>
+	<string>6.61</string>
 </dict>
 </plist>
