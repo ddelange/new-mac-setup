@@ -312,7 +312,7 @@ Note: first open Chrome for the first time
 - Use built-in keychain and app password from above, and add a Mac specific global gitignore:
   ```bash
   git config --global user.name "ddelange"
-  git config --global user.email "14880945+ddelange@users.noreply.github.com"  # https://github.com/settings/emails
+  git config --global user.email "ddelange@users.noreply.github.com"
   git config --global credential.helper osxkeychain
 
   # EITHER
@@ -331,6 +331,7 @@ Note: first open Chrome for the first time
   gpg --armor --export <key-here>  # paste this key at github.com/settings/keys
   git config --global user.signingkey <key-here>
   git config --global commit.gpgsign true
+  git config --global gpg.program "$(which gpg)"
   # sign tags using git tag -s
   ```
 - To [enable password caching](https://stackoverflow.com/a/38422272/5511061) for 1 week:
@@ -368,7 +369,7 @@ git config --global alias.co "checkout"
 git config --global alias.mt "mergetool"
 git config --global alias.st "status"
 # split diff - needs icdiff (see below) - use `git icdiff` to keep output in terminal after less quits
-git config --global alias.df '! f() { diff=$(git icdiff --color=always "$@") && test "$diff" && echo "$diff" | less -eR; }; f'
+git config --global alias.df '! f() { diff=$(git difft "$@") && test "$diff" && echo "$diff" | less -eR; }; f'
 # who needs the default verbose git log? - also try `git lg --all`
 git config --global alias.lg "log --graph --oneline"
 # tested with GitHub remote - ref https://stackoverflow.com/questions/28666357#comment101797372_50056710
@@ -416,13 +417,20 @@ git config --global alias.undo '! f() { git reset --hard $(git rev-parse --abbre
 ##### Split diff
 
 - `git df` (above) uses less that keeps a clean terminal
-- `git icdiff` (below) uses new core.pager that leaves less output in terminal after exiting
+- `git icdiff` and `git difft` (below) uses new core.pager that leaves less output in terminal after exiting
 
 ```bash
-pip install git+https://github.com/jeffkaufman/icdiff.git
 git config --global --replace-all core.pager 'less -+$LESS -eFRSX'  # with double quotes, $ will be evaluated
-git config --global icdiff.options "--highlight --line-numbers --numlines=3"
-git config --global difftool.icdiff.cmd 'icdiff --highlight --line-numbers --numlines=3 $LOCAL $REMOTE'
+
+# with diff highlighting
+pip install git+https://github.com/jeffkaufman/icdiff.git  # installs git-icdiff for `git icdiff``
+git config --global icdiff.options "--highlight --line-numbers --numlines=3 --color=always"
+git config --global difftool.icdiff.cmd 'icdiff --highlight --line-numbers --numlines=3 --color=always $LOCAL $REMOTE'
+
+# with syntax & diff highlighting
+brew install difftastic
+git config --global difftool.difft.cmd 'difft --display=side-by-side-show-both --color=always --background=light "$LOCAL" "$REMOTE"'
+git config --global alias.difft 'difftool --tool difft --no-prompt'
 ```
 
 

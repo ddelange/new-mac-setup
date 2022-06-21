@@ -132,7 +132,7 @@ PS1="⨊  𝕯𝓭𝓵:\[\033[36m\]\w\[\033[m\]$ "  # ⚛ ⨊ 𝓓𝔇𝒟ℓℒ
 
 # functions
 
-alias kubetop="watch -n4 ~/git/kubetop.py"
+alias kubetop="watch -n4 python ~/git/kubetop.py"
 # https://gist.github.com/ddelange/24575a702a10c2cb6348c4c7f342e0eb
 kubelogs() {
   # View logs as they come in (like in Rancher) using mktemp and less -r +F.
