@@ -132,6 +132,12 @@ PS1="⨊  𝕯𝓭𝓵:\[\033[36m\]\w\[\033[m\]$ "  # ⚛ ⨊ 𝓓𝔇𝒟ℓℒ
 
 # functions
 
+# https://stackoverflow.com/a/73108928/5511061
+dockersize() { docker manifest inspect -v "$1" | jq -c 'if type == "array" then .[] else . end' |  jq -r '[ ( .Descriptor.platform | [ .os, .architecture, .variant, ."os.version" ] | del(..|nulls) | join("/") ), ( [ .SchemaV2Manifest.layers[].size ] | add ) ] | join(" ")' | numfmt --to iec --format '%.2f' --field 2 | column -t ; }
+export -f dockersize
+clusterimages() { kubectl get po -A -o json | jq -cr '.items[].spec.containers[].image' | grep -o '^[^@]\+' | sort -u | xargs -I _ bash -c 'echo - _ && dockersize _' ; }
+export -f clusterimages
+
 alias kubetop="watch -n4 python ~/git/kubetop.py"
 # https://gist.github.com/ddelange/24575a702a10c2cb6348c4c7f342e0eb
 kubelogs() {
@@ -162,6 +168,7 @@ kubelogs() {
   echo "Waiting ${sleep_amount}s for logs to download"
   sleep ${sleep_amount} && less -rf +F ${tmpfile} && kill ${k8s_log_pid} && echo "kubectl logs pid ${k8s_log_pid} killed"
 }
+export -f kubelogs
 
 kubebash() {
   # Execute a bash shell in a pod
@@ -179,6 +186,7 @@ kubebash() {
   fi
   kubectl exec -ti --kubeconfig ${KUBECONFIG:-"$HOME/.kube/config"} --namespace ${namespace} ${podname} -- bash
 }
+export -f kubebash
 
 kubebranch() {
   # View a list of current branch[es] deployed for namespace [+ pod]
@@ -204,6 +212,7 @@ kubebranch() {
     kubectl get deployments --kubeconfig ${KUBECONFIG:-"$HOME/.kube/config"} --namespace ${namespace} -o wide | sed -n '1!p' | awk '{print $1 "\t" $8}' | uniq | tr ":" "\t" | column  -t
   fi
 }
+export -f kubebranch
 
 # generate 3 safe random passwords with default length 42
 # takes one argument (pw length)
