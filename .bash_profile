@@ -85,7 +85,7 @@ import os, logging, numpy as np, pandas as pd
 from pathlib import Path
 here = Path(\".\").resolve()
 
-from rich import pretty
+from rich import pretty, print
 pretty.install()
 
 # set to WARNING by default
@@ -133,12 +133,13 @@ PS1="⨊  𝕯𝓭𝓵:\[\033[36m\]\w\[\033[m\]$ "  # ⚛ ⨊ 𝓓𝔇𝒟ℓℒ
 # functions
 
 # https://stackoverflow.com/a/73108928/5511061
-dockersize() { docker manifest inspect -v "$1" | jq -c 'if type == "array" then .[] else . end' |  jq -r '[ ( .Descriptor.platform | [ .os, .architecture, .variant, ."os.version" ] | del(..|nulls) | join("/") ), ( [ .SchemaV2Manifest.layers[].size ] | add ) ] | join(" ")' | numfmt --to iec --format '%.2f' --field 2 | column -t ; }
+dockersize() { docker manifest inspect -v "$1" | jq -c 'if type == "array" then .[] else . end' |  jq -r '[ ( .Descriptor.platform | [ .os, .architecture, .variant, ."os.version" ] | del(..|nulls) | join("/") ), ( [ .SchemaV2Manifest.layers[].size ] | add ) ] | join(" ")' | numfmt --to iec --format '%.2f' --field 2 | sort | column -t ; }
 export -f dockersize
 clusterimages() { kubectl get po -A -o json | jq -cr '.items[].spec.containers[].image' | grep -o '^[^@]\+' | sort -u | xargs -I _ bash -c 'echo - _ && dockersize _' ; }
 export -f clusterimages
 
-alias kubetop="watch -n4 python ~/git/kubetop.py"
+export HIDESYS=1
+alias kubetop="python ~/git/kubetop.py"
 # https://gist.github.com/ddelange/24575a702a10c2cb6348c4c7f342e0eb
 kubelogs() {
   # View logs as they come in (like in Rancher) using mktemp and less -r +F.

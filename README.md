@@ -50,7 +50,7 @@ https://github.com/naokazuterada/MarkdownTOC#usage -->
   ```
   # boot old Mac while holding `T` to go in Target Disk Mode
   # password prompt should pop up
-  rsync -au --progress=info2 <drag src folder> ~/backup
+  rsync -au --progress <drag src folder> ~/backup
   ```
 - Don't forget to take with your whole `.gnupg` folder, `.gitconfig`, `.envrc` etc!
 - Chrome settings/bookmarks are not backed up and are assumed to come from its builtin Sync.
@@ -210,6 +210,8 @@ brew install --cask authy
 brew install --cask jitsi-meet
 # Maccy - maccy.app
 brew install --cask maccy
+# pdflatex - tug.org/mactex/
+brew install --cask mactex-no-gui
 ```
 
 
@@ -285,14 +287,14 @@ Note: first open Chrome for the first time
   # get your favourite python versions - github.com/momo-lab/pyenv-install-latest
   git clone https://github.com/momo-lab/pyenv-install-latest.git "$(pyenv root)"/plugins/pyenv-install-latest
   git clone git://github.com/concordusapps/pyenv-implict.git "$(pyenv root)"/plugins/pyenv-implict
-  # list all available python versions
-  pyenv install -l | grep '^\s*[0-9]'
+  pyenv install -l | grep '^\s*[0-9]' # list all available python versions
   pyenv install-latest 2
   pyenv install-latest 3
   pyenv versions  # see currently installed versions
-  pyenv global $(pyenv install-latest --print 3.8) $(pyenv install-latest --print 2)  # set default versions: prefer py3 over py2
-  # install virtualenv 'vv' based latest pyenv Python version 3.7, inheriting installed packages
-  pyenv virtualenv $(pyenv install-latest --print 3.8) --system-site-packages vv
+  pyenv global $(pyenv install-latest --print 3) $(pyenv install-latest --print 2)  # set default versions: prefer py3 over py2
+  # install virtualenv 'vv' based latest pyenv Python version 3.x, inheriting installed packages
+  pyenv virtualenv $(pyenv install-latest --print 3) --system-site-packages vv
+  # same for 'vv27' with python 2.7.x
   pyenv virtualenv $(pyenv install-latest --print 2) --system-site-packages vv27
   ```
 - Manage envs
@@ -404,9 +406,9 @@ git checkout $START; \
 ###### Rewriting history
 ```bash
 # "commit all amend" last commit, adding all modified tracked files to the it without editing the commit message
-git config --global alias.amend "commit --amend --no-edit -a"
+git config --global alias.amend "commit --amend --reset-author --no-edit -a"
 # "commit all amend with message" - add all modified tracked files to the last commit with a new commit message
-git config --global alias.camend "commit --amend -am"
+git config --global alias.camend "commit --amend --reset-author -am"
 # "squash last" X commits - allowing to edit a pre-generated commit message before committing - known caveat: when trying to squash into an initial commit, the reset fails
 git config --global alias.squashlast '!f(){ git reset --soft HEAD~${1} && git commit --edit -m\"$(git log --format=%B --reverse HEAD..HEAD@{1})\"; };f'
 # "undo" whatever you did last, for instance an erroneous squashlast - ref https://megakemp.com/2016/08/25/git-undo/
