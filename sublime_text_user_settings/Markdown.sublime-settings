@@ -1,13 +1,13 @@
 {
 	"extensions":
 	[
-		"md"
+		"md",
 	],
 	"mde.list_indent_bullets":
 	[
 		"-"
 	],
-    "color_scheme": "Packages/MarkdownEditing/MarkdownEditor.tmTheme",
+    /*"color_scheme": "MarkdownEditor.sublime-color-scheme",*/
     "draw_centered": false,
     "word_wrap": false,
 }

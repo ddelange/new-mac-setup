@@ -1,2 +1,12 @@
 [
+    {
+        "keys": ["primary+alt+p"],
+        "command": "lsp_code_actions",
+        "context": [{"key": "lsp.session_with_capability", "operand": "codeActionProvider"}]
+    },
+    {
+        "keys": ["primary+alt+o"],
+        "command": "lsp_format_document",
+        "context": [{"key": "lsp.session_with_capability", "operand": "documentFormattingProvider | documentRangeFormattingProvider"}]
+    },
 ]

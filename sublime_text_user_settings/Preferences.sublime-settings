@@ -36,21 +36,21 @@
 		"scikit",
 		"Max"
 	],
-	"always_prompt_for_file_reload": true,
+	"always_prompt_for_file_reload": false,
 	"auto_complete_triggers":
 	[
 		{
 			"characters": "<",
-			"selector": "text.html"
+			"selector": "text.html",
 		},
 		{
 			"characters": "\\",
-			"selector": "text.tex.latex"
+			"selector": "text.tex.latex",
 		}
 	],
 	"auto_indent": true,
 	"caret_style": "phase",
-	"color_scheme": "Packages/Color Scheme - Default/Monokai.tmTheme",
+	"color_scheme": "Packages/User/SublimeLinter/Monokai (SL).tmTheme",
 	"dictionary": "Packages/Language - English/en_GB.dic",
 	"draw_indent_guides": true,
 	"ensure_newline_at_eof_on_save": true,
@@ -62,14 +62,13 @@
 		".mypy_cache"
 	],
 	"font_options": "subpixel_antialias",
-	"font_size": 10.0,
+	"font_size": 9,
 	"gitlink_revision_type": "commithash",
 	"highlight_line": true,
 	"highlight_modified_tabs": true,
 	"ignored_packages":
 	[
-		"Markdown",
-		"Vintage"
+		"Vintage",
 	],
 	"ignored_words":
 	[
@@ -86,7 +85,7 @@
 	],
 	"keymaps":
 	{
-		"show_pretty_keys": true
+		"show_pretty_keys": true,
 	},
 	"line_padding_bottom": 1,
 	"line_padding_top": 1,
@@ -104,5 +103,9 @@
 	"smart_indent": false,
 	"tab_size": 4,
 	"translate_tabs_to_spaces": true,
-	"trim_trailing_white_space_on_save": true
+	"trim_trailing_white_space_on_save": true,
+	"theme": "Adaptive.sublime-theme",
+	"dark_theme": "Adaptive.sublime-theme",
+	"light_theme": "Default Dark.sublime-theme",
+	"index_files": true,
 }

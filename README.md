@@ -314,7 +314,7 @@ Note: first open Chrome for the first time
 - Use built-in keychain and app password from above, and add a Mac specific global gitignore:
   ```bash
   git config --global user.name "ddelange"
-  git config --global user.email "ddelange@users.noreply.github.com"
+  git config --global user.email "14880945+ddelange@users.noreply.github.com"  # fetch this from https://github.com/settings/emails
   git config --global credential.helper osxkeychain
 
   # EITHER

@@ -37,7 +37,7 @@ eval "$(pyenv virtualenv-init -)"
 export PROMPT_COMMAND='_pyenv_virtualenv_hook;_direnv_hook;history -a;history -c;history -r'
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 
-pyenv activate vv
+pyenv activate vv311
 
 
 # exports
@@ -77,7 +77,7 @@ alias sm='smerge'
 alias xdg-open='open'
 alias pyenvls='pyenv virtualenvs | grep --invert-match "/envs/"'
 alias i="
-python -c 'import autotime, ipdb, pandas, rich' || pip install ipython-autotime ipdb pandas rich
+python -c 'import autotime, ipdb, pandas, rich' || pip install -U ipython-autotime ipdb pandas rich ipython
 
 ipython -i -c '
 # just make sure to use escaped double quotes
@@ -89,7 +89,7 @@ from rich import pretty, print
 pretty.install()
 
 # set to WARNING by default
-logging.basicConfig(level=logging.INFO)
+logging.basicConfig(level=logging.INFO, format=\"%(asctime)s:%(levelname)-7s %(filename)20s:%(lineno)-4d %(name)s:%(message)s\")
 logger = logging.getLogger(__name__)
 
 # hotreload imports on each prompt
