@@ -24,6 +24,7 @@ https://github.com/naokazuterada/MarkdownTOC#usage -->
     - [Mac App Store \(MAS\)](#mac-app-store-mas)
   - [Backups](#backups)
   - [pyenv and pyenv-virtualenv](#pyenv-and-pyenv-virtualenv)
+  - [Terraform](#terraform)
   - [Git with 2FA](#git-with-2fa)
       - [Mac OSX specifics](#mac-osx-specifics)
       - [Aliases](#aliases)
@@ -147,7 +148,7 @@ brew doctor
 brew install \
   git git-lfs gitmoji bash-completion rsync curl openssl readline automake xz zlib \
   osxfuse sshfs htop ncdu direnv pwgen \
-  gcc@8 rust ruby node@14 sqlite3
+  gcc rust ruby node sqlite3
 # check out caveats from command above!
 # npm installs yarn
 PATH="/usr/local/opt/node@14/bin:$PATH" npm install -g yarn
@@ -249,8 +250,9 @@ Note: first open Chrome for the first time
   mkdir ~/git
   git clone https://github.com/ddelange/new-mac-setup.git ~/git/new-mac-setup
   ln -s ~/git/new-mac-setup/.bash_profile ~/.bash_profile && source ~/.bash_profile
+  ln -s ~/git/.envrc ~/.envrc # tell direnv to look for env vars when entering/leaving ~ (same file works for nested directories in a cumulative fashion)
+  touch ~/.env # fill this one with your secrets/env vars like `export PYENV_VERSION=vv`
   mkdir -p ~/.config/htop && ln -s ~/git/new-mac-setup/htoprc ~/.config/htop/htoprc
-  direnv edit ~  # add `export SECRET=42` to load global env vars  # pragma: allowlist secret
 
   # Sublime Text 3 backup
   # restore
@@ -276,7 +278,7 @@ Note: first open Chrome for the first time
 
 ### [pyenv](https://github.com/pyenv/pyenv/blob/master/COMMANDS.md#command-reference) and [pyenv-virtualenv](https://github.com/pyenv/pyenv-virtualenv#usage)
 
-- Note: pyvenv-virtualenv needs to be initialised in [`~/.bash_profile`](/.bash_profile), or in `~/.bashrc` if both files are [maintained separately](https://github.com/pyenv/pyenv-virtualenv/issues/36#issuecomment-48387008):
+- Note: pyvenv-virtualenv needs to be initialised in [`~/.bash_profile`](/.bash_profile) (already present there in the right order to cooperate with direnv), or in `~/.bashrc` if both files are [maintained separately](https://github.com/pyenv/pyenv-virtualenv/issues/36#issuecomment-48387008):
   ```bash
   eval "$(pyenv init -)"
   if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
@@ -286,7 +288,7 @@ Note: first open Chrome for the first time
   brew install pyenv pyenv-virtualenv
   # get your favourite python versions - github.com/momo-lab/pyenv-install-latest
   git clone https://github.com/momo-lab/pyenv-install-latest.git "$(pyenv root)"/plugins/pyenv-install-latest
-  git clone git://github.com/concordusapps/pyenv-implict.git "$(pyenv root)"/plugins/pyenv-implict
+  git clone https://github.com/concordusapps/pyenv-implict.git "$(pyenv root)"/plugins/pyenv-implict
   pyenv install -l | grep '^\s*[0-9]' # list all available python versions
   pyenv install-latest 2
   pyenv install-latest 3
@@ -305,7 +307,15 @@ Note: first open Chrome for the first time
   pyenv deactivate
   pyenv uninstall <venv-name>
   ```
+- Add an env var like `export PYENV_VERSION=vv` to your direnv `.env` file to automatically activate and deactivate when entering and leaving directories. Works as long as you don't put a dash (`-`) in your venv name.
 
+### Terraform
+
+```bash
+brew install tfenv
+tfenv install
+tfenv use
+```
 
 ### Git with 2FA
 
@@ -320,7 +330,7 @@ Note: first open Chrome for the first time
   # EITHER
   curl -sLw "\n" "http://gitignore.io/api/macos,python,django,sublimetext" >> ~/.gitignore  # for all possibilities see http://gitignore.io/api/list
   # OR
-  cp .gitignore.global ~/.gitignore
+  cp .gitignore.global ~/.gitignore  # can no longer be a symlink on git version 2.32+
 
   git config --global core.excludesfile "~/.gitignore"
   ```
@@ -410,7 +420,7 @@ git config --global alias.amend "commit --amend --reset-author --no-edit -a"
 # "commit all amend with message" - add all modified tracked files to the last commit with a new commit message
 git config --global alias.camend "commit --amend --reset-author -am"
 # "squash last" X commits - allowing to edit a pre-generated commit message before committing - known caveat: when trying to squash into an initial commit, the reset fails
-git config --global alias.squashlast '!f(){ git reset --soft HEAD~${1} && git commit --edit -m\"$(git log --format=%B --reverse HEAD..HEAD@{1})\"; };f'
+git config --global alias.squashlast '!f(){ TEMP_MSG="$(mktemp)" && git log --format=%B HEAD...HEAD~${1} > "${TEMP_MSG}" && git reset --soft HEAD~${1} && git commit -n --edit --file "${TEMP_MSG}"; rm "${TEMP_MSG}"; }; f'
 # "undo" whatever you did last, for instance an erroneous squashlast - ref https://megakemp.com/2016/08/25/git-undo/
 git config --global alias.undo '! f() { git reset --hard $(git rev-parse --abbrev-ref HEAD)@{${1-1}}; }; f'
 ```

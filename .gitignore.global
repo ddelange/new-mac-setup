@@ -232,3 +232,6 @@ GitHub.sublime-settings
 .envrc
 # dotenv
 .env
+
+# ruff
+.ruff_cache

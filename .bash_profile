@@ -30,14 +30,15 @@ eval "$(zoxide init bash)" || true
 
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
+export PROMPT_COMMAND='history -a;history -c;history -r'
 eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
-eval "$(direnv hook bash)"
 eval "$(pyenv virtualenv-init -)"
-export PROMPT_COMMAND='_pyenv_virtualenv_hook;_direnv_hook;history -a;history -c;history -r'
+eval "$(direnv hook bash)"  # direnv hook last so that `export PYENV_VERSION=vv` in local .env is exported first, and gets picked up by pyenv-virtualenv
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 
-pyenv activate vv311
+# add PYENV_VERSION=vv311 to your .env instead (see direnv in README)
+# pyenv activate vv311
 
 
 # exports
@@ -77,11 +78,15 @@ alias sm='smerge'
 alias xdg-open='open'
 alias pyenvls='pyenv virtualenvs | grep --invert-match "/envs/"'
 alias i="
-python -c 'import autotime, ipdb, pandas, rich' || pip install -U ipython-autotime ipdb pandas rich ipython
+uv pip install ipython-autotime ipdb rich ipython pandas~=2.0
 
 ipython -i -c '
 # just make sure to use escaped double quotes
 import os, logging, numpy as np, pandas as pd
+
+# https://pandas.pydata.org/pandas-docs/version/2.1/user_guide/copy_on_write.html
+pd.options.mode.copy_on_write = True
+
 from pathlib import Path
 here = Path(\".\").resolve()
 
@@ -89,8 +94,13 @@ from rich import pretty, print
 pretty.install()
 
 # set to WARNING by default
-logging.basicConfig(level=logging.INFO, format=\"%(asctime)s:%(levelname)-7s %(filename)20s:%(lineno)-4d %(name)s:%(message)s\")
-logger = logging.getLogger(__name__)
+LOGGING_LEVEL = getattr(logging, os.environ.get(\"LOGGING_LEVEL\", \"INFO\"))
+LOGGING_FORMAT = os.environ.get(
+    \"LOGGING_FORMAT\",
+    \"%(asctime)s:%(levelname)-7s %(filename)20s:%(lineno)-4d %(name)s:%(message)s\",
+)
+logging.basicConfig(level=LOGGING_LEVEL, format=LOGGING_FORMAT)
+logging.info(\"Logging set to %s\", LOGGING_LEVEL)
 
 # hotreload imports on each prompt
 %load_ext autoreload
@@ -133,7 +143,7 @@ PS1="⨊  𝕯𝓭𝓵:\[\033[36m\]\w\[\033[m\]$ "  # ⚛ ⨊ 𝓓𝔇𝒟ℓℒ
 # functions
 
 # https://stackoverflow.com/a/73108928/5511061
-dockersize() { docker manifest inspect -v "$1" | jq -c 'if type == "array" then .[] else . end' |  jq -r '[ ( .Descriptor.platform | [ .os, .architecture, .variant, ."os.version" ] | del(..|nulls) | join("/") ), ( [ .SchemaV2Manifest.layers[].size ] | add ) ] | join(" ")' | numfmt --to iec --format '%.2f' --field 2 | sort | column -t ; }
+dockersize() { docker manifest inspect -v "$1" | jq -c 'if type == "array" then .[] else . end' |  jq -r '[ ( .Descriptor.platform | [ .os, .architecture, .variant, ."os.version" ] | del(..|nulls) | join("/") ), ( [ ( .OCIManifest // .SchemaV2Manifest ).layers[].size ] | add ) ] | join(" ")' | numfmt --to iec --format '%.2f' --field 2 | sort | column -t ; }
 export -f dockersize
 clusterimages() { kubectl get po -A -o json | jq -cr '.items[].spec.containers[].image' | grep -o '^[^@]\+' | sort -u | xargs -I _ bash -c 'echo - _ && dockersize _' ; }
 export -f clusterimages
