@@ -73,32 +73,26 @@ defaults write com.google.Chrome NSRequiresAquaSystemAppearance -bool yes
 
 <!-- TODO convert these to https://github.com/msanders/setup/blob/master/defaults.yaml -->
 
-- `System Preferences/General/`
+- `System Preferences/Appearance/`
   - `Show scroll bars:` Always
   - `Click in the scroll bar to:` Jump to the spot that's clicked
-  - `Recent items:` 50
 - `System Preferences/Keyboard/`
   - Slide `Key Repeat` to `Fast`
   - Slide `Delay Until Repeat` to tick one before `Short`
-  - Under `Text`, untick/remove everything
-  - Under `Shortcuts`, tick `Use keyboard navigation to move focus between controls` on the bottom
-  - Under `Input Sources`, set keyboard layout to U.S. (remove U.S. International)
-  - Under `Touch Bar shows`, choose `Expanded Control Strip`
+  - Enable `Keyboard navigation`
+  - Under `Text Input`, untick/remove all `Text Replacements...`
 - `System Preferences/Security & Privacy/`
   - Under `FileVault`, turn on FileVault
 - `System Preferences/Accessibility/`
   - Under `Zoom`, tick `Use scroll gesture with modifier keys to zoom:`
   - Under `Display`, untick `Shake mouse pointer to locate`
-  - Under `Mouse & Trackpad/Trackpad Options...`, tick `Enable dragging/three finger drag`
+  - Under `Pointer Control/Trackpad Options...`, tick `Enable dragging/three finger drag`
 - `System Preferences/Trackpad/`
-  - Under `Point & Click`, ticks 0, 1, 1, 0, `Click Medium`
+  - Under `Point & Click`, set `Click Medium`, enable Tap to click
   - Under `Scroll & Zoom`, ticks 0, 1, 0, 1
-  - Under `Scroll & Zoom`, ticks 0, 1, 1, 1, 1, 1, 1, everything four fingers
-- `System Preferences/Software Update/`
-  - Under `Advanced...`, untick `Download new updates when available`
+  - Under `More Gestures`, set everything to four fingers, disable `Swipe between pages`, disable `Launchpad`, enable `Show Desktop`
 - `System Preferences/Dock/`
-  - Untick `Show recent applications in Dock`
-  - Tick `Turn Hiding On`
+  - Tick `Automatically hide and show the Dock`
 - Finder preferences
   - `General`
     - `New Finder windows show:` home
@@ -106,6 +100,7 @@ defaults write com.google.Chrome NSRequiresAquaSystemAppearance -bool yes
     - Tick `Show all filename extensions`
     - `When performing a search:` Search the Current Folder
 - Finder View Options (go home: <kbd>⌘⇧H</kbd>, then <kbd>⌘J</kbd>)
+  - Change to list view
   - Tick `Always open in List View`
     - Tick `Browse in List View`
   - `Group by:` None
@@ -125,6 +120,7 @@ defaults write com.google.Chrome NSRequiresAquaSystemAppearance -bool yes
     - Untick `Add ".txt" extension to plain text files`
     - Under `Plain Text File Encoding`, select two times `UTF-8`
 - Screenshot `Options` (to open: <kbd>⌘⇧5</kbd>)
+  - Save to `Clipboard`
   - Untick  `Show Floating Thumbnail`
 
 </p></details>
