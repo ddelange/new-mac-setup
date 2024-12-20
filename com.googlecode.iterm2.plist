@@ -16,6 +16,8 @@
 	<string>4x2</string>
 	<key>Default Bookmark Guid</key>
 	<string>17439720-BF64-4E89-AE33-8770E3F62131</string>
+	<key>DisableWindowSizeSnap</key>
+	<integer>1</integer>
 	<key>EscapeShellCharsWithBackslash</key>
 	<false/>
 	<key>GlobalKeyMap</key>
