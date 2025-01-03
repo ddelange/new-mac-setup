@@ -1,38 +1,25 @@
 # homebrew
-export PATH="/usr/local/sbin:/usr/local/bin:$PATH"
-export PATH="${HOME}/.cargo/bin:$PATH"  # rust binary installation path
+eval "$(/opt/homebrew/bin/brew shellenv)"
+#export PATH="/usr/local/sbin:/usr/local/bin:$PATH"
+export PATH="${HOME}/.cargo/bin:${PATH}"  # rust binary installation path
 # keg-only installs
-export PATH="/usr/local/opt/ruby/bin:/usr/local/lib/ruby/gems/2.7.0/bin:$PATH"
-export PATH="/usr/local/opt/icu4c/bin:/usr/local/opt/icu4c/sbin:$PATH"
-export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:/usr/local/opt/icu4c/lib/pkgconfig"
-export PATH="/Library/TeX/texbin:$PATH"  # mactex binary installation path (brew cask install mactex)
+# libpq, icu, curl, mactex binary installation path (brew install --cask mactex-no-gui)
+export PATH="/opt/homebrew/opt/libpq/bin:/opt/homebrew/opt/icu4c/bin:/opt/homebrew/opt/icu4c/sbin:/opt/homebrew/opt/curl/bin:/Library/TeX/texbin:${PATH}"
+export PKG_CONFIG_PATH="/opt/homebrew/opt/libpq/lib/pkgconfig:/opt/homebrew/opt/icu4c/lib/pkgconfig:/opt/homebrew/opt/curl/lib/pkgconfig:/opt/homebrew/opt/zlib/lib/pkgconfig:${PKG_CONFIG_PATH}"
+# gcc setup (LDFLAGS and CPPFLAGS are collected from all caveats from the initial `brew install` in README)
+export CC="gcc" # system clang, or alternatively /opt/homebrew/opt/gcc@14/gcc-14
+export CXX="gcc" # system clang, or alternatively /opt/homebrew/opt/gcc@14/gcc-14
+export LDFLAGS="-L/opt/homebrew/opt/libpq/lib -L/opt/homebrew/opt/curl/lib -L/opt/homebrew/opt/zlib/lib -L/opt/homebrew/opt/libpostal/lib ${LDFLAGS}"
+export CPPFLAGS="-I/opt/homebrew/opt/libpq/include -I/opt/homebrew/opt/curl/include -I/opt/homebrew/opt/zlib/include -I/opt/homebrew/opt/libpostal/include ${CPPFLAGS}"
 
-# homebrew bash completion https://docs.brew.sh/Shell-Completion#configuring-completions-in-bash
-if type brew &>/dev/null; then
-  HOMEBREW_PREFIX="$(brew --prefix)"
-  if [[ -r "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh" ]]; then
-    source "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh"
-  else
-    for COMPLETION in "${HOMEBREW_PREFIX}/etc/bash_completion.d/"*; do
-      [[ -r "$COMPLETION" ]] && source "$COMPLETION"
-    done
-  fi
-fi
-
-# iterm integration
-test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
-# init zoxide (rust) when available
-eval "$(zoxide init bash)" || true
-
-
+[[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"
 
 # pyenv direnv
 
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
 export PROMPT_COMMAND='history -a;history -c;history -r'
-eval "$(pyenv init --path)"
-eval "$(pyenv init -)"
+export PYENV_ROOT="${HOME}/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - bash)"
 eval "$(pyenv virtualenv-init -)"
 eval "$(direnv hook bash)"  # direnv hook last so that `export PYENV_VERSION=vv` in local .env is exported first, and gets picked up by pyenv-virtualenv
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
@@ -40,16 +27,16 @@ export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 # add PYENV_VERSION=vv311 to your .env instead (see direnv in README)
 # pyenv activate vv311
 
+# iterm integration
+( test -e "${HOME}/.iterm2_shell_integration.bash" || curl -sSL "https://iterm2.com/shell_integration/bash" -o "${HOME}/.iterm2_shell_integration.bash" ) && source "${HOME}/.iterm2_shell_integration.bash"
+# init zoxide (rust) when available
+eval "$(zoxide init bash)" || true
 
 # exports
 
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
-export EDITOR='subl -w'
-export CC="/usr/local/bin/gcc-8"
-export CXX="/usr/local/bin/g++-8"
-# export HOMEBREW_CC="/usr/local/bin/gcc-8"
-# export HOMEBREW_CXX="/usr/local/bin/g++-8"
+export EDITOR='subl -w'  # sublime-text
 export GPG_TTY=$(tty)
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
@@ -70,14 +57,15 @@ alias ll='ls --long --sort=age --git --time=modified --time-style=iso'
 alias h='history | tail -n 25'
 alias cls='printf "\033c"'
 alias dff='icdiff --highlight --line-numbers --numlines=3'
-alias gcc='gcc-8'
 alias moji='git status && git add . && pre-commit && gitmoji -c'
 alias git-summary='~/git/git-summary/git-summary'
 alias s='subl'
 alias sm='smerge'
 alias xdg-open='open'
+alias htop='sudo htop'
 alias pyenvls='pyenv virtualenvs | grep --invert-match "/envs/"'
 alias i="
+type uv || pip install uv
 uv pip install ipython-autotime ipdb rich ipython pandas~=2.0
 
 ipython -i -c '

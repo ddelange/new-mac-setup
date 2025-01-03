@@ -67,38 +67,39 @@ chsh -s /bin/bash && reset
 defaults write com.apple.finder AppleShowAllFiles YES
 # disable google chrome dark mode when Mojave dark mode is enabled
 defaults write com.google.Chrome NSRequiresAquaSystemAppearance -bool yes
+# fit more items in the menu bar [ref](https://apple.stackexchange.com/a/465674/292695)
+defaults -currentHost write -globalDomain NSStatusItemSpacing -int 6
+defaults -currentHost write -globalDomain NSStatusItemSelectionPadding -int 6
 ```
 
 <details><summary><b>Apple look & feel optimisations</b></summary><p>
 
 <!-- TODO convert these to https://github.com/msanders/setup/blob/master/defaults.yaml -->
 
-- `System Preferences/General/`
+- `System Preferences/Appearance/`
   - `Show scroll bars:` Always
   - `Click in the scroll bar to:` Jump to the spot that's clicked
-  - `Recent items:` 50
 - `System Preferences/Keyboard/`
   - Slide `Key Repeat` to `Fast`
   - Slide `Delay Until Repeat` to tick one before `Short`
-  - Under `Text`, untick/remove everything
-  - Under `Shortcuts`, tick `Use keyboard navigation to move focus between controls` on the bottom
-  - Under `Input Sources`, set keyboard layout to U.S. (remove U.S. International)
-  - Under `Touch Bar shows`, choose `Expanded Control Strip`
+  - Enable `Keyboard navigation`
+  - Under `Text Input`, untick/remove all `Text Replacements...`
 - `System Preferences/Security & Privacy/`
   - Under `FileVault`, turn on FileVault
 - `System Preferences/Accessibility/`
   - Under `Zoom`, tick `Use scroll gesture with modifier keys to zoom:`
   - Under `Display`, untick `Shake mouse pointer to locate`
-  - Under `Mouse & Trackpad/Trackpad Options...`, tick `Enable dragging/three finger drag`
+  - Under `Pointer Control/Trackpad Options...`, tick `Enable dragging/three finger drag`
 - `System Preferences/Trackpad/`
-  - Under `Point & Click`, ticks 0, 1, 1, 0, `Click Medium`
+  - Under `Point & Click`, set `Click Medium`, enable Tap to click
   - Under `Scroll & Zoom`, ticks 0, 1, 0, 1
-  - Under `Scroll & Zoom`, ticks 0, 1, 1, 1, 1, 1, 1, everything four fingers
-- `System Preferences/Software Update/`
-  - Under `Advanced...`, untick `Download new updates when available`
-- `System Preferences/Dock/`
-  - Untick `Show recent applications in Dock`
-  - Tick `Turn Hiding On`
+  - Under `More Gestures`, set everything to four fingers, disable `Swipe between pages`, disable `Launchpad`, enable `Show Desktop`
+- `System Preferences/Desktop & Dock/`
+  - Tick `Automatically hide and show the Dock`
+  - Untick `Show suggested and recent apps in Dock`
+- `System Preferences/Language & Region/`
+  - Set `Number Format` to 1 234 567.89
+  - Untick `Show suggested and recent apps in Dock`
 - Finder preferences
   - `General`
     - `New Finder windows show:` home
@@ -106,6 +107,7 @@ defaults write com.google.Chrome NSRequiresAquaSystemAppearance -bool yes
     - Tick `Show all filename extensions`
     - `When performing a search:` Search the Current Folder
 - Finder View Options (go home: <kbd>⌘⇧H</kbd>, then <kbd>⌘J</kbd>)
+  - Change to list view
   - Tick `Always open in List View`
     - Tick `Browse in List View`
   - `Group by:` None
@@ -125,6 +127,7 @@ defaults write com.google.Chrome NSRequiresAquaSystemAppearance -bool yes
     - Untick `Add ".txt" extension to plain text files`
     - Under `Plain Text File Encoding`, select two times `UTF-8`
 - Screenshot `Options` (to open: <kbd>⌘⇧5</kbd>)
+  - Save to `Clipboard`
   - Untick  `Show Floating Thumbnail`
 
 </p></details>
@@ -137,29 +140,19 @@ defaults write com.google.Chrome NSRequiresAquaSystemAppearance -bool yes
 ```bash
 # install homebrew (which installs command-line tools)
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-brew tap homebrew/cask
 brew tap buo/cask-upgrade  # `brew cu -a docker` - https://github.com/buo/homebrew-cask-upgrade#usage
 # check whether all is good
 brew doctor
 
 # and some essentials
-# - ruby, gcc-8 are linked in `.bash_profile`
-# - node@14 (LTS at time of writing) installs npm
-brew install \
-  git git-lfs gitmoji bash-completion rsync curl openssl readline automake xz zlib \
-  osxfuse sshfs htop ncdu direnv pwgen \
-  gcc rust ruby node sqlite3
-# check out caveats from command above!
-# npm installs yarn
-PATH="/usr/local/opt/node@14/bin:$PATH" npm install -g yarn
+brew install git gitmoji bash-completion rsync curl openssl readline automake xz zlib sshfs htop ncdu direnv pwgen gcc rust sqlite3 libpq
 ```
 
 
 #### iTerm [nerd font](https://github.com/ryanoasis/nerd-fonts/blob/master/readme.md)
 
 ```bash
-brew install --cask iterm2
-brew install --cask homebrew/cask-fonts/font-inconsolata-lgc-nerd-font
+brew install --cask iterm2 font-inconsolata-lgc-nerd-font
 
 # some blazing fast rust
 cargo install ripgrep  # rg (search for regex occurrences in directory, fastest regex implementation in the world)
@@ -180,7 +173,6 @@ alias ll="ls --long --sort=age --git --time=modified --time-style=iso"
 ```bash
 # Docker CE - docker.com/community-edition - Open Docker.app manually to install helper and to enable CLI
 brew install --cask docker
-brew install docker-compose
 # Sublime Text - sublimetext.com
 brew install --cask sublime-text
 # Sublime Merge - sublimemerge.com
@@ -190,11 +182,11 @@ brew install --cask google-chrome
 # PIA VPN - privateinternetaccess.com - Requires manual install from ~/Library/Caches/Homebrew/downloads
 brew install --cask private-internet-access
 # Tunnelblick OpenVPN - tunnelblick.net
-brew install --cask tunnelblick
+# brew install --cask tunnelblick
 # The Unarchiver - theunarchiver.com
 brew install --cask the-unarchiver
-# f.lux - justgetflux.com - In Preferences/Sessions, tick 'Allow Dispklay Sleep'
-brew install --cask flux
+# f.lux - justgetflux.com - In Preferences/Sessions, tick 'Allow Display Sleep'
+# brew install --cask flux
 # VLC - videolan.org/vlc
 brew install --cask vlc
 # Slack - slack.com
@@ -206,13 +198,17 @@ brew install --cask zoom
 # Dropbox - dropbox.com
 # brew install --cask dropbox
 # Authy - authy.com - Set Master Password in preferences after init
-brew install --cask authy
+# brew install --cask authy
 # Jitsi Meet - jit.si
-brew install --cask jitsi-meet
+# brew install --cask jitsi-meet
 # Maccy - maccy.app
 brew install --cask maccy
 # pdflatex - tug.org/mactex/
 brew install --cask mactex-no-gui
+# stats in menu bar https://github.com/exelban/stats
+brew install --cask stats
+# rectangle window resizer https://github.com/rxhanson/Rectangle
+brew install --cask rectangle
 ```
 
 
@@ -227,10 +223,6 @@ brew install mas
 ```
 
 ```bash
-# iStat Menus - bjango.com/mac/istatmenus
-mas install 1319778037
-# Magnet - magnet.crowdcafe.com
-mas install 441258766
 # DaisyDisk - daisydiskapp.com
 # give full disk access under sysprefs security tab
 mas install 411643860
@@ -264,16 +256,17 @@ Note: first open Chrome for the first time
 
   # Chrome search engines backup
   # restore
-  sqlite3 "${HOME}/Library/Application Support/Google/Chrome/Default/Web Data" < ./search-engine-export.sql
+  sqlite3 "${HOME}/Library/Application Support/Google/Chrome/Default/Web Data" < "${HOME}/git/new-mac-setup/search-engine-export.sql"
   # create
   (printf 'begin transaction;\n'; sqlite3 "${HOME}/Library/Application Support/Google/Chrome/Default/Web Data" 'select short_name,keyword,url,favicon_url from keywords' | awk -F\| '{ printf "REPLACE INTO keywords (short_name, keyword, url, favicon_url) values ('"'"%s"'"', '"'"%s"'"', '"'"%s"'"', '"'"%s"'"');\n", $1, $2, $3, $4 }'; printf 'end transaction;\n') > ./search-engine-export.sql
   ```
 - iTerm2 preferences: under `General/Preferences`, tick `Load preferences from a custom folder or URL` and paste `~/git/new-mac-setup`. Quit iTerm
-- iStat Menus preferences: `File/Import Settings...`, select `iStat Menus Settings.ismp`. Drag & drop menu bar items with ⌘+drag
+- Stats preferences: in `General/Import Settings...`, select `Stats settings.plist`. Drag & drop menu bar items with ⌘+drag
+- iStat Menus preferences: in `File/Import Settings...`, select `iStat Menus Settings.ismp`. Drag & drop menu bar items with ⌘+drag
 - Quickly download audio & video with [`yt`](https://github.com/ddelange/yt)
   ```bash
   brew install ddelange/brewformulae/yt
-  ```
+  ``` 
 
 
 ### [pyenv](https://github.com/pyenv/pyenv/blob/master/COMMANDS.md#command-reference) and [pyenv-virtualenv](https://github.com/pyenv/pyenv-virtualenv#usage)
@@ -283,7 +276,7 @@ Note: first open Chrome for the first time
   eval "$(pyenv init -)"
   if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
   ```
-- Set up latest Python versions
+- Set up latest Python versions (this needs the `LDFLAGS` and `CPPFLAGS` in `.bash_profile`):
   ```bash
   brew install pyenv pyenv-virtualenv
   # get your favourite python versions - github.com/momo-lab/pyenv-install-latest
@@ -291,16 +284,22 @@ Note: first open Chrome for the first time
   git clone https://github.com/concordusapps/pyenv-implict.git "$(pyenv root)"/plugins/pyenv-implict
   pyenv install -l | grep '^\s*[0-9]' # list all available python versions
   pyenv install-latest 2
-  pyenv install-latest 3
+  pyenv install-latest 3.12
   pyenv versions  # see currently installed versions
-  pyenv global $(pyenv install-latest --print 3) $(pyenv install-latest --print 2)  # set default versions: prefer py3 over py2
+  pyenv global $(pyenv install-latest --print 3.12) $(pyenv install-latest --print 2.7)  # set default versions: prefer py3 over py2
   # install virtualenv 'vv' based latest pyenv Python version 3.x, inheriting installed packages
-  pyenv virtualenv $(pyenv install-latest --print 3) --system-site-packages vv
+  pyenv virtualenv $(pyenv install-latest --print 3.12) --system-site-packages vv312
   # same for 'vv27' with python 2.7.x
-  pyenv virtualenv $(pyenv install-latest --print 2) --system-site-packages vv27
+  pyenv virtualenv $(pyenv install-latest --print 2.7) --system-site-packages vv27
+  ```
+- Auto-activate venv using direnv when cd'ing into a folder containing an `.envrc` and `.env`:
+  ```bash
+  echo 'export PYENV_VERSION=vv312' >> ~/.env
+  ln -s ~/git/.envrc ~/.envrc  # if it wasn't done already
   ```
 - Manage envs
   ```bash
+  pyenvls # alias in .bash_profile
   pyenv virtualenvs
   pyenv virtualenv --system-site-packages <venv-name>
   pyenv activate <venv-name>
@@ -312,7 +311,7 @@ Note: first open Chrome for the first time
 ### Terraform
 
 ```bash
-brew install tfenv
+brew install tfenv tflint
 tfenv install
 tfenv use
 ```
@@ -335,11 +334,12 @@ tfenv use
   git config --global core.excludesfile "~/.gitignore"
   ```
 - Note: it's advised to add [commit signature verification](https://help.github.com/en/articles/managing-commit-signature-verification) to Git.
-- [Generate a GPG key](https://help.github.com/en/articles/generating-a-new-gpg-key#generating-a-gpg-key) and tell Git to use it:
+- EITHER get the existing `~/.gnupg/` from your old machine
+- OR [Generate a GPG key](https://help.github.com/en/articles/generating-a-new-gpg-key#generating-a-gpg-key) and tell Git to use it:
   ```bash
   brew install gpg
-  gpg --full-generate-key  # recommended settings: enter, 4096, enter
-  gpg --list-secret-keys --keyid-format LONG  # copy the key after 'sec  4096R/'
+  gpg --full-generate-key  # recommended settings: enter, ed25519, enter
+  gpg --list-secret-keys --keyid-format LONG  # copy the signing key after 'sec  ed25519/'
   gpg --armor --export <key-here>  # paste this key at github.com/settings/keys
   git config --global user.signingkey <key-here>
   git config --global commit.gpgsign true
