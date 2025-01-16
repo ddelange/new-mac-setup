@@ -17,6 +17,7 @@ https://github.com/naokazuterada/MarkdownTOC#usage -->
 - [Notes](#notes)
 - [Tech Stack](#tech-stack)
   - [Mac Look and Feel](#mac-look-and-feel)
+    - [Apple look & feel optimisations](#apple-look--feel-optimisations)
   - [Terminal Look and Feel](#terminal-look-and-feel)
     - [Homebrew and its essentials](#homebrew-and-its-essentials)
     - [iTerm nerd font](#iterm-nerd-font)
@@ -72,7 +73,7 @@ defaults -currentHost write -globalDomain NSStatusItemSpacing -int 6
 defaults -currentHost write -globalDomain NSStatusItemSelectionPadding -int 6
 ```
 
-<details><summary><b>Apple look & feel optimisations</b></summary><p>
+#### Apple look & feel optimisations
 
 <!-- TODO convert these to https://github.com/msanders/setup/blob/master/defaults.yaml -->
 
@@ -100,6 +101,8 @@ defaults -currentHost write -globalDomain NSStatusItemSelectionPadding -int 6
 - `System Preferences/Language & Region/`
   - Set `Number Format` to 1 234 567.89
   - Untick `Show suggested and recent apps in Dock`
+- `System Preferences/Keyboard`
+  - Under `Text Input/Input Sources/Edit...` untick everything
 - Finder preferences
   - `General`
     - `New Finder windows show:` home
@@ -129,8 +132,6 @@ defaults -currentHost write -globalDomain NSStatusItemSelectionPadding -int 6
 - Screenshot `Options` (to open: <kbd>⌘⇧5</kbd>)
   - Save to `Clipboard`
   - Untick  `Show Floating Thumbnail`
-
-</p></details>
 
 
 ### Terminal Look and Feel
