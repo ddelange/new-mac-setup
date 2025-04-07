@@ -159,12 +159,12 @@ brew install --cask iterm2 font-inconsolata-lgc-nerd-font
 cargo install ripgrep  # rg (search for regex occurrences in directory, fastest regex implementation in the world)
 cargo install zoxide  # z (cd with auto-complete) - echo 'eval "$(zoxide init bash)"' > ~.bash_profile
 brew install zenith # fancy htop with persistent network and disk I/O history graphs
-cargo install --git https://github.com/ogham/exa.git  # crates.io is heavily outdated at time of writing
-cargo install tealdeer  # rust implementation of tldr (man for lazy people)
+brew install eza  # modern alternative for ls https://github.com/eza-community/eza
+brew install tealdeer  # rust implementation of tldr (man for lazy people) https://github.com/tealdeer-rs/tealdeer
 tldr --update  # populate cache
 # use exa with icons and git status instead of builtin ls
 # this is in .bash_profile already
-alias ls="exa --all --group-directories-first --icons --level=2"  # default level for --tree
+alias ls="eza --all --group-directories-first --icons --level=2"  # default level for --tree
 alias ll="ls --long --sort=age --git --time=modified --time-style=iso"
 ```
 

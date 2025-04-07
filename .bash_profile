@@ -4,7 +4,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 export PATH="${HOME}/.cargo/bin:${PATH}"  # rust binary installation path
 # keg-only installs
 # libpq, icu, curl, mactex binary installation path (brew install --cask mactex-no-gui)
-export PATH="/opt/homebrew/opt/libpq/bin:/opt/homebrew/opt/icu4c/bin:/opt/homebrew/opt/icu4c/sbin:/opt/homebrew/opt/curl/bin:/Library/TeX/texbin:${PATH}"
+export PATH="/opt/homebrew/opt/node@20/bin:/opt/homebrew/opt/libpq/bin:/opt/homebrew/opt/icu4c/bin:/opt/homebrew/opt/icu4c/sbin:/opt/homebrew/opt/curl/bin:/Library/TeX/texbin:${PATH}"
 export PKG_CONFIG_PATH="/opt/homebrew/opt/libpq/lib/pkgconfig:/opt/homebrew/opt/icu4c/lib/pkgconfig:/opt/homebrew/opt/curl/lib/pkgconfig:/opt/homebrew/opt/zlib/lib/pkgconfig:${PKG_CONFIG_PATH}"
 # gcc setup (LDFLAGS and CPPFLAGS are collected from all caveats from the initial `brew install` in README)
 export CC="gcc" # system clang, or alternatively /opt/homebrew/opt/gcc@14/gcc-14
@@ -52,7 +52,7 @@ function cd {
 }
 
 alias back='cd -'
-alias ls='exa --all --group-directories-first --icons --level=2'  # default level for --tree
+alias ls='eza --all --group-directories-first --icons --level=2'  # default level for --tree
 alias ll='ls --long --sort=age --git --time=modified --time-style=iso'
 alias h='history | tail -n 25'
 alias cls='printf "\033c"'
