@@ -146,7 +146,7 @@ brew tap buo/cask-upgrade  # `brew cu -a docker` - https://github.com/buo/homebr
 brew doctor
 
 # and some essentials
-brew install git gitmoji bash-completion rsync curl openssl readline automake xz zlib sshfs htop ncdu direnv pwgen gcc rust sqlite3 libpq
+brew install git gitmoji bash-completion rsync curl openssl readline automake xz zlib sshfs htop ncdu direnv pwgen gcc rust sqlite3 libpq watch android-platform-tools
 ```
 
 
@@ -159,8 +159,10 @@ brew install --cask iterm2 font-inconsolata-lgc-nerd-font
 cargo install ripgrep  # rg (search for regex occurrences in directory, fastest regex implementation in the world)
 cargo install zoxide  # z (cd with auto-complete) - echo 'eval "$(zoxide init bash)"' > ~.bash_profile
 brew install zenith # fancy htop with persistent network and disk I/O history graphs
+brew install bottom # fancy top similar to zenith
 brew install eza  # modern alternative for ls https://github.com/eza-community/eza
 brew install tealdeer  # rust implementation of tldr (man for lazy people) https://github.com/tealdeer-rs/tealdeer
+brew install bat  # A cat(1) clone with wings https://github.com/sharkdp/bat
 tldr --update  # populate cache
 # use exa with icons and git status instead of builtin ls
 # this is in .bash_profile already
@@ -210,6 +212,10 @@ brew install --cask mactex-no-gui
 brew install --cask stats
 # rectangle window resizer https://github.com/rxhanson/Rectangle
 brew install --cask rectangle
+# handbrake ffmpeg/videotoolbox video converter https://handbrake.fr
+brew install --cask handbrake-app
+# local LLM https://lmstudio.ai
+brew install --cask lm-studio
 ```
 
 

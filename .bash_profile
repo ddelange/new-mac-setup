@@ -4,7 +4,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 export PATH="${HOME}/.cargo/bin:${PATH}"  # rust binary installation path
 # keg-only installs
 # libpq, icu, curl, mactex binary installation path (brew install --cask mactex-no-gui)
-export PATH="/opt/homebrew/opt/node@20/bin:/opt/homebrew/opt/libpq/bin:/opt/homebrew/opt/icu4c/bin:/opt/homebrew/opt/icu4c/sbin:/opt/homebrew/opt/curl/bin:/Library/TeX/texbin:${PATH}"
+export PATH="/opt/homebrew/opt/node@24/bin:/opt/homebrew/opt/libpq/bin:/opt/homebrew/opt/icu4c/bin:/opt/homebrew/opt/icu4c/sbin:/opt/homebrew/opt/curl/bin:/Library/TeX/texbin:${PATH}"
 export PKG_CONFIG_PATH="/opt/homebrew/opt/libpq/lib/pkgconfig:/opt/homebrew/opt/icu4c/lib/pkgconfig:/opt/homebrew/opt/curl/lib/pkgconfig:/opt/homebrew/opt/zlib/lib/pkgconfig:${PKG_CONFIG_PATH}"
 # gcc setup (LDFLAGS and CPPFLAGS are collected from all caveats from the initial `brew install` in README)
 export CC="gcc" # system clang, or alternatively /opt/homebrew/opt/gcc@14/gcc-14
@@ -34,8 +34,7 @@ eval "$(zoxide init bash)" || true
 
 # exports
 
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
+export LANG=en_GB.UTF-8
 export EDITOR='subl -w'  # sublime-text
 export GPG_TTY=$(tty)
 export BASH_SILENCE_DEPRECATION_WARNING=1
@@ -70,7 +69,7 @@ uv pip install ipython-autotime ipdb rich ipython pandas~=2.0
 
 ipython -i -c '
 # just make sure to use escaped double quotes
-import os, logging, numpy as np, pandas as pd
+import os, logging, sys, numpy as np, pandas as pd
 
 # https://pandas.pydata.org/pandas-docs/version/2.1/user_guide/copy_on_write.html
 pd.options.mode.copy_on_write = True
@@ -87,7 +86,7 @@ LOGGING_FORMAT = os.environ.get(
     \"LOGGING_FORMAT\",
     \"%(asctime)s:%(levelname)-7s %(filename)20s:%(lineno)-4d %(name)s:%(message)s\",
 )
-logging.basicConfig(level=LOGGING_LEVEL, format=LOGGING_FORMAT)
+logging.basicConfig(level=LOGGING_LEVEL, format=LOGGING_FORMAT, stream=sys.stdout)
 logging.info(\"Logging set to %s\", LOGGING_LEVEL)
 
 # hotreload imports on each prompt
@@ -131,7 +130,7 @@ PS1="⨊  𝕯𝓭𝓵:\[\033[36m\]\w\[\033[m\]$ "  # ⚛ ⨊ 𝓓𝔇𝒟ℓℒ
 # functions
 
 # https://stackoverflow.com/a/73108928/5511061
-dockersize() { docker manifest inspect -v "$1" | jq -c 'if type == "array" then .[] else . end' |  jq -r '[ ( .Descriptor.platform | [ .os, .architecture, .variant, ."os.version" ] | del(..|nulls) | join("/") ), ( [ ( .OCIManifest // .SchemaV2Manifest ).layers[].size ] | add ) ] | join(" ")' | numfmt --to iec --format '%.2f' --field 2 | sort | column -t ; }
+dockersize() { docker manifest inspect -v "$1" | jq -c 'if type == "array" then .[] else . end | select(.Descriptor.platform.architecture != "unknown")' |  jq -r '[ ( .Descriptor.platform | [ .os, .architecture, .variant, ."os.version" ] | del(..|nulls) | join("/") ), ( [ ( .OCIManifest // .SchemaV2Manifest ).layers[].size ] | add ) ] | join(" ")' | numfmt --to iec --format '%.2f' --field 2 | sort | column -t ; }
 export -f dockersize
 clusterimages() { kubectl get po -A -o json | jq -cr '.items[].spec.containers[].image' | grep -o '^[^@]\+' | sort -u | xargs -I _ bash -c 'echo - _ && dockersize _' ; }
 export -f clusterimages
@@ -224,6 +223,11 @@ generate_password() {
   #  Don't include ambiguous characters in the password
   pwgen -s -N 3 -cnBy -r ";'\`\"\|\#\$\&" ${1:-$defaultsize}) 2>&-;
 };
+generate_bearer_token() {
+  local defaultsize=64
+  pwgen -s -N 1 -cn ${1:-$defaultsize} 2>/dev/null
+}
+
 
 # run last modified py file in home directory
 lastpy() {
@@ -234,3 +238,22 @@ lastpy() {
   python "${pypath}"
 #  open -R "${pypath}" # reveal in Finder (Mac command)
 }
+
+# Connect to a DigitalOcean app console by environment name and component
+# Usage: do-connect <env_name> <component_name>
+# Example: do-connect qa website-frontend
+function do-connect() {
+    local env_name="$1"
+    local component_name="$2"
+
+    # Get the app ID that matches the environment name
+    local app_id=$(doctl apps list --format ID,Spec.Name | grep -i "$env_name" | awk '{print $1}')
+
+    # Run the console command with the found ID and component
+    doctl apps console "$app_id" "$component_name"
+}
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/david/.lmstudio/bin"
+# End of LM Studio CLI section
+
