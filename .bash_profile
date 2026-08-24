@@ -2,6 +2,7 @@
 eval "$(/opt/homebrew/bin/brew shellenv)"
 #export PATH="/usr/local/sbin:/usr/local/bin:$PATH"
 export PATH="${HOME}/.cargo/bin:${PATH}"  # rust binary installation path
+export PATH="${HOME}/.local/bin:${PATH}"  # personal script installs (~/git/ddl-skills scripts/install.sh)
 # keg-only installs
 # libpq, icu, curl, mactex binary installation path (brew install --cask mactex-no-gui)
 export PATH="/opt/homebrew/opt/node@24/bin:/opt/homebrew/opt/libpq/bin:/opt/homebrew/opt/icu4c/bin:/opt/homebrew/opt/icu4c/sbin:/opt/homebrew/opt/curl/bin:/Library/TeX/texbin:${PATH}"

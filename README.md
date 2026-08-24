@@ -368,9 +368,10 @@ git config --global pull.rebase false
 git config --global core.trustctime false  # http://www.git-tower.com/blog/make-git-rebase-safe-on-osx
 git config --global core.precomposeunicode false  # http://michael-kuehnel.de/git/2014/11/21/git-mac-osx-and-german-umlaute.html
 git config --global core.untrackedCache true  # https://git-scm.com/docs/git-update-index#_untracked_cache
-git config --global merge.log true  # Include summaries of merged commits in newly created merge commit messages
+git config --global merge.log false  # Include summaries of merged commits in newly created merge commit messages
 git config --global push.default "simple" # https://git-scm.com/docs/git-config#Documentation/git-config.txt-pushdefault
 git config --global push.followTags true # https://git-scm.com/docs/git-config#Documentation/git-config.txt-pushfollowTags
+git config --global push.autoSetupRemote true # https://git-scm.com/docs/git-config#Documentation/git-config.txt-pushautoSetupRemote
 git config --global init.defaultBranch master
 ```
 
@@ -395,28 +396,34 @@ git config --global alias.lg "log --graph --oneline"
 git config --global alias.defaultbranch '! f() { echo $(git remote show origin | grep "HEAD branch" | cut -d ":" -f 2 | xargs); }; f'
 # summary of all configured aliases
 git config --global alias.alias "! git config --get-regexp '^alias\.' | sed -e s/^alias\.// | grep -v ^'alias ' | sed 's/ /#/' | column -ts#"
-# "commit all & push" - needs ca,pr - usage `git cap 'Fix bug'` - runs autoformatting pre-commit hooks, commits all modified tracked files with message, and push
-git config --global alias.cap '! f() { git ca "$@" && git pr; }; f'
-# "pull request" - push new or existing branch skipping the usual --set-upstream error - alias will be overwritten when git-extras is installed
-git config --global alias.pr '! git push --set-upstream origin "$(git rev-parse --abbrev-ref HEAD)"'
+# "commit all & push" - needs ca - usage `git cap 'Fix bug'` - runs autoformatting pre-commit hooks, commits all modified tracked files with message, and push (relies on push.autoSetupRemote)
+git config --global alias.cap '! f() { git ca "$@" && git push; }; f'
 ```
 
 ###### Cleaning
 ```bash
-# "delete merged" - delete all local branches (-D) that have been deleted (merged) on remote
-git config --global alias.dm '! git fetch -p && for branch in `git branch -vv | grep '"': gone] ' | awk '"'{print $1}'"'"'`; do git branch -D $branch; done'
+# "delete merged" - delete all local branches (-D) that have been deleted (merged) on remote - skips branches that are checked out in a worktree
+git config --global alias.dm '! f() { git fetch -p && git for-each-ref --format="%(refname:short) %(upstream:track) %(worktreepath)" refs/heads/ | while read -r branch track worktree; do if [ "$track" = "[gone]" ] && [ -z "$worktree" ]; then git branch -D "$branch"; fi; done; }; f'
 # "fetch purge" - before fetching, remove any remote-tracking references that no longer exist on the remote
 git config --global alias.fp "fetch -p --all"
 # "rinse & repeat" - needs defaultbranch,dm - usage `git gg [develop]` - return to default branch (or specified branch), delete merged and pull
-git config --global alias.gg '! f() { git checkout "${1:-$(git defaultbranch)}" && git dm && git pull; }; f'
+# when the target branch is checked out in another worktree it cannot be checked out here, so it gets pulled in that worktree instead
+git config --global alias.gg '! f() { branch="${1:-$(git defaultbranch)}"; worktree=$(git for-each-ref --format="%(worktreepath)" "refs/heads/$branch"); if [ -n "$worktree" ] && [ "$branch" != "$(git branch --show-current)" ]; then echo "$branch is checked out at $worktree, pulling there"; git dm && git -C "$worktree" pull; else git checkout "$branch" && git dm && git pull; fi; }; f'
 # "pull all" - pull all local branches and return to original branch
+# branches without an upstream are skipped, and branches checked out in a worktree are pulled in that worktree instead of being checked out here
 git config --global alias.pall '! f() { \
-START=$(git branch | grep "\*" | sed "s/^.//"); \
-for i in $(git branch | sed "s/^.//"); do \
-  git checkout $i; \
-  git pull || break; \
+start=$(git symbolic-ref --quiet --short HEAD || git rev-parse HEAD); \
+git for-each-ref --format="%(refname:short) %(worktreepath)" refs/heads/ | while read -r branch worktree; do \
+  if ! git rev-parse --verify --quiet "$branch@{upstream}" >/dev/null; then \
+    echo "skipping $branch (no upstream)"; \
+  elif [ -n "$worktree" ]; then \
+    echo "pulling $branch in $worktree"; \
+    git -C "$worktree" pull || break; \
+  else \
+    git checkout "$branch" && git pull || break; \
+  fi; \
 done; \
-git checkout $START; \
+git checkout "$start"; \
 }; f'
 ```
 
