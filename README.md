@@ -156,7 +156,7 @@ brew install git gitmoji bash-completion rsync curl openssl readline automake xz
 brew install --cask iterm2 font-inconsolata-lgc-nerd-font
 
 # some blazing fast rust
-cargo install ripgrep  # rg (search for regex occurrences in directory, fastest regex implementation in the world)
+cargo install ripgrep --features pcre2  # rg (search for regex occurrences in directory, fastest regex implementation in the world) - pcre2 enables rg -P (lookaround/backreferences)
 cargo install zoxide  # z (cd with auto-complete) - echo 'eval "$(zoxide init bash)"' > ~.bash_profile
 brew install zenith # fancy htop with persistent network and disk I/O history graphs
 brew install bottom # fancy top similar to zenith
@@ -252,6 +252,7 @@ Note: first open Chrome for the first time
   ln -s ~/git/.envrc ~/.envrc # tell direnv to look for env vars when entering/leaving ~ (same file works for nested directories in a cumulative fashion)
   touch ~/.env # fill this one with your secrets/env vars like `export PYENV_VERSION=vv`
   mkdir -p ~/.config/htop && ln -s ~/git/new-mac-setup/htoprc ~/.config/htop/htoprc
+  mkdir -p ~/.config/ripgrep && ln -s ~/git/new-mac-setup/ripgreprc ~/.config/ripgrep/config  # rg reads this path via RIPGREP_CONFIG_PATH from .bash_profile
 
   # Sublime Text 3 backup
   # restore

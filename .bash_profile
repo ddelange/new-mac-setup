@@ -1,3 +1,7 @@
+# The following lines were added by Docker Desktop to add commands to your PATH.
+export PATH="$PATH:/Users/david/.docker/bin"
+# End of Docker Desktop section.
+
 # homebrew
 eval "$(/opt/homebrew/bin/brew shellenv)"
 #export PATH="/usr/local/sbin:/usr/local/bin:$PATH"
@@ -39,6 +43,7 @@ export LANG=en_GB.UTF-8
 export EDITOR='subl -w'  # sublime-text
 export GPG_TTY=$(tty)
 export BASH_SILENCE_DEPRECATION_WARNING=1
+export RIPGREP_CONFIG_PATH="${HOME}/.config/ripgrep/config"  # rg default flags
 
 
 # aliases
