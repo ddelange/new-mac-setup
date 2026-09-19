@@ -163,6 +163,8 @@ brew install bottom # fancy top similar to zenith
 brew install eza  # modern alternative for ls https://github.com/eza-community/eza
 brew install tealdeer  # rust implementation of tldr (man for lazy people) https://github.com/tealdeer-rs/tealdeer
 brew install bat  # A cat(1) clone with wings https://github.com/sharkdp/bat
+brew install oven-sh/bun/bun  # fast JS runtime, provides bunx https://bun.com
+bunx -y ccstatusline@latest  # ccstatusline see Backups
 tldr --update  # populate cache
 # use exa with icons and git status instead of builtin ls
 # this is in .bash_profile already
@@ -253,6 +255,7 @@ Note: first open Chrome for the first time
   touch ~/.env # fill this one with your secrets/env vars like `export PYENV_VERSION=vv314`
   mkdir -p ~/.config/htop && ln -s ~/git/new-mac-setup/htoprc ~/.config/htop/htoprc
   mkdir -p ~/.config/ripgrep && ln -s ~/git/new-mac-setup/ripgreprc ~/.config/ripgrep/config  # rg reads this path via RIPGREP_CONFIG_PATH from .bash_profile
+  mkdir -p ~/.config/ccstatusline && ln -s ~/git/new-mac-setup/ccstatusline-config.json ~/.config/ccstatusline/settings.json  # claude code statusline (see https://github.com/sirmalloc/ccstatusline and for colors see https://found-tools.com/en/ansi-256-color-picker/), needs "statusLine": {"type": "command", "command": "bunx -y ccstatusline@latest", "padding": 0} in ~/.claude/settings.json
 
   # Sublime Text 3 backup
   # restore
