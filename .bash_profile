@@ -26,11 +26,11 @@ export PYENV_ROOT="${HOME}/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init - bash)"
 eval "$(pyenv virtualenv-init -)"
-eval "$(direnv hook bash)"  # direnv hook last so that `export PYENV_VERSION=vv` in local .env is exported first, and gets picked up by pyenv-virtualenv
+eval "$(direnv hook bash)"  # direnv hook last so that `export PYENV_VERSION=vv314` in local .env is exported first, and gets picked up by pyenv-virtualenv
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 
-# add PYENV_VERSION=vv311 to your .env instead (see direnv in README)
-# pyenv activate vv311
+# add PYENV_VERSION=vv314 to your .env instead (see direnv in README)
+# pyenv activate vv314
 
 # iterm integration
 ( test -e "${HOME}/.iterm2_shell_integration.bash" || curl -sSL "https://iterm2.com/shell_integration/bash" -o "${HOME}/.iterm2_shell_integration.bash" ) && source "${HOME}/.iterm2_shell_integration.bash"
@@ -68,7 +68,8 @@ alias s='subl'
 alias sm='smerge'
 alias xdg-open='open'
 alias htop='sudo htop'
-alias pyenvls='pyenv virtualenvs | grep --invert-match "/envs/"'
+# hide the `<base>/envs/<name>` duplicate of each venv, anchored on the name field so it survives changes to the rest of the line
+alias pyenvls='pyenv virtualenvs | grep --invert-match --extended-regexp "^.{2}\S*/envs/"'
 alias i="
 type uv || pip install uv
 uv pip install ipython-autotime ipdb rich ipython pandas~=2.0

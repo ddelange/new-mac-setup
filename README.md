@@ -250,7 +250,7 @@ Note: first open Chrome for the first time
   git clone https://github.com/ddelange/new-mac-setup.git ~/git/new-mac-setup
   ln -s ~/git/new-mac-setup/.bash_profile ~/.bash_profile && source ~/.bash_profile
   ln -s ~/git/.envrc ~/.envrc # tell direnv to look for env vars when entering/leaving ~ (same file works for nested directories in a cumulative fashion)
-  touch ~/.env # fill this one with your secrets/env vars like `export PYENV_VERSION=vv`
+  touch ~/.env # fill this one with your secrets/env vars like `export PYENV_VERSION=vv314`
   mkdir -p ~/.config/htop && ln -s ~/git/new-mac-setup/htoprc ~/.config/htop/htoprc
   mkdir -p ~/.config/ripgrep && ln -s ~/git/new-mac-setup/ripgreprc ~/.config/ripgrep/config  # rg reads this path via RIPGREP_CONFIG_PATH from .bash_profile
 
@@ -290,19 +290,19 @@ Note: first open Chrome for the first time
   # get your favourite python versions - github.com/momo-lab/pyenv-install-latest
   git clone https://github.com/momo-lab/pyenv-install-latest.git "$(pyenv root)"/plugins/pyenv-install-latest
   git clone https://github.com/concordusapps/pyenv-implict.git "$(pyenv root)"/plugins/pyenv-implict
+  # pyenv only auto-rehashes after pip/easy_install/conda, so `uv pip install` leaves new entry points without a shim
+  ln -s ~/git/new-mac-setup/pyenv-uv-rehash "$(pyenv root)"/plugins/pyenv-uv-rehash
   pyenv install -l | grep '^\s*[0-9]' # list all available python versions
-  pyenv install-latest 2
-  pyenv install-latest 3.12
+  pyenv install-latest 3.14
   pyenv versions  # see currently installed versions
-  pyenv global $(pyenv install-latest --print 3.12) $(pyenv install-latest --print 2.7)  # set default versions: prefer py3 over py2
-  # install virtualenv 'vv' based latest pyenv Python version 3.x, inheriting installed packages
-  pyenv virtualenv $(pyenv install-latest --print 3.12) --system-site-packages vv312
-  # same for 'vv27' with python 2.7.x
-  pyenv virtualenv $(pyenv install-latest --print 2.7) --system-site-packages vv27
+  pyenv global $(pyenv install-latest --print 3.14)  # set default version
+  # install the daily-driver virtualenv, inheriting installed packages
+  # name it after its minor version, so a new one can be built alongside the old one
+  pyenv virtualenv $(pyenv install-latest --print 3.14) --system-site-packages vv314
   ```
 - Auto-activate venv using direnv when cd'ing into a folder containing an `.envrc` and `.env`:
   ```bash
-  echo 'export PYENV_VERSION=vv312' >> ~/.env
+  echo 'export PYENV_VERSION=vv314' >> ~/.env
   ln -s ~/git/.envrc ~/.envrc  # if it wasn't done already
   ```
 - Manage envs
@@ -314,7 +314,7 @@ Note: first open Chrome for the first time
   pyenv deactivate
   pyenv uninstall <venv-name>
   ```
-- Add an env var like `export PYENV_VERSION=vv` to your direnv `.env` file to automatically activate and deactivate when entering and leaving directories. Works as long as you don't put a dash (`-`) in your venv name.
+- Add an env var like `export PYENV_VERSION=vv314` to your direnv `.env` file to automatically activate and deactivate when entering and leaving directories. Works as long as you don't put a dash (`-`) in your venv name.
 
 ### Terraform
 

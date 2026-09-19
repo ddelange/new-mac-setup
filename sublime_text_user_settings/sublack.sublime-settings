@@ -1,4 +1,0 @@
-{
-    "black_command": "~/.pyenv/versions/vv/bin/black",
-    // "black_target_version": "py37",
-}

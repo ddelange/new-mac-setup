@@ -14,31 +14,8 @@
     },
     "lint_mode": "load_save",
     "debug": true,
+    // Python linting is handled by LSP-ruff, which manages its own ruff.
     "linters": {
-        "flake8": {
-            // pip uninstall -y flake8-debugger
-            // pip uninstall -y flake8-blind-except
-            // pip uninstall -y flake8-builtins
-            // pip uninstall -y flake8-commas
-            // pip uninstall -y flake8-comprehensions
-            // pip uninstall -y flake8-docstrings
-            // pip uninstall -y flake8-mutable
-            // pip uninstall -y flake8-print
-            // pip uninstall -y flake8-quotes
-            // pip uninstall -y flake8-tuple
-            "executable": "~/.pyenv/versions/vv/bin/flake8",
-            "disable": false,
-            "python": "~/.pyenv/versions/vv/bin/python",
-            "args": [
-                "--ignore=D10,E203,E501,W503",
-                "--max-line-length=88",
-                "--select=A,B,C4,D,E,F,M,Q,T,W,ABS,BLK",
-                "--inline-quotes=double",
-                "--docstring-convention=google",
-                "--exclude=.git,__pycache__,.direnv,node_modules",
-            ],
-            "working_dir": "${folder}",  // or just put above in a config.cfg with [flake8] in the root level folder in the sidebar
-        },
         "pycodestyle": {
             "disable": true,
             "ignore": "E501"
