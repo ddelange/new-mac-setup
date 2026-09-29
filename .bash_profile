@@ -70,6 +70,7 @@ alias xdg-open='open'
 alias htop='sudo htop'
 # hide the `<base>/envs/<name>` duplicate of each venv, anchored on the name field so it survives changes to the rest of the line
 alias pyenvls='pyenv virtualenvs | grep --invert-match --extended-regexp "^.{2}\S*/envs/"'
+alias sonnet='claude --model "sonnet[1m]" --effort xhigh'
 alias i="
 type uv || pip install uv
 uv pip install ipython-autotime ipdb rich ipython pandas~=2.0
